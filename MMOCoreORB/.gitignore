@@ -22,7 +22,7 @@ bin/*.log
 bin/*.xml
 bin/*sh
 bin/*out
-*test*
+#*test*
 *.sh
 build_temp
 *_includes

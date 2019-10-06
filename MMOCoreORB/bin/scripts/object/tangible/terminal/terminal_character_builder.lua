@@ -2389,6 +2389,18 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 					"Table-top Lamp(Coruscant) Lit", "object/tangible/furniture/all/frn_all_lamp_tatt_s01_lit.iff",
 
 				},
+				"Trophies",
+				{
+					"Kashyyyk Bantha", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_bantha_kash.iff",
+					"Kashyyyk Bolotaur", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_bolotaur.iff",
+					"Kashyyyk Katarn", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_katarn.iff",
+					"Kashyyyk Kkorrwrot", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_kkorrwrot.iff",
+					"Kashyyyk Minstyngar", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_minstyngar.iff",
+					"Kashyyyk Mouf", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_mouf.iff",
+					"Kashyyyk Uller", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_uller.iff",
+					"Kashyyyk Walluga", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_walluga.iff",
+					"Kashyyyk Webweaver", "object/tangible/furniture/ep3_rewards/ep3_kash_reward_trophy_webweaver.iff",
+				},
 				"Rugs and Tapestry",
 				{
 					"Large Rectangular Rug (Style 1)", "object/tangible/furniture/modern/rug_rect_lg_s01.iff",
