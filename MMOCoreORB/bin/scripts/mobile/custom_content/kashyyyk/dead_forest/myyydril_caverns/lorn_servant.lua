@@ -22,13 +22,13 @@ lorn_servant = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = NONE,
-	optionsBitmask = AIENABLED + INVULNERABLE + INTERESTING + CONVERSABLE,
+	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/battle_droid.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "lornServantConvoTemplate",
+	conversationTemplate = "",
 	attacks = {}
 }
 

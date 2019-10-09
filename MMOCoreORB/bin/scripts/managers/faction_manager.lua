@@ -18,6 +18,7 @@ factionList = {
 	{ "bandit", true, "townsperson", "", 1.0 },
 	{ "beldonnas_league", true, "followers_of_lord_nyax,lost_aqualish", "corsec", 1.0 },
 	{ "binayre", true, "aakuans,corsec,fed_dub", "", 1.0 },
+	{ "blackscale", true, "", "", 1.0 },
 	{ "bloodrazor", true, "canyon_corsair,nym", "", 1.0 },
 	{ "borvo", true, "gungan,jabba,trade_federation", "", 1.0 },
 	{ "canyon_corsair", true, "bloodrazor,nym", "", 1.0 },

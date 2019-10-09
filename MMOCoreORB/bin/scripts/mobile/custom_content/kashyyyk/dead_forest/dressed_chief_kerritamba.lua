@@ -22,14 +22,14 @@ dressed_chief_kerritamba = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = NONE,
-	optionsBitmask = AIENABLED + INTERESTING + CONVERSABLE,
+	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_chief_kerritamba.iff"},
 	scale = 1.3,
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "chiefKerritambaConvoTemplate",
+	conversationTemplate = "",
 	attacks = {
 	}
 }
