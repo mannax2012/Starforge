@@ -1,3 +1,6 @@
+[Full Guide ans info for installing the server.](https://github.com/ModTheGalaxy/mtgserver/wiki)
+
+
 # SWGEmu Core3 #
 
 ## What is SWGEmu? ##
