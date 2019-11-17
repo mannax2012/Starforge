@@ -89,9 +89,9 @@ public:
 		// if (zone != nullptr && zone->getZoneName() == "tutorial")
 		// 	session->migrateStats();
 
-		// Code below can be chamged either to add specific planets, I just completely removed the restriction.
-		//`if (zone != NULL && (zone->getZoneName() == "tutorial" or "tatooine" or "corellia" or "dantooine" or "dathomir" or "endor" or "lok" or "naboo" or "rori" or "talus" or "yavin4"))`
-		
+		// Code below can be changed either to add specific planets, I just completely removed the restriction.
+		// if (zone != NULL && (zone->getZoneName() == "tutorial" or "tatooine" or "corellia" or "dantooine" or "dathomir" or "endor" or "lok" or "naboo" or "rori" or "talus" or "yavin4"))
+
 		if (zone != nullptr)
 			session->migrateStats();
 
