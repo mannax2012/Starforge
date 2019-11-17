@@ -1,5 +1,6 @@
-npe_chewbacca = Creature:new {
-	customName = "Chewbacca",
+tutorial_0001_han_solo = Creature:new {
+	customName = "Han Solo",
+	randomNameTag = false,
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 300,
@@ -22,15 +23,15 @@ npe_chewbacca = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = NONE,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = AIENABLED + INTERESTING + CONVERSABLE,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/npe/npe_chewbacca.iff"},
+	templates = {"object/mobile/npe/npe_han_solo.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
+	conversationTemplate = "tutorial_0001_han_solo_convo_template",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(npe_chewbacca, "npe_chewbacca")
+CreatureTemplates:addCreatureTemplate(tutorial_0001_han_solo, "tutorial_0001_han_solo")
