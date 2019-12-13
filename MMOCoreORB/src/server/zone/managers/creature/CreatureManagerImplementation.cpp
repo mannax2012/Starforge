@@ -253,10 +253,7 @@ String CreatureManagerImplementation::getTemplateToSpawn(uint32 templateCRC) {
 		uint32 randomTemp = System::random(objTemps.size() - 1);
 		templateToSpawn = objTemps.get(randomTemp);
 	} else {
-		StringBuffer errMsg;
-		errMsg << "could not spawn creature... no object templates in script " << creoTempl->getTemplateName();
-
-		//error(errMsg.toString());
+		warning() << "could not spawn creature... no object templates in script " << creoTempl->getTemplateName();
 	}
 
 	return templateToSpawn;
@@ -381,10 +378,7 @@ CreatureObject* CreatureManagerImplementation::createCreature(uint32 templateCRC
 	ManagedReference<SceneObject*> object = zoneServer->createObject(templateCRC, persistent);
 
 	if (object == nullptr) {
-		StringBuffer errMsg;
-		errMsg << "could not spawn creature... wrong template? 0x" << hex << templateCRC;
-
-		error(errMsg.toString());
+		error() << "could not spawn creature... wrong template? 0x" << hex << templateCRC;
 
 		return nullptr;
 	}
@@ -392,10 +386,7 @@ CreatureObject* CreatureManagerImplementation::createCreature(uint32 templateCRC
 	Locker locker(object);
 
 	if (!object->isCreatureObject()) {
-		StringBuffer errMsg;
-		errMsg << "server did not create a creature object wrong template? 0x" << hex << templateCRC;
-
-		error(errMsg.toString());
+		error() << "server did not create a creature object wrong template? 0x" << hex << templateCRC;
 
 		if (object->isPersistent()) {
 			object->destroyObjectFromDatabase(true);
@@ -407,9 +398,7 @@ CreatureObject* CreatureManagerImplementation::createCreature(uint32 templateCRC
 	CreatureObject* creature = cast<CreatureObject*>( object.get());
 
 	if (!createCreatureChildrenObjects(creature, templateCRC, creature->isPersistent(), mobileTemplateCRC)) {
-		StringBuffer errMsg;
-		errMsg << "could not create children objects for creature... 0x" << templateCRC;
-		error(errMsg.toString());
+		error() << "could not create children objects for creature... 0x" << templateCRC;
 
 		if (object->isPersistent()) {
 			object->destroyObjectFromDatabase(true);
@@ -544,35 +533,38 @@ int CreatureManagerImplementation::notifyDestruction(TangibleObject* destructor,
 
 		if (player != nullptr) {
 
-			if(player->isGrouped()) {
+			if (player->isGrouped()) {
 				ownerID = player->getGroupID();
 			} else {
 				ownerID = player->getObjectID();
 			}
 
 			if (player->isPlayerCreature()) {
-				if (player->isGrouped()) {
-					ManagedReference<GroupObject*> group = player->getGroup();
+				if (!destructedObject->isEventMob()) {
+					if (player->isGrouped()) {
+						ManagedReference<GroupObject*> group = player->getGroup();
 
-					if (group != nullptr) {
-						for (int i = 0; i < group->getGroupSize(); i++) {
-							ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i);
+						if (group != nullptr) {
+							for (int i = 0; i < group->getGroupSize(); i++) {
+								ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i);
 
-							if (groupMember->isPlayerCreature()) {
-								Locker locker(groupMember, destructedObject);
-								groupMember->notifyObservers(ObserverEventType::KILLEDCREATURE, destructedObject);
+								if (groupMember->isPlayerCreature()) {
+									Locker locker(groupMember, destructedObject);
+									groupMember->notifyObservers(ObserverEventType::KILLEDCREATURE, destructedObject);
+								}
 							}
 						}
+					} else {
+						Locker locker(player, destructedObject);
+						player->notifyObservers(ObserverEventType::KILLEDCREATURE, destructedObject);
 					}
-				} else {
-					Locker locker(player, destructedObject);
-					player->notifyObservers(ObserverEventType::KILLEDCREATURE, destructedObject);
 				}
 
 				FactionManager* factionManager = FactionManager::instance();
 
 				if (!destructedObject->getFactionString().isEmpty() && !destructedObject->isEventMob()) {
 					int level = destructedObject->getLevel();
+
 					if(!player->isGrouped())
 						factionManager->awardFactionStanding(player, destructedObject->getFactionString(), level);
 					else
@@ -611,7 +603,6 @@ int CreatureManagerImplementation::notifyDestruction(TangibleObject* destructor,
 		// Check to see if we can expedite the despawn of this corpse
 		// We can expedite the despawn when corpse has no loot, no credits, player cannot harvest, and no group members in range can harvest
 		shouldRescheduleCorpseDestruction = playerManager->shouldRescheduleCorpseDestruction(player, destructedObject);
-
 	} catch (...) {
 		destructedObject->scheduleDespawn();
 
@@ -625,7 +616,6 @@ int CreatureManagerImplementation::notifyDestruction(TangibleObject* destructor,
 	destructedObject->scheduleDespawn();
 
 	if (shouldRescheduleCorpseDestruction) {
-
 		Reference<DespawnCreatureTask*> despawn = destructedObject->getPendingTask("despawn").castTo<DespawnCreatureTask*>();
 
 		if (despawn != nullptr) {

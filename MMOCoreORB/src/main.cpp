@@ -2,8 +2,7 @@
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions. */
 
-#include "system/thread/ChildProcess.h"
-
+#include "CoreProcess.h"
 #include "server/ServerCore.h"
 #include "server/chat/ChatManager.h"
 #include "server/zone/managers/director/DirectorManager.h"
@@ -17,36 +16,8 @@
 
 #include "engine/orb/db/DOBObjectManager.h"
 
-class CoreProcess : public ChildProcess {
-	const SortedVector<String>& arguments;
-
-public:
-	CoreProcess(const SortedVector<String>& args) : arguments(args) {
-	}
-
-	void run() {
-		bool truncateData = arguments.contains("clean");
-
-		ServerCore core(truncateData, arguments);
-		core.start();
-	}
-
-	void handleCrash() {
-		//TODO: implement
-	}
-
-	bool isDeadlocked() {
-		//TODO: implement
-		return false;
-	}
-
-	void handleDeadlock() {
-		//TODO: implement
-	}
-};
-
 int main(int argc, char* argv[]) {
-	setbuf(stdout, 0);
+	System::setStreamBuffer(stdout, nullptr);
 
 	if (argc) {
 		StackTrace::setBinaryName(argv[0]);
@@ -104,7 +75,7 @@ int main(int argc, char* argv[]) {
 	} catch (const Exception& e) {
 		e.printStackTrace();
 	} catch (...) {
-		System::out << "unreported exception caught main()" << endl;
+		System::err << "unreported exception caught main()" << endl;
 	}
 
 	pthread_exit(&ret);
