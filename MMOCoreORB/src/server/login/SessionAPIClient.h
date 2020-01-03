@@ -37,6 +37,7 @@ namespace server {
 			String resultMessage;
 			String resultDetails;
 			String resultRawJSON;
+			uint64 resultElapsedTimeMS;
 			HashTable<String, String> resultDebug;
 
 		public:
@@ -59,7 +60,7 @@ namespace server {
 				return String("UNKOWN(" + String::valueOf((int)action) + ")");
 			}
 
-			inline void setAction(const String& stringAction) {
+			void setAction(const String& stringAction) {
 				if (stringAction == "TEMPFAIL") {
 					resultAction = ApprovalAction::TEMPFAIL;
 					return;
@@ -100,7 +101,7 @@ namespace server {
 				return String("<not set>");
 			}
 
-			inline void setClientTrxId(String clientTrxId) {
+			inline void setClientTrxId(const String& clientTrxId) {
 				resultClientTrxId = clientTrxId;
 			}
 
@@ -136,7 +137,7 @@ namespace server {
 				return resultAction == ApprovalAction::BAN;
 			}
 
-			inline void setTitle(String title) {
+			inline void setTitle(const String& title) {
 				resultTitle = title;
 			}
 
@@ -144,7 +145,7 @@ namespace server {
 				return resultTitle;
 			}
 
-			inline void setMessage(String message) {
+			inline void setMessage(const String& message) {
 				resultMessage = message;
 			}
 
@@ -156,7 +157,7 @@ namespace server {
 				return resultMessage + "\n\ntrx_id: " + resultDebug.get("trx_id");
 			}
 
-			inline void setDetails(String details) {
+			inline void setDetails(const String& details) {
 				resultDetails = details;
 			}
 
@@ -164,15 +165,28 @@ namespace server {
 				return resultDetails;
 			}
 
-			inline void setDebugValue(const String key, const String value) {
+			inline void setElapsedTimeMS(uint64 elapsedTimeMS) {
+				resultElapsedTimeMS = elapsedTimeMS;
+			}
+
+			inline uint64 getElapsedTimeMS() const {
+				return resultElapsedTimeMS;
+			}
+
+			inline void setDebugValue(const String& key, const String& value) {
 				resultDebug.put(key, value);
 			}
 
-			inline String getDebugValue(const String key) const {
-				if (resultDebug.containsKey(key))
-					return resultDebug.get(key);
+			inline const String& getDebugValue(const String& key) const {
+				auto entry = resultDebug.getEntry(key);
 
-				return String("");
+				if (entry) {
+					return entry->getValue();
+				} else {
+					const static String empty;
+
+					return empty;
+				}
 			}
 
 			inline const HashTable<String, String>& getDebugHashTable() const {
@@ -193,6 +207,7 @@ namespace server {
 		class SessionAPIClient : public Logger, public Singleton<SessionAPIClient>, public Object {
 		protected:
 			AtomicInteger trxCount = 0;
+			AtomicInteger errCount = 0;
 			bool apiEnabled = false;
 			int galaxyID = 0;
 			int debugLevel = 0;
@@ -207,6 +222,10 @@ namespace server {
 
 			inline void incrementTrxCount() {
 				trxCount.increment();
+			}
+
+			inline void incrementErrorCount() {
+				errCount.increment();
 			}
 
 			inline void setDebugLevel(int newDebugLevel) {
@@ -230,12 +249,12 @@ namespace server {
 			// Calls in general order of execution
 			void notifyGalaxyStart(uint32 galaxyID);
 			void notifyGalaxyShutdown();
-            void approveNewSession(const String& ip, uint32 accountID, const SessionAPICallback& resultCallback);
+			void approveNewSession(const String& ip, uint32 accountID, const SessionAPICallback& resultCallback);
 			void notifySessionStart(const String& ip, uint32 accountID);
 			void notifyDisconnectClient(const String& ip, uint32 accountID, uint64_t characterID, String eventType);
-			void approvePlayerConnect(const String& ip, uint32 accountID, uint64_t characterID, const SessionAPICallback& resultCallback);
+			void approvePlayerConnect(const String& ip, uint32 accountID, uint64_t characterID, SortedVector<uint32> loggedInAccounts, const SessionAPICallback& resultCallback);
 			void notifyPlayerOnline(const String& ip, uint32 accountID, uint64_t characterID);
-			void notifyPlayerOffline(const String& ip, uint32 accountID, uint64_t characterID);;
+			void notifyPlayerOffline(const String& ip, uint32 accountID, uint64_t characterID);
 		};
 	}
 }
