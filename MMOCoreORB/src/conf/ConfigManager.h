@@ -19,7 +19,9 @@ namespace conf {
 		Vector <String>* asStringVector = nullptr;
 		SortedVector <String>* asSortedStringVector = nullptr;
 		Vector <int>* asIntVector = nullptr;
-		mutable int usageCounter = 0; //this counter is not thread safe but we dont care
+		mutable AtomicInteger usageCounter = 0;
+
+		Mutex mutex;
 
 	public:
 		ConfigDataItem(lua_Number value);
@@ -32,26 +34,28 @@ namespace conf {
 		~ConfigDataItem();
 
 		inline bool getBool() const {
-			usageCounter++;
+			usageCounter.increment();
 			return asBool;
 		}
 
 		inline float getFloat() const {
-			usageCounter++;
+			usageCounter.increment();
 			return (float)asNumber;
 		}
 
 		inline int getInt() const {
-			usageCounter++;
+			usageCounter.increment();
 			return (int)asNumber;
 		}
 
 		inline const String& getString() const {
-			usageCounter++;
+			usageCounter.increment();
 			return asString;
 		}
 
 		const Vector<String>& getStringVector() {
+			Locker guard(&mutex);
+
 			if (asStringVector == nullptr) {
 				asStringVector = new Vector<String>();
 
@@ -76,6 +80,8 @@ namespace conf {
 		}
 
 		const SortedVector<String>& getSortedStringVector() {
+			Locker guard(&mutex);
+
 			if (asSortedStringVector == nullptr) {
 				asSortedStringVector = new SortedVector<String>();
 				auto entries = getStringVector();
@@ -89,6 +95,8 @@ namespace conf {
 		}
 
 		const Vector<int>& getIntVector() {
+			Locker guard(&mutex);
+
 			if (asIntVector == nullptr) {
 				asIntVector = new Vector<int>();
 
@@ -113,7 +121,9 @@ namespace conf {
 		}
 
 		String toString() {
-			usageCounter++;
+			Locker guard(&mutex);
+
+			usageCounter.increment();
 
 			if (asVector == nullptr)
 				return String(asString);
@@ -139,8 +149,9 @@ namespace conf {
 		}
 
 		inline int resetUsageCounter() {
-			int prevCount = usageCounter;
-			usageCounter = 0;
+			int prevCount = usageCounter.get(std::memory_order_acquire);
+			usageCounter.set(0, std::memory_order_release);
+
 			return prevCount;
 		}
 
@@ -155,8 +166,10 @@ namespace conf {
 #endif // DEBUG_CONFIGMANAGER
 	};
 
-	class ConfigManager : public Singleton<ConfigManager>, public Lua {
+	class ConfigManager : public Singleton<ConfigManager>, public Object, public Logger {
 	protected:
+		Lua lua;
+
 		Timer configStartTime;
 		VectorMap<String, ConfigDataItem *> configData;
 
@@ -168,13 +181,20 @@ namespace conf {
 		int cachedSessionStatsSeconds = 1;
 		int cachedOnlineLogSize = 0;
 
+		ReadWriteLock mutex;
+
+	private:
+		ConfigDataItem* findItem(const String& name) const;
+		bool updateItem(const String& name, ConfigDataItem* newItem);
+
+		bool parseConfigData(const String& prefix, bool isGlobal = false, int maxDepth = 5);
+
 	public:
 		ConfigManager();
 		~ConfigManager();
 
 		bool loadConfigData();
 		void clearConfigData();
-		bool parseConfigData(const String& prefix, bool isGlobal = false, int maxDepth = 5);
 		void cacheHotItems();
 		void dumpConfig(bool includeSecure = false);
 		bool testConfig(ConfigManager* configManager);
@@ -184,7 +204,6 @@ namespace conf {
 		}
 
 		// General config functions
-		ConfigDataItem* findItem(const String& name) const;
 		int getInt(const String& name, int defaultValue);
 		bool getBool(const String& name, bool defaultValue);
 		float getFloat(const String& name, float defaultValue);
@@ -193,7 +212,6 @@ namespace conf {
 		const SortedVector<String>& getSortedStringVector(const String& name);
 		const Vector<int>& getIntVector(const String& name);
 
-		bool updateItem(const String& name, ConfigDataItem* newItem);
 		bool setNumber(const String& name, lua_Number newValue);
 		bool setInt(const String& name, int newValue);
 		bool setBool(const String& name, bool newValue);
@@ -216,10 +234,6 @@ namespace conf {
 
 		inline bool getMakeStatus() {
 			return getBool("Core3.MakeStatus", true);
-		}
-
-		inline bool getMakeWeb() {
-			return getBool("Core3.MakeWeb", true);
 		}
 
 		inline bool getDumpObjFiles() {
@@ -352,22 +366,6 @@ namespace conf {
 
 		inline uint16 getPingPort() {
 			return getInt("Core3.PingPort", 44462);
-		}
-
-		inline const String& getWebPorts() {
-			return getString("Core3.WebPorts", "44460");
-		}
-
-		inline const String& getWebAccessLog() {
-			return getString("Core3.WebAccessLog", "log/web_access.log");
-		}
-
-		inline const String& getWebErrorLog() {
-			return getString("Core3.WebErrorLog", "log/web_error.log");
-		}
-
-		inline int getWebSessionTimeout() {
-			return getInt("Core3.WebAccessLog", 600);
 		}
 
 		inline const String& getLoginRequiredVersion() {

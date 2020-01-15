@@ -8,15 +8,15 @@ import system.util.SortedVector;
 
 import server.zone.objects.tangible.TangibleObject;
 import server.zone.objects.structure.StructureObject;
-import server.zone.objects.building.BuildingObject;
 import server.zone.objects.installation.InstallationObject;
 import server.zone.objects.creature.CreatureObject;
 import server.zone.objects.creature.ai.AiAgent;
 import server.zone.objects.scene.SceneObject;
 import system.thread.Mutex;
 import server.zone.objects.tangible.deed.Deed;
-import server.zone.managers.gcw.TerminalSpawn;
 
+include server.zone.objects.building.BuildingObject;
+include server.zone.managers.gcw.TerminalSpawn;
 include server.zone.objects.building.components.DestructibleBuildingDataComponent;
 include server.zone.objects.installation.components.TurretDataComponent;
 include server.zone.objects.tangible.terminal.components.TurretControlTerminalDataComponent;
@@ -247,7 +247,7 @@ class GCWManager extends ManagedService implements Logger {
 	public native void performDefenseDonation(BuildingObject building, CreatureObject creature, unsigned long deedOID);
 	private native void performDonateMinefield(BuildingObject building, CreatureObject creature, Deed deed);
 	private native void performDonateTurret(BuildingObject building, CreatureObject creature, Deed deed);
-	private native unsigned long addChildInstallationFromDeed(BuildingObject building, ChildObject child, CreatureObject creature, Deed deed);
+	private native unsigned long addChildInstallationFromDeed(BuildingObject building, final ChildObject child, CreatureObject creature, Deed deed);
 
 	public native void sendTurretAttackListTo(CreatureObject creature, SceneObject turretControlTerminal);
 	public native boolean canUseTurret(TangibleObject turret, SceneObject terminal, CreatureObject creature);

@@ -412,7 +412,7 @@ void PlayerManagerImplementation::loadNameMap() {
 	try {
 		String query = "SELECT character_oid, firstname FROM characters where character_oid > 16777216 and galaxy_id = " + String::valueOf(server->getGalaxyID()) + " order by character_oid asc";
 
-		Reference<ResultSet*> res = ServerDatabase::instance()->executeQuery(query);
+		UniqueReference<ResultSet*> res(ServerDatabase::instance()->executeQuery(query));
 
 		while (res->next()) {
 			uint64 oid = res->getUnsignedLong(0);
@@ -594,51 +594,64 @@ bool PlayerManagerImplementation::existsPlayerCreatureOID(uint64 oid) {
 }
 
 bool PlayerManagerImplementation::kickUser(const String& name, const String& admin, String& reason, bool doBan) {
-	ManagedReference<ChatManager*> chatManager = server->getChatManager();
-
-	if (chatManager == nullptr)
-		return false;
-
-	ManagedReference<CreatureObject*> player = chatManager->getPlayer(name);
+	Reference<CreatureObject*> player = getPlayer(name);
 
 	if (player == nullptr)
 		return false;
 
-	ManagedReference<CreatureObject*> adminplayer = chatManager->getPlayer(admin);
+	Reference<CreatureObject*> adminPlayer = getPlayer(admin);
 
-	if (adminplayer == nullptr)
+	if (adminPlayer == nullptr)
 		return false;
+
+	info(true) << admin << (doBan ? " kickbanned " : " kicked ") << name << " for '" << reason << "'";
+
+	StringBuffer buf;
+	buf << "You have been kicked by " << admin << " for '" << reason << "'";
+	auto kickMessage = buf.toString();
+
+	player->sendSystemMessage(kickMessage);
+
+	ErrorMessage* errmsg = new ErrorMessage(admin, kickMessage, 0);
+	player->sendMessage(errmsg);
 
 	Reference<PlayerObject*> ghost = player->getSlottedObject("ghost").castTo<PlayerObject*>();
-
-
-	Reference<PlayerObject*> adminghost = adminplayer->getSlottedObject("ghost").castTo<PlayerObject*>();
-
-	if (adminghost == nullptr)
-		return false;
-
-	StringBuffer kickMessage;
-	kickMessage << "You have been kicked by " << admin << " for '" << reason << "'";
-	player->sendSystemMessage(kickMessage.toString());
 
 	if (ghost != nullptr)
 		ghost->setLoggingOut();
 
-	ErrorMessage* errmsg = new ErrorMessage(admin, "You have been kicked", 0);
-	player->sendMessage(errmsg);
-
 	player->sendMessage(new LogoutMessage());
 
-	ManagedReference<ZoneClientSession*> session = player->getClient();
+	Core::getTaskManager()->scheduleTask([
+			this, playerCreo = Reference<CreatureObject*>(player), adminCreo = Reference<CreatureObject*>(adminPlayer), reason, doBan] {
 
-	if (session != nullptr)
-		session->disconnect(true);
+		Reference<ZoneClientSession*> session = playerCreo->getClient();
 
-	/// 10 min ban
-	if (doBan) {
-		String banMessage = banAccount(adminghost, ghost->getAccount(), 60 * 10, reason);
-		adminplayer->sendSystemMessage(banMessage);
-	}
+		if (session != nullptr)
+			session->disconnect(true);
+
+		Reference<PlayerObject*> ghost = playerCreo->getSlottedObject("ghost").castTo<PlayerObject*>();
+
+		if (ghost == nullptr)
+			return;
+
+		Reference<Account*> account = ghost->getAccount();
+
+		if (account == nullptr)
+			return;
+
+		if (doBan) {
+			Reference<PlayerObject*> adminGhost = adminCreo->getSlottedObject("ghost").castTo<PlayerObject*>();
+
+			if (adminGhost != nullptr) {
+				String banMessage = banAccount(adminGhost, account, 60 * 10, reason);
+
+				adminCreo->sendSystemMessage(banMessage);
+			}
+		} else {
+			adminCreo->sendSystemMessage("Kicked " + playerCreo->getFirstName() + " on account " + account->getUsername() + ".");
+		}
+	}, "kickUserTask", 500);
 
 	return true;
 }
@@ -686,7 +699,7 @@ bool PlayerManagerImplementation::checkExistentNameInDatabase(const String& name
 		String query = "SELECT * FROM characters WHERE lower(firstname) = \""
 				+ fname + "\"";
 
-		Reference<ResultSet*> res = ServerDatabase::instance()->executeQuery(query);
+		UniqueReference<ResultSet*> res(ServerDatabase::instance()->executeQuery(query));
 		bool nameExists = res->next();
 
 		return !nameExists;
@@ -3340,10 +3353,11 @@ int PlayerManagerImplementation::checkSpeedHackFirstTest(CreatureObject* player,
 		//float delta = abs(parsedSpeed - maxAllowedSpeed);
 
 		if (changeBuffer->size() == 0) { // no speed changes
-			StringBuffer msg;
+			auto msg = player->info();
 			msg << "max allowed speed should be " << maxAllowedSpeed * errorMultiplier;
 			msg << " parsed " << parsedSpeed;
-			player->info(msg.toString());
+
+			msg.flush();
 
 			player->teleport(teleportPoint.getX(), teleportPoint.getZ(), teleportPoint.getY(), teleportParentID);
 
@@ -3354,10 +3368,11 @@ int PlayerManagerImplementation::checkSpeedHackFirstTest(CreatureObject* player,
 		const Time* timeStamp = &firstChange->getTimeStamp();
 
 		if (timeStamp->miliDifference() > 2000) { // we already should have lowered the speed, 2 seconds lag
-			StringBuffer msg;
+			auto msg = player->info();
 			msg << "max allowed speed should be " << maxAllowedSpeed * errorMultiplier;
 			msg << " parsed " << parsedSpeed;
-			player->info(msg.toString());
+
+			msg.flush();
 
 			player->teleport(teleportPoint.getX(), teleportPoint.getZ(), teleportPoint.getY(), teleportParentID);
 
@@ -3379,12 +3394,12 @@ int PlayerManagerImplementation::checkSpeedHackFirstTest(CreatureObject* player,
 				maxAllowedSpeed = allowed;
 		}
 
-		StringBuffer msg;
+		auto msg = player->info();
 		msg << "max allowed speed should be " << maxAllowedSpeed;
 		msg << " parsed " << parsedSpeed;
 		msg << " changeBufferSize: " << changeBuffer->size();
 
-		player->info(msg.toString());
+		msg.flush();
 
 		player->teleport(teleportPoint.getX(), teleportPoint.getZ(), teleportPoint.getY(), teleportParentID);
 
@@ -3400,22 +3415,20 @@ int PlayerManagerImplementation::checkSpeedHackSecondTest(CreatureObject* player
 	uint32 deltaTime = ghost->getServerMovementTimeDelta();//newStamp - stamp;
 
 	if (deltaTime < 1000) {
-		//info("time hasnt passed yet", true);
+		player->debug() << "deltaTime hasnt passed yet";
 		return 0;
 	}
 
 	uint32 stamp = ghost->getClientLastMovementStamp();
 
 	if (stamp > newStamp) {
-		//info("older stamp received", true);
+		player->debug() << "older client movement stamp received";
 		return 1;
 	}
 
 	Vector3 newWorldPosition(newX, newY, newZ);
 
-	/*StringBuffer newWorldPosMsg;
-	newWorldPosMsg << "x:" << newWorldPosition.getX() << " z:" << newWorldPosition.getZ() << " y:" << newWorldPosition.getY();
-	player->info(newWorldPosMsg.toString(), true);*/
+	player->debug() << "checkSpeedHackSecondTest newWorldPosition x:" << newWorldPosition.getX() << " z:" << newWorldPosition.getZ() << " y:" << newWorldPosition.getY();
 
 	if (newParent != nullptr) {
 		ManagedReference<SceneObject*> root = newParent->getRootParent();
@@ -3429,9 +3442,7 @@ int PlayerManagerImplementation::checkSpeedHackSecondTest(CreatureObject* player
 		newWorldPosition.set(root->getPositionX() + (sin(angle) * length), root->getPositionZ() + newZ, root->getPositionY() + (cos(angle) * length));
 	}
 
-	/*newWorldPosMsg.deleteAll();
-	newWorldPosMsg << "x:" << newWorldPosition.getX() << " z:" << newWorldPosition.getZ() << " y:" << newWorldPosition.getY();
-	player->info(newWorldPosMsg.toString(), true);*/
+	player->debug() << "after parent transform newWorldPosition x:" << newWorldPosition.getX() << " z:" << newWorldPosition.getZ() << " y:" << newWorldPosition.getY();
 
 	ValidatedPosition* lastValidatedPosition = ghost->getLastValidatedPosition();
 
@@ -3447,11 +3458,11 @@ int PlayerManagerImplementation::checkSpeedHackSecondTest(CreatureObject* player
 	float dist = newWorldPosition.distanceTo(lastValidatedWorldPosition);
 
 	if (dist < 1) {
-		//info("distance too small", true);
+		player->debug("speed hack distance too small");
 		return 0;
 	}
 
-	float speed = dist / (float) deltaTime * 1000;
+	float speed = dist / (float) deltaTime * 1000.f;
 
 	/*if (oldNewPosZ > oldValidZ) {
 		float heightDist = oldNewPosZ - oldValidZ;
@@ -3465,9 +3476,7 @@ int PlayerManagerImplementation::checkSpeedHackSecondTest(CreatureObject* player
 
 	//lastValidatedPosition->set(newWorldPosition.getX(), oldNewPosZ, newWorldPosition.getY());
 
-	/*StringBuffer msg;
-	msg << "distancia recorreguda " << dist << " a una velocitat " << speed;
-	info(msg, true);*/
+	player->debug() << "distancia recorreguda " << dist << " a una velocitat " << speed;
 
 	int ret = checkSpeedHackFirstTest(player, speed, *lastValidatedPosition, 1.5f);
 
@@ -3488,8 +3497,6 @@ int PlayerManagerImplementation::checkSpeedHackSecondTest(CreatureObject* player
 	}
 
 	return ret;
-
-	//return 0;
 }
 
 void PlayerManagerImplementation::lootAll(CreatureObject* player, CreatureObject* ai) {
@@ -3778,7 +3785,7 @@ String PlayerManagerImplementation::banAccount(PlayerObject* admin, Account* acc
 
 	try {
 		StringBuffer query;
-		query << "INSERT INTO account_bans values (nullptr, " << account->getAccountID() << ", " << admin->getAccountID() << ", now(), " << (uint64)time(0) + seconds << ", '" << escapedReason << "');";
+		query << "INSERT INTO account_bans values (NULL, " << account->getAccountID() << ", " << admin->getAccountID() << ", now(), " << (uint64)time(0) + seconds << ", '" << escapedReason << "');";
 
 		ServerDatabase::instance()->executeStatement(query);
 	} catch(Exception& e) {
@@ -3788,8 +3795,16 @@ String PlayerManagerImplementation::banAccount(PlayerObject* admin, Account* acc
 	Locker locker(account);
 
 	account->setBanReason(reason);
-	account->setBanExpires(System::getMiliTime() + seconds*1000);
+	account->setBanExpires(System::getMiliTime() + seconds * 1000);
 	account->setBanAdmin(admin->getAccountID());
+
+	StringBuffer banResult;
+
+	Time expireTime;
+
+	expireTime.addMiliTime(seconds * 1000);
+
+	banResult << "Account \"" + account->getUsername() + "\" successfully banned until " << expireTime.getFormattedTime() + " server time";
 
 	try {
 		Reference<const CharacterList*> characters = account->getCharacterList();
@@ -3814,10 +3829,12 @@ String PlayerManagerImplementation::banAccount(PlayerObject* admin, Account* acc
 			}
 		}
 	} catch(Exception& e) {
-		return "Account Successfully Banned, but error kicking characters. " + e.getMessage();
+		banResult << ", error kicking characters: " + e.getMessage();
 	}
 
-	return "Account Successfully Banned";
+	banResult << ".";
+
+	return banResult.toString();
 }
 
 String PlayerManagerImplementation::unbanAccount(PlayerObject* admin, Account* account, const String& reason) {
@@ -3860,7 +3877,7 @@ String PlayerManagerImplementation::banFromGalaxy(PlayerObject* admin, Account* 
 
 	try {
 		StringBuffer query;
-		query << "INSERT INTO galaxy_bans values (nullptr, " << account->getAccountID() << ", " << admin->getAccountID() << "," << galaxy << ", now()," << (uint64)time(0) + seconds << ", '" << escapedReason << "');";
+		query << "INSERT INTO galaxy_bans values (NULL, " << account->getAccountID() << ", " << admin->getAccountID() << "," << galaxy << ", now()," << (uint64)time(0) + seconds << ", '" << escapedReason << "');";
 
 		ServerDatabase::instance()->executeStatement(query);
 	} catch(Exception& e) {
@@ -3965,7 +3982,7 @@ String PlayerManagerImplementation::banCharacter(PlayerObject* admin, Account* a
 
 	try {
 		StringBuffer query;
-		query << "INSERT INTO character_bans values (nullptr, " << account->getAccountID() << ", " << admin->getAccountID() << ", " << galaxyID << ", '" << escapedName << "', " <<  "now(), UNIX_TIMESTAMP() + " << seconds << ", '" << escapedReason << "');";
+		query << "INSERT INTO character_bans values (NULL, " << account->getAccountID() << ", " << admin->getAccountID() << ", " << galaxyID << ", '" << escapedName << "', " <<  "now(), UNIX_TIMESTAMP() + " << seconds << ", '" << escapedReason << "');";
 
 		ServerDatabase::instance()->executeStatement(query);
 	} catch(Exception& e) {
@@ -4421,7 +4438,6 @@ void PlayerManagerImplementation::decreaseOnlineCharCount(ZoneClientSession* cli
 }
 
 void PlayerManagerImplementation::proposeUnity( CreatureObject* askingPlayer, CreatureObject* respondingPlayer, SceneObject* askingPlayerRing) {
-
 	if (!askingPlayer->isPlayerCreature()) {
 		return;
 	}
@@ -5352,29 +5368,27 @@ void PlayerManagerImplementation::cleanupCharacters() {
 }
 
 bool PlayerManagerImplementation::shouldDeleteCharacter(uint64 characterID, int galaxyID) {
-	String query = "SELECT * FROM characters WHERE character_oid = " + String::valueOf(characterID) + " AND galaxy_id = " + String::valueOf(galaxyID);
+	const String query = "SELECT * FROM characters WHERE character_oid = " + String::valueOf(characterID) + " AND galaxy_id = " + String::valueOf(galaxyID);
 
 	try {
-		Reference<ResultSet*> result = ServerDatabase::instance()->executeQuery(query);
+		UniqueReference<ResultSet*> result(ServerDatabase::instance()->executeQuery(query));
 
 		if (result == nullptr) {
 			error("ERROR WHILE LOOKING UP CHARACTER IN SQL TABLE");
-		} else if (result.get()->getRowsAffected() > 1) {
+		} else if (result->getRowsAffected() > 1) {
 
 			error("More than one character with oid = " + String::valueOf(characterID) + " in galaxy " + String::valueOf(galaxyID));
 			return false;
 
-		} else if (result.get()->getRowsAffected() == 0) {
+		} else if (result->getRowsAffected() == 0) {
 			return true;
 		}
 
 		return false;
-
-	} catch ( DatabaseException &err) {
-		info("database error " + err.getMessage(),true);
+	} catch (const DatabaseException& err) {
+		error() << "database error " << err.getMessage();
 		return false;
 	}
-
 }
 
 bool PlayerManagerImplementation::doBurstRun(CreatureObject* player, float hamModifier, float cooldownModifier) {
@@ -6168,22 +6182,24 @@ void PlayerManagerImplementation::logOnlinePlayers(bool onlyWho) {
 	// Write who file
 	try {
 		// Write a new "current status" file
-		FileWriter* logFile = new FileWriter(new File("log/who.json.next"), false);
+		File file("log/who.json.next");
+		FileWriter logFile(&file, false);
 
-		(*logFile) << logLine;
+		logFile << logLine;
 
-		logFile->close();
-
-		delete logFile->getFile();
-		delete logFile;
+		logFile.close();
 
 		// Update current status file
+#ifdef PLATFORM_WIN
+		std::remove("log/who.json");
+#endif
 		int err = std::rename("log/who.json.next", "log/who.json");
 
-		if (err != 0)
-			error("Failed to rename log/who.json.next to log/who.json err = " + String::valueOf(err));
-	} catch (Exception& e) {
-		error("logOnlinePlayers failed to write log/who.json: " + e.getMessage());
+		if (err != 0) {
+			error() << "Failed to rename log/who.json.next to log/who.json err = " << err;
+		}
+	} catch (const Exception& e) {
+		error() << "logOnlinePlayers failed to write log/who.json: " << e.getMessage();
 	}
 
 	if (onlyWho)
@@ -6205,20 +6221,18 @@ void PlayerManagerImplementation::logOnlinePlayers(bool onlyWho) {
 			int err = std::rename(fileName.toCharArray(), archiveFilename.toString().toCharArray());
 
 			if (err != 0)
-				error("Failed to archive online-players to " + archiveFilename.toString() + " err = " + String::valueOf(err));
+				error() << "Failed to archive online-players to " << archiveFilename.toString() << " err = " << err;
 		}
 	}
 
 	try {
 		// Append log file with this entry
-		FileWriter* logFile = new FileWriter(new File(fileName), true);
+		File file(fileName);
+		FileWriter logFile(&file, true);
 
-		(*logFile) << logLine;
+		logFile << logLine;
 
-		logFile->close();
-
-		delete logFile->getFile();
-		delete logFile;
+		logFile.close();
 
 		logfileLock.release();
 
@@ -6245,7 +6259,7 @@ void PlayerManagerImplementation::logOnlinePlayers(bool onlyWho) {
 			lastOnlinePlayerLogMsg.updateToCurrentTime();
 			onlinePlayerLogSum = LogSum;
 		}
-	} catch (Exception& e) {
-		error("logOnlinePlayers failed to write " + fileName + ": " + e.getMessage());
+	} catch (const Exception& e) {
+		error() << "logOnlinePlayers failed to write " << fileName << ": " << e.getMessage();
 	}
 }

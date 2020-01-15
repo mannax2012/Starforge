@@ -118,7 +118,7 @@ void WeaponObjectImplementation::createChildObjects() {
 	ZoneServer* zoneServer = server->getZoneServer();
 
 	for (int i = 0; i < templateObject->getChildObjectsSize(); ++i) {
-		ChildObject* child = templateObject->getChildObject(i);
+		const ChildObject* child = templateObject->getChildObject(i);
 
 		if (child == nullptr)
 			continue;
@@ -499,8 +499,8 @@ float WeaponObjectImplementation::getAttackSpeed(bool withPup) const {
 
 	float calcSpeed = speed + getConditionReduction(speed);
 
-	if (calcSpeed < 0.1)
-		calcSpeed = 0.1;
+	if (calcSpeed < 0.1f)
+		calcSpeed = 0.1f;
 
 	return calcSpeed;
 }

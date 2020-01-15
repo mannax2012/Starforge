@@ -15,14 +15,22 @@ include(CheckCXXCompilerFlag)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 5.4)
-	message(FATAL_ERROR "GCC version myst be at least 5.4!")
+	message(FATAL_ERROR "GCC version must be at least 5.4!")
     endif()
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 3.4)
         message(FATAL_ERROR "Clang version must be at least 3.4!")
     endif()
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+    if (CMAKE_CXX_COMPILER_VERSION VERSION_LESS 19.10)
+        message(FATAL_ERROR "Visual Studio version must be at least 2017!")
+    endif()
 else()
-    message(WARNING "You are using an unsupported compiler! Compilation has only been tested with Clang and GCC.")
+    message(WARNING "You are using an unsupported compiler! Compilation has only been tested with Clang, GCC and Visual Studio 2019.")
+endif()
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 4)
+    message(FATAL_ERROR "32 bit compile targets are not supported")
 endif()
 
 # Set up options
@@ -38,7 +46,7 @@ option(ENABLE_UBSAN "Enables undefined behavior sanitizer compiling" OFF)
 option(ENABLE_NATIVE "Enables -march=native compiler option" ON)
 option(ENABLE_OMIT_FRAMEPOINTER "Enables -fno-omit-frame-pointer compiler option" ON)
 option(ENABLE_ERROR_ON_WARNINGS "Enables -Werror compiler option" ON)
-option(ENABLE_REST_SERVER "Enables RESTServer if cpprestsdk is found" OFF)
+option(ENABLE_REST_SERVER "Enables REST API Server" OFF)
 option(ENABLE_SESSION_API "Enables Session API support" OFF)
 option(ENABLE_ODB "Enables odb3 compiling" OFF)
 option(ENABLE_ODB_REFERENCES "Sets ODB_REFERENCES define" ON) #needs to match engine3
@@ -83,6 +91,11 @@ if (ENABLE_SESSION_API)
     add_definitions(-DWITH_SESSION_API)
 endif()
 
+if (ENABLE_REST_SERVER)
+	message(STATUS "Compiling with REST API support")
+	add_definitions(-DWITH_REST_API)
+endif(ENABLE_REST_SERVER)
+
 if(ENABLE_MULTITHREADED_LINKER)
 	macro(check_cxx_linker_flag _Flag _Var)
 		set(old_link_libs "${CMAKE_REQUIRED_LIBRARIES}")
@@ -114,6 +127,18 @@ endif(ENABLE_MULTITHREADED_LINKER)
 set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
 set(THREADS_PREFER_PTHREAD_FLAG TRUE)
 find_package(Threads REQUIRED)
+
+if(WIN32)
+	string(TOLOWER ${CMAKE_BUILD_TYPE} E3_BUILD_TYPE)
+
+	if(E3_BUILD_TYPE STREQUAL "debug")
+		set(PTHREAD_LIB_LINK pthreadVCE3d)
+	else()
+		set(PTHREAD_LIB_LINK pthreadVCE3)
+	endif()
+else()
+	set(PTHREAD_LIB_LINK Threads::Threads)
+endif()
 
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
@@ -161,11 +186,15 @@ endif(IDL_NOPRELOCKS)
 
 # Include googlemock and googletest
 if(COMPILE_TESTS)
-    add_subdirectory(utils/googletest-release-1.8.0/googlemock)
+	set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-    include_directories(${CMAKE_SOURCE_DIR}/utils/googletest-release-1.8.0/googletest/include)
-    include_directories(${CMAKE_SOURCE_DIR}/utils/googletest-release-1.8.0/googlemock/include)
+    add_subdirectory(utils/googletest-release-1.10.0)
 
+    include_directories(${CMAKE_SOURCE_DIR}/utils/googletest-release-1.10.0/googletest/include)
+    include_directories(${CMAKE_SOURCE_DIR}/utils/googletest-release-1.10.0/googlemock/include)
+
+	enable_testing()
+	
     add_definitions(-DCOMPILE_CORE3_TESTS)
 else(COMPILE_TESTS)
     set(IDL_DIRECTIVES ${IDL_DIRECTIVES} -nomocks)
@@ -292,6 +321,7 @@ add_custom_target(update-engine3
 	COMMAND ${GIT_EXECUTABLE} submodule update --recursive --remote
 	WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
+set_property(TARGET core3 PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/bin")
 
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 #message(STATUS "Compiler flags:" ${CMAKE_CXX_COMPILE_FLAGS})

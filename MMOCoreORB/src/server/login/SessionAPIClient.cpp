@@ -105,7 +105,7 @@ void SessionAPIClient::apiCall(const String& src, const String& basePath, const 
 
 		Core::getTaskManager()->executeTask([resultCallback, result] {
 			resultCallback(result);
-		}, "SessionAPIClientResult", "slowQueue");
+		}, "SessionAPIClientResult-nop-" + src, "slowQueue");
 		return;
 	}
 
@@ -251,7 +251,7 @@ void SessionAPIClient::apiCall(const String& src, const String& basePath, const 
 
 			Core::getTaskManager()->executeTask([resultCallback, result] {
 				resultCallback(result);
-			}, "SessionAPIClientResult", "slowQueue");
+			}, "SessionAPIClientResult-" + src, "slowQueue");
 		});
 }
 
@@ -307,7 +307,8 @@ void SessionAPIClient::notifyDisconnectClient(const String& ip, uint32 accountID
 	apiNotify(__FUNCTION__, path.toString());
 }
 
-void SessionAPIClient::approvePlayerConnect(const String& ip, uint32 accountID, uint64_t characterID, SortedVector<uint32> loggedInAccounts, const SessionAPICallback& resultCallback) {
+void SessionAPIClient::approvePlayerConnect(const String& ip, uint32 accountID, uint64_t characterID,
+		const ArrayList<uint32>& loggedInAccounts, const SessionAPICallback& resultCallback) {
 	StringBuffer path;
 
 	path << "/v1/core3/account/" << accountID << "/galaxy/" << galaxyID << "/session/ip/" << ip << "/player/" << characterID << "/approval";
@@ -468,17 +469,12 @@ String SessionApprovalResult::getLogMessage() const {
 SessionApprovalResult::SessionApprovalResult() {
 	// Generate simple code for log tracing
 	uint64 trxid = (System::getMikroTime() << 8) | System::random(255);
-	StringBuffer buf;
-	buf << hex << trxid;
-	resultClientTrxId = buf.toString();
 
-	resultTrxId = "";
+	resultClientTrxId = String::hexvalueOf(trxid);
 	resultAction = ApprovalAction::UNKNOWN;
-	resultTitle = "";
-	resultMessage = "";
-	resultDetails = "";
-	resultRawJSON = "";
 	resultElapsedTimeMS = 0ull;
+
+	resultDebug.setNullValue("<not set>");
 }
 
 #endif // WITH_SESSION_API
