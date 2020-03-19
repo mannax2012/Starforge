@@ -10,8 +10,11 @@
 
 #ifdef WITH_REST_API
 
-#include "server/ServerCore.h"
 #include "RESTServer.h"
+#include "server/ServerCore.h"
+#include "server/zone/objects/scene/SceneObject.h"
+#include "conf/ConfigManager.h"
+
 #include "RESTEndpoint.h"
 #include "APIRequest.h"
 #include "APIProxyPlayerManager.h"
@@ -20,7 +23,9 @@ using namespace server::web3;
 
 RESTServer::RESTServer() {
 	setLoggingName("RESTServer");
-	setFileLogger("log/core3_api.log", true);
+	setFileLogger("log/core3_api.log", true, ConfigManager::instance()->getRotateLogAtStart());
+	setLogSynchronized(true);
+	setRotateLogSizeMB(ConfigManager::instance()->getInt("Core3.RESTServer.RotateLogSizeMB", ConfigManager::instance()->getRotateLogSizeMB()));
 	setLogToConsole(false);
 	setGlobalLogging(false);
 	setLogging(true);
@@ -40,9 +45,6 @@ RESTServer::~RESTServer() {
 #include <memory>
 #include <chrono>
 #include <regex>
-
-#include "engine/engine.h"
-#include "conf/ConfigManager.h"
 
 using namespace web;
 using namespace web::http;
@@ -87,12 +89,15 @@ void RESTServer::registerEndpoints() {
 			return;
 		}
 
-		auto responses = JSONSerializationType::array();
+		auto parents = apiRequest.getQueryFieldBool("parents", false, false);
+		auto recursive = apiRequest.getQueryFieldBool("recursive", false, false);
+		int maxDepth = apiRequest.getQueryFieldUnsignedLong("maxdepth", false, 1000);
 
 		StringTokenizer oidStrList(apiRequest.getQueryFieldString("oids"));
 		oidStrList.setDelimeter(",");
 
 		int countFound = 0;
+		auto objects = JSONSerializationType::object();
 
 		while(oidStrList.hasMoreTokens()) {
 			try {
@@ -105,14 +110,33 @@ void RESTServer::registerEndpoints() {
 				if (obj != nullptr) {
 					ReadLocker lock(obj);
 
-					JSONSerializationType jsonData;
-					obj->writeJSON(jsonData);
+					auto scno = dynamic_cast<SceneObject*>(obj.get());
 
-					JSONSerializationType entry;
-					entry[String::valueOf(oid)] = jsonData;
+					if (scno != nullptr) {
+						if (!recursive) {
+							maxDepth = 1;
+						}
 
-					responses.push_back(entry);
-					countFound++;
+						if (parents) {
+							auto rootObj = scno->getRootParent();
+
+							if (rootObj != nullptr) {
+								scno = rootObj;
+							}
+						}
+
+						countFound += scno->writeRecursiveJSON(objects, maxDepth);
+					} else {
+						JSONSerializationType jsonData;
+						obj->writeJSON(jsonData);
+						countFound++;
+						jsonData["_depth"] = 0;
+						jsonData["_oid"] = oid;
+						jsonData["_className"] = obj->_getClassName();
+						jsonData["_oidPath"] = JSONSerializationType::array();
+						jsonData["_oidPath"].push_back(oid);
+						objects[String::valueOf(oid)] = jsonData;
+					}
 				}
 			} catch (const Exception& e) {
 				apiRequest.fail("Exception looking up objects", "Exception: " + e.getMessage());
@@ -122,12 +146,22 @@ void RESTServer::registerEndpoints() {
 
 		debug() << "Found " << countFound << " object(s)";
 
-		if (responses.empty()) {
+		if (countFound == 0) {
 			apiRequest.fail("Nothing found");
 		} else {
-			JSONSerializationType result;
+			JSONSerializationType metadata;
 
-			result["objects"] = responses;
+			Time now;
+			metadata["exportTime"] = now.getFormattedTimeFull();
+			metadata["objectCount"] = countFound;
+			metadata["maxDepth"] = maxDepth;
+			metadata["recursive"] = recursive;
+			metadata["parents"] = parents;
+			metadata["query_oids"] = apiRequest.getQueryFieldString("oids");
+
+			JSONSerializationType result;
+			result["objects"] = objects;
+			result["metadata"] = metadata;
 
 			apiRequest.success(result);
 		}
@@ -166,6 +200,14 @@ void RESTServer::registerEndpoints() {
 	addEndpoint(RESTEndpoint("POST:/v1/admin/account/(\\d+)/", {"accountID"}, [this] (APIRequest& apiRequest) -> void {
 		try {
 			mPlayerManagerProxy->handle(apiRequest);
+		} catch (http_exception const & e) {
+			apiRequest.fail("Failed to parse request.", "Exception handling request: " + String(e.what()));
+		}
+	}));
+
+	addEndpoint(RESTEndpoint("GET:/v1/(find|lookup)/character/", {"mode"}, [this] (APIRequest& apiRequest) -> void {
+		try {
+			mPlayerManagerProxy->lookupCharacter(apiRequest);
 		} catch (http_exception const & e) {
 			apiRequest.fail("Failed to parse request.", "Exception handling request: " + String(e.what()));
 		}
@@ -236,7 +278,7 @@ void RESTServer::routeRequest(http_request& request) {
 				error() << "Unexpected exception in RESTAPITask: " + e.getMessage();
 				request.reply(status_codes::BadGateway, U("Unexpected exception in request router"));
 			}
-		}, "RESTAPITask-" + hitEndpoint.toString(), "slowQueue");
+		}, "RESTAPITask-" + hitEndpoint.toString(), "RESTServerWorker");
 	} catch (Exception& e) {
 		error() << endpointKey << ": Unexpected exception in request router: " + e.getMessage();
 		request.reply(status_codes::BadGateway, U("Unexpected exception in request router"));
@@ -260,6 +302,9 @@ bool RESTServer::checkAuth(http_request& request) {
 
 void RESTServer::start() {
 	auto logLevel = ConfigManager::instance()->getInt("Core3.RESTServer.LogLevel", (int)Logger::INFO);
+	auto numberOfThreads = ConfigManager::instance()->getInt("Core3.RESTServer.WorkerThreads", 4);
+
+	const auto static initialized = Core::getTaskManager()->initializeCustomQueue("RESTServerWorker", numberOfThreads);
 
 	setLogLevel(static_cast<Logger::LogLevel>(logLevel));
 
