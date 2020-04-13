@@ -7,10 +7,11 @@ package server.zone.objects.auction;
 import engine.core.ManagedObject;
 import server.zone.objects.scene.SceneObject;
 import engine.log.Logger;
+include engine.log.LoggerHelperStream;
 include server.zone.objects.scene.variables.StringId;
 
 @json
-class AuctionItem extends ManagedObject implements Logger {
+class AuctionItem extends ManagedObject {
 	protected unsigned long vendorID;
 
 	protected unsigned long auctionedItemObjectID;
@@ -205,10 +206,12 @@ class AuctionItem extends ManagedObject implements Logger {
 		return auction;
 	}
 
-	@read
 	public int getStatus() {
 		return status;
 	}
+
+	@read
+	public native string getStatusString();
 
 	@read
 	public unsigned long getVendorID() {
@@ -291,6 +294,10 @@ class AuctionItem extends ManagedObject implements Logger {
 	}
 
 	@read
+	@local
+	private native Logger getLogger();
+
+	@read
 	public boolean isPremiumAuction() {
 		return auctionOptions & OPTION_PREMIUM;
 	}
@@ -347,4 +354,19 @@ class AuctionItem extends ManagedObject implements Logger {
 
 	@read
 	public native unsigned long getObjectID();
+
+	@read
+	@dereferenced
+	@local
+	public native LoggerHelperStream error();
+
+	@read
+	@dereferenced
+	@local
+	public native LoggerHelperStream info(int forced = false); /*int instead of bool because of const char* implicit cast to bool*/
+
+	@read
+	@dereferenced
+	@local
+	public native LoggerHelperStream debug();
 }

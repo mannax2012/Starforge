@@ -11,7 +11,6 @@
 #include "server/zone/managers/auction/AuctionManager.h"
 
 void AuctionItemImplementation::initializeTransientMembers() {
-	setLoggingName("AuctionItem");
 	ManagedObjectImplementation::initializeTransientMembers();
 }
 
@@ -22,12 +21,6 @@ void AuctionItemImplementation::clearAuctionWithdraw() {
 
 void AuctionItemImplementation::notifyLoadFromDatabase() {
 	clearAuctionWithdraw();
-
-	StringBuffer logName;
-
-	logName << getLoggingName() << " 0x" << hex << getObjectID();
-
-	setLoggingName(logName.toString());
 
 	if (getStatus() == AuctionItem::DELETED) {
 		error() << "notifyLoadFromDatabase(), AuctionItem flagged as DELETED: " << *this;
@@ -69,7 +62,12 @@ bool AuctionItemImplementation::destroyAuctionItemFromDatabase(bool checkAuction
 		if (sellingID > 0) {
 			setAuctionedItemObjectID(0);
 
-			Core::getTaskManager()->executeTask([sellingID] () {
+			Core::getTaskManager()->executeTask([
+				sellingID,
+				aoid = getObjectID(),
+				statusString = getStatusString(),
+				logger = getLogger()
+			] () {
 				auto server = ServerCore::getZoneServer();
 
 				if (server == nullptr)
@@ -79,14 +77,24 @@ bool AuctionItemImplementation::destroyAuctionItemFromDatabase(bool checkAuction
 
 				if (scno != nullptr) {
 					Locker locker(scno);
+
+					if (ConfigManager::instance()->getBool("Core3.AuctionItem.ExportOnDestroy", false)) {
+						StringBuffer exportMsg;
+
+						exportMsg << "destroyAuctionItemFromDatabase"
+							<< " status=" << statusString
+						    << " auctionObjectID: " << aoid
+						;
+
+						auto path = scno->exportJSON(exportMsg.toString());
+
+						logger->info() << "[AuctionItem 0x" << hex << aoid << "] destroyAuctionItemFromDatabase: Exported deleted item to " << path;
+					}
+
 					scno->destroyObjectFromDatabase(true);
 				}
 			}, "AuctionItem_destroyAuctionItemFromDatabase", "slowQueue");
 		}
-	}
-
-	if (getAuctionedItemObjectID() > 0) {
-		warning() << "destroyAuctionItemFromDatabase: still has object attached, auctionItem: " << *this;
 	}
 
 	setAuctionedItemObjectID(0);
@@ -102,4 +110,57 @@ bool AuctionItemImplementation::destroyAuctionItemFromDatabase(bool checkAuction
 
 uint64 AuctionItemImplementation::getObjectID() const {
 	return _this.getReferenceUnsafeStaticCast()->_getObjectID();
+}
+
+String AuctionItemImplementation::getStatusString() const {
+	switch (status) {
+	case FORSALE:	return String("FORSALE");
+	case SOLD:		return String("SOLD");
+	case EXPIRED:	return String("EXPIRED");
+	case OFFERED:	return String("OFFERED");
+	case RETRIEVED:	return String("RETRIEVED");
+	case DELETED:	return String("DELETED");
+	}
+
+	StringBuffer msg;
+	msg << "UnknownStatus(" << status << ")";
+	return msg.toString();
+}
+
+Logger* AuctionItemImplementation::getLogger() const {
+	auto server = ServerCore::getZoneServer();
+
+	if (server != nullptr) {
+		auto auctionManager = server->getAuctionManager();
+
+		if (auctionManager != nullptr) {
+			return auctionManager->getLogger();
+		}
+	}
+
+	return &Logger::console;
+}
+
+LoggerHelper AuctionItemImplementation::error() const {
+	auto logHelper = getLogger()->error();
+
+	logHelper << "[AuctionItem 0x" << hex << getObjectID() << "] ";
+
+	return logHelper;
+}
+
+LoggerHelper AuctionItemImplementation::info(int forced) const {
+	auto logHelper = getLogger()->info(forced);
+
+	logHelper << "[AuctionItem 0x" << hex << getObjectID() << "] ";
+
+	return logHelper;
+}
+
+LoggerHelper AuctionItemImplementation::debug() const {
+	auto logHelper = getLogger()->debug();
+
+	logHelper << "[AuctionItem 0x" << hex << getObjectID() << "] ";
+
+	return logHelper;
 }
