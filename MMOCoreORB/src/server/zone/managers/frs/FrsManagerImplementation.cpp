@@ -19,6 +19,7 @@
 #include "templates/faction/Factions.h"
 #include "server/zone/objects/player/FactionStatus.h"
 #include "server/zone/managers/player/PlayerMap.h"
+#include "server/login/account/Account.h"
 
 void FrsManagerImplementation::initialize() {
 	auto zoneServer = this->zoneServer.get();
@@ -371,7 +372,42 @@ void FrsManagerImplementation::playerLoggedIn(CreatureObject* player) {
 	deductDebtExperience(player);
 }
 
-void FrsManagerImplementation::validatePlayerData(CreatureObject* player) {
+bool FrsManagerImplementation::isBanned(CreatureObject* player) {
+	PlayerObject* ghost = player->getPlayerObject();
+
+	if (ghost == nullptr)
+		return false;
+
+	Reference<Account*> account = ghost->getAccount();
+
+	if (account == nullptr || account->isBanned())
+		return true;
+
+	auto zoneServer = this->zoneServer.get();
+
+	if (zoneServer == nullptr)
+		return false;
+
+	uint galaxyID = zoneServer->getGalaxyID();
+
+	const GalaxyBanEntry* galaxyBan = account->getGalaxyBan(galaxyID);
+
+	if (galaxyBan != nullptr)
+		return true;
+
+	Reference<CharacterList*> characters = account->getCharacterList();
+
+	for (int i = 0; i<characters->size(); i++) {
+		CharacterListEntry& entry = characters->get(i);
+
+		if (entry.getFirstName() == player->getFirstName() && entry.getGalaxyID() == galaxyID && entry.isBanned())
+			return true;
+	}
+
+	return false;
+}
+
+void FrsManagerImplementation::validatePlayerData(CreatureObject* player, bool verifyBan) {
 	if (player == nullptr)
 		return;
 
@@ -379,6 +415,15 @@ void FrsManagerImplementation::validatePlayerData(CreatureObject* player) {
 
 	if (ghost == nullptr)
 		return;
+
+	Reference<Account*> account = ghost->getAccount();
+
+	if (verifyBan && isBanned(player)) {
+		removeFromFrs(player);
+		verifyRoomAccess(player, -1);
+		ghost->recalculateForcePower();
+		return;
+	}
 
 	FrsData* playerData = ghost->getFrsData();
 	int councilType = playerData->getCouncilType();
@@ -603,13 +648,13 @@ void FrsManagerImplementation::removeFromFrs(CreatureObject* player) {
 	}
 
 	playerData->setRank(-1);
-	playerData->setCouncilType(0);
 
 	Locker clocker(managerData, player);
 	managerData->removeChallengeTime(playerID);
 	clocker.release();
 
 	updatePlayerSkills(player);
+	playerData->setCouncilType(0);
 
 	StringIdChatParameter param("@force_rank:council_left"); // You have left the %TO.
 
@@ -3301,7 +3346,7 @@ bool FrsManagerImplementation::handleDarkCouncilDeath(CreatureObject* killer, Cr
 		}
 	}
 
-	if (challengeData == nullptr)
+	if (challengeData == nullptr || challengeData->isChallengeCompleted())
 		return false;
 
 	uint64 challengerID = challengeData->getChallengerID();
