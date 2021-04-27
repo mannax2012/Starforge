@@ -166,6 +166,7 @@ void FrsManagerImplementation::loadLuaConfig() {
 	maxPetitioners = lua->getGlobalInt("maxPetitioners");
 	missedVotePenalty = lua->getGlobalInt("missedVotePenalty");
 	maxChallenges = lua->getGlobalInt("maxChallenges");
+	sameAccountEnclaveRestrictions = lua->getGlobalInt("sameAccountEnclaveRestrictions");
 
 	uint32 enclaveID = lua->getGlobalInt("lightEnclaveID");
 
@@ -415,8 +416,6 @@ void FrsManagerImplementation::validatePlayerData(CreatureObject* player, bool v
 
 	if (ghost == nullptr)
 		return;
-
-	Reference<Account*> account = ghost->getAccount();
 
 	if (verifyBan && isBanned(player)) {
 		removeFromFrs(player);
@@ -850,7 +849,7 @@ void FrsManagerImplementation::adjustFrsExperience(CreatureObject* player, int a
 		return;
 
 	if (amount > 0) {
-          
+
           	if (ghost->hasCappedExperience("force_rank_xp"))
                 {
                 	StringIdChatParameter message("base_player", "prose_hit_xp_cap"); //You have achieved your current limit for %TO experience.
@@ -858,7 +857,7 @@ void FrsManagerImplementation::adjustFrsExperience(CreatureObject* player, int a
                 	player->sendSystemMessage(message);
                 	return;
                 }
-          
+
 		ghost->addExperience("force_rank_xp", amount, true);
 
 		if (sendSystemMessage) {
@@ -1469,6 +1468,21 @@ void FrsManagerImplementation::handleVoteRecordSui(CreatureObject* player, Scene
 	if (playerName.isEmpty()) {
 		player->sendSystemMessage("Unable to find that player.");
 		info("FrsManagerImplementation::handleVoteRecordSui failed to find player " + String::valueOf(playerID), true);
+		return;
+	}
+
+	ManagedReference<CreatureObject*> petitioner = zoneServer->getObject(petitionerID).castTo<CreatureObject*>();
+
+	if (petitioner == nullptr)
+		return;
+
+	PlayerObject* petitionerGhost = petitioner->getPlayerObject();
+
+	if (petitionerGhost == nullptr)
+		return;
+
+	if (sameAccountEnclaveRestrictions && ghost->getAccountID() == petitionerGhost->getAccountID()) {
+		player->sendSystemMessage("You cannot vote for other characters on your account.");
 		return;
 	}
 
@@ -2224,8 +2238,15 @@ void FrsManagerImplementation::handleChallengeVoteIssueSui(CreatureObject* playe
 
 	PlayerObject* challengedGhost = challenged->getPlayerObject();
 
+
 	if (challengedGhost == nullptr)
 		return;
+
+	if (sameAccountEnclaveRestrictions && ghost->getAccountID() == challengedGhost->getAccountID()) {
+		player->sendSystemMessage("You cannot issue challenges against other characters on your account.");
+		return;
+	}
+
 
 	Locker xlock(challenged, player);
 
@@ -2595,6 +2616,11 @@ void FrsManagerImplementation::handleVoteDemoteSui(CreatureObject* player, Scene
 
 	if (demoteGhost == nullptr)
 		return;
+
+	if (sameAccountEnclaveRestrictions && ghost->getAccountID() == demoteGhost->getAccountID()) {
+		player->sendSystemMessage("You cannot vote to demote other characters on your account.");
+		return;
+	}
 
 	FrsData* demotePlayerData = demoteGhost->getFrsData();
 	int demotePlayerRank = demotePlayerData->getRank();
@@ -3400,6 +3426,11 @@ bool FrsManagerImplementation::handleDarkCouncilDeath(CreatureObject* killer, Cr
 	if (rankData == nullptr)
 		return true;
 
+	if (challengerWon) {
+		modifySuddenDeathFlags(killer, rankData, true);
+		rankData->removeFromPetitionerList(challengerID);
+	}
+
 	Locker clocker(rankData, managerData);
 
 	SortedVector<uint64>* playerList = rankData->getPlayerList();
@@ -3544,6 +3575,17 @@ void FrsManagerImplementation::acceptArenaChallenge(CreatureObject* player, uint
 	if (challenger == nullptr)
 		return;
 
+	PlayerObject* ghost = player->getPlayerObject();
+	PlayerObject* challengerGhost = challenger->getPlayerObject();
+
+	if (ghost == nullptr || challengerGhost == nullptr)
+		return;
+
+	if (sameAccountEnclaveRestrictions && ghost->getAccountID() == challengerGhost->getAccountID()) {
+		player->sendSystemMessage("You cannot accept a challenge from other characters on your account.");
+		return;
+	}
+
 	challengeData->setChallengeAccepterID(player->getObjectID());
 
 	if (!challenger->isOnline() || challenger->isDead() || !isPlayerInEnclave(challenger)) {
@@ -3622,11 +3664,24 @@ void FrsManagerImplementation::acceptArenaChallenge(CreatureObject* player, uint
 }
 
 void FrsManagerImplementation::teleportPlayerToDarkArena(CreatureObject* player) {
-	if (!isPlayerInEnclave(player))
+	if (!isPlayerInEnclave(player)) {
 		return;
+	}
 
 	float randX = -12.f + System::random(24);
 	float randY = -85.f + System::random(24);
+
+	PlayerObject* ghost = player->getPlayerObject();
+
+	if (ghost != nullptr) {
+		ghost->setForcedTransform(true);
+
+		uint64 playerCell = player->getParentID();
+
+		auto msg = player->info();
+		msg << "Dark Enclave Arena Movement  X = " << randX  << "  Y = " << randY << " Cell ID:  " << playerCell;
+		msg.flush();
+	}
 
 	player->teleport(randX, -47.424f, randY, ARENA_CELL);
 }

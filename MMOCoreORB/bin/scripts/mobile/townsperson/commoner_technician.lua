@@ -2,8 +2,8 @@ commoner_technician = Creature:new {
 	objectName = "@mob/creature_names:technician",
 	randomNameType = NAME_GENERIC,
 	randomNameTag = true,
-	socialGroup = "townsperson",
-	faction = "townsperson",
+	socialGroup = "",
+	faction = "",
 	level = 4,
 	chanceHit = 0.24,
 	damageMin = 40,
@@ -22,7 +22,7 @@ commoner_technician = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = NONE,
+	pvpBitmask = ATTACKABLE,
 	creatureBitmask = HERD,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
@@ -32,13 +32,12 @@ commoner_technician = Creature:new {
 				"object/mobile/dressed_commoner_artisan_bith_male_01.iff",
 				"object/mobile/dressed_commoner_artisan_sullustan_male_01.iff",
 				"object/mobile/dressed_artisan_trainer_01.iff",
-					},
-				
-	lootGroups = {},
-	weapons = {},
+				},
+
+	lootGroups = {"junk"},
+	weapons = {"ranged_weapons"},
 	conversationTemplate = "",
-	attacks = {
-	}
+	attacks = merge(brawlermid, marksmanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(commoner_technician, "commoner_technician")

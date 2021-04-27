@@ -28,7 +28,7 @@ commoner_old = Creature:new {
 	diet = HERBIVORE,
 
 	templates = { "commoner_old" },
-				
+
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",

@@ -1236,6 +1236,9 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 		return gameObjectType;
 	}
 
+	@dirty
+	public native string getGameObjectTypeStringID();
+
 	@read
 	public unsigned int getClientGameObjectType() {
 		return templateObject.getClientGameObjectType();
@@ -1685,6 +1688,11 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 
 	@dirty
 	public abstract boolean isPharmaceuticalObject() {
+		return false;
+	}
+
+	@dirty
+	public abstract boolean isDotPackObject() {
 		return false;
 	}
 
@@ -2172,4 +2180,3 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 	@local
 	public abstract native void getChildrenRecursive(@dereferenced SortedVector<unsigned long> childrenObjectsFound, int maxDepth = 50, boolean pruneCreo = false, boolean pruneCraftedComponents = false);
 }
-

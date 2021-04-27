@@ -532,8 +532,9 @@ void TangibleObjectImplementation::removeDefender(SceneObject* defender) {
 		}
 	}
 
-	if (defenderList.size() == 0)
+	if (defenderList.size() == 0) {
 		clearCombatState(false);
+	}
 
 	debug("finished removing defender");
 }
@@ -558,7 +559,19 @@ void TangibleObjectImplementation::fillAttributeList(AttributeListMessage* alm, 
 		alm->insertAttribute("condition", cond);
 	}
 
-	alm->insertAttribute("volume", volume);
+	int volumeLimit = getContainerVolumeLimit();
+
+	if (volumeLimit >= 1 && getContainerType() == ContainerType::VOLUME) {
+		int objectCount = getCountableObjectsRecursive();
+
+		StringBuffer contentsString;
+		contentsString << objectCount << "/" << volumeLimit;
+
+		alm->insertAttribute("volume", volume + objectCount);
+		alm->insertAttribute("contents", contentsString);
+	} else {
+		alm->insertAttribute("volume", volume);
+	}
 
 	if (!craftersName.isEmpty()) {
 		alm->insertAttribute("crafter", craftersName);
@@ -743,12 +756,15 @@ int TangibleObjectImplementation::notifyObjectDestructionObservers(TangibleObjec
 
 	dropFromDefenderLists();
 
+	attacker->removeDefender(asTangibleObject());
+
 	return 1;
 }
 
 void TangibleObjectImplementation::dropFromDefenderLists() {
-	if (defenderList.size() == 0)
+	if (defenderList.size() == 0) {
 		return;
+	}
 
 	Reference<ClearDefenderListsTask*> task = new ClearDefenderListsTask(defenderList, asTangibleObject());
 	Core::getTaskManager()->executeTask(task);

@@ -4,25 +4,25 @@ CityControlLanding = ScreenPlay:new {
 	screenplayName = "CityControlLanding",
 
 	locations = {
-		--{"coronet", "corellia"},
-		--{"bela_vistal", "corellia"},
-		--{"theed", "naboo"},
-		--{"moenia", "naboo"},
+		{"coronet", "corellia"},
+		{"bela_vistal", "corellia"},
+		{"theed", "naboo"},
+		{"moenia", "naboo"},
 		{"bestine", "tatooine"},
 		{"anchorhead", "tatooine"}
 	},
 
 	coordinates = {
 		--{x, z, y, direction}
-		--{-148, 28, -4715, 179}, -- 1 Coronet
-		--{6902, 330, -5550, 179}, -- 2 Bela Vistal
-		--{-4897, 6, 4124, 179}, -- 3 Theed
-		--{4812, 4, -4700, 179}, --  4 Moenia
+		{-148, 28, -4715, 179}, -- 1 Coronet
+		{6902, 330, -5550, 179}, -- 2 Bela Vistal
+		{-4897, 6, 4124, 179}, -- 3 Theed
+		{4812, 4, -4700, 179}, --  4 Moenia
 		{-1282, 12, -3584, 180}, -- 5 Bestine
 		{112, 52, -5340, 180}, -- 6 Anchorhead
 	},
 
-	rebelLanding = {"object/creature/npc/theme_park/player_shuttle.iff", "leia_organa_city_control", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant"},
+	rebelLanding = {"object/creature/npc/theme_park/player_shuttle2.iff", "leia_organa_city_control", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant", "rebel_commandant"},
 	imperialLanding = {"object/creature/npc/theme_park/lambda_shuttle.iff", "darth_vader_city_control", "elite_novatrooper_commander", "elite_novatrooper", "elite_novatrooper", "elite_novatrooper", "elite_novatrooper", "elite_novatrooper", "elite_novatrooper"},
 	rebelSpawnOffsetY = 5,
 	imperialSpawnOffsetY = 12,
@@ -35,12 +35,12 @@ function CityControlLanding:start()
 end
 
 function CityControlLanding:chanceToSpawn()
-	local chance = getRandomNumber(49)
+	local chance = getRandomNumber(100)
 
-	if (chance <= 50) then --if (chance <= 5) then
-		createEvent(15 * 60 * 1000, "CityControlLanding", "spawnCityLanding", "", "") --15min after chance roll to allow for load time
+	if (chance <= 15) then -- 15% Chance
+		createEvent(20 * 60 * 1000, "CityControlLanding", "spawnCityLanding", "", "") --20min after chance roll to allow for load time
 	else
-		createEvent(6 * 60 * 60 * 1000, "CityControlLandingScreenplay", "chanceToSpawn", "", "") --6hrs
+		createEvent(6 * 60 * 60 * 1000, "CityControlLanding", "chanceToSpawn", "", "") --6hrs
 	end
 end
 
@@ -79,9 +79,7 @@ function CityControlLanding:spawnCityLanding()
 
 	if (pShuttle ~= nil) then
 
-		local shuttlePost = readStringData("ShuttlePosture:")
-
-		if (shuttleTemplate == "object/creature/npc/theme_park/player_shuttle.iff") then
+		if (shuttleTemplate == "object/creature/npc/theme_park/player_shuttle2.iff") then
 			CreatureObject(pShuttle):setPosture(PRONE)
 		else
 			CreatureObject(pShuttle):setPosture(UPRIGHT)
@@ -105,12 +103,21 @@ function CityControlLanding:broadcastMessage(pShuttle)
 
 	local playerTable = SceneObject(pShuttle):getPlayersInRange(150)
 	local landingType = readStringData("LandingType:")
+	local landingStep = readStringData("NextPoint:")
 	local broadcastTemplate = ""
 
-	if (landingType == "REBEL") then
-		broadcastTemplate= "<<Incoming Alliance Transmission: Ground control, this is shuttle Alder Six-Two. We have the Princess on board and are coming in for a landing.>>"
+	if (landingStep == "shuttle")   then
+		if (landingType == "REBEL") then
+			broadcastTemplate= "@gcwlaunchevent:closingbroadcast_1"
+		else
+			broadcastTemplate = "@gcwlaunchevent:closingbroadcast_0"
+		end
 	else
-		broadcastTemplate = "<<Incoming Imperial Transmission: Command station, this is ST321, code clearance blue. We're starting our approach.>>"
+		if (landingType == "REBEL") then
+			broadcastTemplate= "@gcwlaunchevent:areabroadcast_1"
+		else
+			broadcastTemplate = "@gcwlaunchevent:areabroadcast_0"
+		end
 	end
 
 	if (#playerTable > 0) then
@@ -374,7 +381,8 @@ function CityControlLanding:despawnLanding()
 	end
 
 	createEvent(5 * 1000, "CityControlLanding", "despawnMobiles", "", "")
-	createEvent(27 * 1000, "CityControlLanding", "handleShuttlePosture", pShuttle, "")
+	createEvent(26 * 1000, "CityControlLanding", "broadcastMessage", pShuttle, "")
+	createEvent(28 * 1000, "CityControlLanding", "handleShuttlePosture", pShuttle, "")
 	createEvent(10 * 60 * 1000, "CityControlLanding", "cleanUp", "", "")
 end
 
@@ -482,6 +490,5 @@ function CityControlLanding:cleanUp()
 	SceneObject(pShuttle):destroyObjectFromWorld()
 	deleteData(1 .. ":LandingParty")
 
-	--createEvent(4 * 60 * 60 * 1000, "CityControlLanding", "chanceToSpawn", "", "") -- 4 hrs
-	createEvent(15 * 60 * 1000, "CityControlLanding", "chanceToSpawn", "", "") -- 15min TESTING
+	createEvent(4 * 60 * 60 * 1000, "CityControlLanding", "chanceToSpawn", "", "") -- 4 hrs
 end
