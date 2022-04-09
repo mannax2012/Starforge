@@ -1,4 +1,4 @@
-## [Full Guide and info for installing the Dev VM.](https://github.com/ModTheGalaxy/mtgserver/wiki/Guide-DevEnv-Setup)
+## This Repo is now archived and no longer updated.
 
 
 # SWGEmu Core3 #
