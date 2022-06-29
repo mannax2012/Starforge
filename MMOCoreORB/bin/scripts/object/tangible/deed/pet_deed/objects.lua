@@ -40,64 +40,16 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_tangible_deed_pet_deed_shared_be_tusken_massif_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_be_tusken_massif_deed.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_be_tusken_massif_deed, "object/tangible/deed/pet_deed/shared_be_tusken_massif_deed.iff")
+
+object_tangible_deed_pet_deed_shared_droid_hk47_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_droid_hk47_deed.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_droid_hk47_deed, "object/tangible/deed/pet_deed/shared_droid_hk47_deed.iff")
 
 object_tangible_deed_pet_deed_shared_acklay_deed = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_acklay_deed.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/rancor_hue.sat",
-	arrangementDescriptorFilename = "",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 8211,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@pet_deed:acklay",
-
-	gameObjectType = 8211,
-
-	locationReservationRadius = 0,
-	lookAtText = "",
-
-	noBuildRadius = 0,
-
-	objectName = "@pet_deed:acklay",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 1956514459,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff"}
-]]
-}
-
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_acklay_deed.iff"}
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_acklay_deed, "object/tangible/deed/pet_deed/shared_acklay_deed.iff")
 
 object_tangible_deed_pet_deed_shared_angler_deed = SharedTangibleObjectTemplate:new {

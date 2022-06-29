@@ -235,10 +235,32 @@ CitySpecializations = {
 		}
 	},
 	{--Stronghold
-		name = "@city/city:city_spec_stronghold",
+		name = "@city/city:city_spec_hogwarts",
 		cost = 150000,
 		skillMods = {
-			{"private_defense", 90}
+			{"private_defense", 90},
+			{"private_spec_samplesize", 20},
+			{"private_spec_samplerate", 10},
+			{"private_spec_assembly", 10},
+			{"private_medical_rating", 100},
+			{"private_spec_cloning", 20},
+			{"private_spec_experimentation", 15},
+			{"private_spec_missions", 15},
+			{"private_spec_entertainer", 10}
 		}
+	--{--ALL OF THEM
+		--name = "@city/city:city_spec_hogwarts",
+		--cost = 150000,
+		--skillMods = {
+		--	{"private_defense", 90},
+		--	{"private_spec_samplesize", 20},
+			--{"private_spec_samplerate", 10},
+		--	{"private_spec_assembly", 10},
+		--	{"private_medical_rating", 100},
+			--{"private_spec_cloning", 20},
+			--{"private_spec_experimentation", 15},
+		--	{"private_spec_missions", 15},
+		--	{"private_spec_entertainer", 10}
+	--	}
 	},
 }

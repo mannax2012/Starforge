@@ -46,6 +46,8 @@
 
 -- Server Objects
 includeFile("intangible/pet/21b_surgical_droid.lua")
+includeFile("intangible/pet/hk47_hue.lua")
+includeFile("intangible/pet/be_tusken_massif_hue.lua")
 includeFile("intangible/pet/3po_protocol_droid.lua")
 includeFile("intangible/pet/3po_protocol_droid_crafted.lua")
 includeFile("intangible/pet/3po_protocol_droid_red.lua")

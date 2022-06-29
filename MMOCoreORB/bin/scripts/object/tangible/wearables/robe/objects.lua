@@ -41,64 +41,22 @@
 --which carries forward this exception.
 
 
+--new stuff
+object_tangible_wearables_robe_shared_robe_jedi_light_master_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_light_master_s01.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_master_s01, 
+"object/tangible/wearables/robe/shared_robe_light_master_s01.iff")
+
+object_tangible_wearables_robe_shared_robe_jedi_light_master_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_light_master_s02.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_master_s02, 
+"object/tangible/wearables/robe/shared_robe_light_master_s02.iff")
+
+--mtg stuff
 object_tangible_wearables_robe_shared_aakuan_robe = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/wearables/robe/shared_aakuan_robe.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/robe_s05_h0_f.sat",
-	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/cloak.iff",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 16777221,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@wearables_detail:aakuan_robe",
-
-	gameObjectType = 16777221,
-
-	locationReservationRadius = 0,
-	lookAtText = "@wearables_lookat:robe_s05",
-
-	noBuildRadius = 0,
-
-	objectName = "@wearables_name:aakuan_robe",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/tangible.iff",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 518208123,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/tangible/wearables/base/shared_wearables_base.iff", "object/tangible/wearables/base/shared_base_cloak.iff"}
-]]
-}
-
-ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_aakuan_robe, "object/tangible/wearables/robe/shared_aakuan_robe.iff")
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_aakuan_robe.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_aakuan_robe, 
+"object/tangible/wearables/robe/shared_aakuan_robe.iff")
 
 object_tangible_wearables_robe_shared_robe_inquisitor = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_inquisitor.iff"

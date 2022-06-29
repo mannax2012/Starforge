@@ -45,6 +45,7 @@
 --Children folder includes
 
 -- Server Objects
+includeFile("tangible/wearables/backpack/backpack_ns_dev_bag.lua")
 includeFile("tangible/wearables/backpack/backpack_s01.lua")
 includeFile("tangible/wearables/backpack/backpack_s03.lua")
 includeFile("tangible/wearables/backpack/backpack_s03_quest.lua")

@@ -41,6 +41,12 @@
 --which carries forward this exception.
 
 
+object_tangible_component_droid_shared_hk47_droid_chassis = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/droid/shared_hk47_droid_chassis.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_component_droid_shared_hk47_droid_chassis, 
+"object/tangible/component/droid/shared_hk47_droid_chassis.iff")
+
+
 object_tangible_component_droid_shared_advanced_droid_frame = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/component/droid/shared_advanced_droid_frame.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups

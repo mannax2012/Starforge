@@ -45,6 +45,7 @@
 --Children folder includes
 
 -- Server Objects
+includeFile("tangible/loot/loot_schematic/droid_hk47_loot_schematic.lua")
 includeFile("tangible/loot/loot_schematic/agitator_motor_schematic.lua")
 includeFile("tangible/loot/loot_schematic/assorted_fruit_schematic.lua")
 includeFile("tangible/loot/loot_schematic/bacta_tank_schematic.lua")
