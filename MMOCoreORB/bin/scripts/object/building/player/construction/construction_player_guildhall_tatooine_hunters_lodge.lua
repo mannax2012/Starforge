@@ -41,38 +41,9 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_draft_schematic_chemistry_medpack_enhance_strength_d = object_draft_schematic_chemistry_shared_medpack_enhance_strength_d:new {
-
-	templateType = DRAFTSCHEMATIC,
-
-	customObjectName = "Enhance Strength Medpack - D",
-
-	craftingToolTab = 64, -- (See DraftSchematicObjectTemplate.h)
-	complexity = 37,
-	size = 3,
-	factoryCrateSize = 100,
-	factoryCrateType = "object/factory/factory_crate_chemicals.iff",
-
-	xpType = "crafting_medicine_general",
-	xp = 90,
-
-	assemblySkill = "medicine_assembly",
-	experimentingSkill = "medicine_experimentation",
-	customizationSkill = "medicine_customization",
-
-	customizationOptions = {},
-	customizationStringNames = {},
-	customizationDefaults = {},
-
-	ingredientTemplateNames = {"craft_chemical_ingredients_n", "craft_chemical_ingredients_n", "craft_chemical_ingredients_n", "craft_chemical_ingredients_n", "craft_chemical_ingredients_n"},
-	ingredientTitleNames = {"organic_element", "inorganic_element", "delivery_medium", "drug_duration_compound", "drug_strength_compound"},
-	ingredientSlotType = {0, 0, 1, 1, 1},
-	resourceTypes = {"meat_avian", "gas_reactive", "object/tangible/component/chemistry/shared_solid_delivery_shell.iff", "object/tangible/component/chemistry/shared_release_mechanism_duration.iff", "object/tangible/component/chemistry/shared_biologic_effect_controller.iff"},
-	resourceQuantities = {22, 22, 1, 2, 2},
-	contribution = {100, 100, 100, 100, 100},
-
-	targetTemplate = "object/tangible/medicine/crafted/medpack_enhance_strength_d.iff",
-
-	additionalTemplates = {}
+object_building_player_construction_construction_player_guildhall_tatooine_hunters_lodge = object_building_player_construction_shared_construction_player_guildhall_tatooine_hunters_lodge:new {
+	gameObjectType = 4096,
+	enableNavMeshUpdates = false
 }
-ObjectTemplates:addTemplate(object_draft_schematic_chemistry_medpack_enhance_strength_d, "object/draft_schematic/chemistry/medpack_enhance_strength_d.iff")
+
+ObjectTemplates:addTemplate(object_building_player_construction_construction_player_guildhall_tatooine_hunters_lodge, "object/building/player/construction/construction_player_guildhall_tatooine_hunters_lodge.iff")

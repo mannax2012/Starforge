@@ -95,6 +95,7 @@ object_tangible_wearables_backpack_backpack_ns_dev_bag = object_tangible_wearabl
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/ithorian_male.iff",
 				"object/creature/player/ithorian_female.iff", },
+				
 	numberExperimentalProperties = {1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "XX"},
 	experimentalWeights = {1, 1, 1, 1},

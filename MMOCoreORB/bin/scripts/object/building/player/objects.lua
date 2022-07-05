@@ -40,6 +40,10 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_building_player_shared_player_guildhall_tatooine_hunters_lodge = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/shared_player_guildhall_tatooine_hunters_lodge.iff"}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_guildhall_tatooine_hunters_lodge, 
+"object/building/player/shared_player_guildhall_tatooine_hunters_lodge.iff")
 
 object_building_player_shared_construction_structure = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/building/player/shared_construction_structure.iff"

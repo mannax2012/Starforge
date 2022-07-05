@@ -41,38 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_draft_schematic_chemistry_medpack_enhance_strength_d = object_draft_schematic_chemistry_shared_medpack_enhance_strength_d:new {
+object_tangible_deed_guild_deed_tatooine_hunters_lodge_deed = object_tangible_deed_guild_deed_shared_tatooine_hunters_lodge_deed:new {
+	templateType = STRUCTUREDEED,
+	placeStructureComponent = "PlaceStructureComponent",
+	generatedObjectTemplate = "object/building/player/player_guildhall_tatooine_style_01.iff",
 
-	templateType = DRAFTSCHEMATIC,
 
-	customObjectName = "Enhance Strength Medpack - D",
 
-	craftingToolTab = 64, -- (See DraftSchematicObjectTemplate.h)
-	complexity = 37,
-	size = 3,
-	factoryCrateSize = 100,
-	factoryCrateType = "object/factory/factory_crate_chemicals.iff",
-
-	xpType = "crafting_medicine_general",
-	xp = 90,
-
-	assemblySkill = "medicine_assembly",
-	experimentingSkill = "medicine_experimentation",
-	customizationSkill = "medicine_customization",
-
-	customizationOptions = {},
-	customizationStringNames = {},
-	customizationDefaults = {},
-
-	ingredientTemplateNames = {"craft_chemical_ingredients_n", "craft_chemical_ingredients_n", "craft_chemical_ingredients_n", "craft_chemical_ingredients_n", "craft_chemical_ingredients_n"},
-	ingredientTitleNames = {"organic_element", "inorganic_element", "delivery_medium", "drug_duration_compound", "drug_strength_compound"},
-	ingredientSlotType = {0, 0, 1, 1, 1},
-	resourceTypes = {"meat_avian", "gas_reactive", "object/tangible/component/chemistry/shared_solid_delivery_shell.iff", "object/tangible/component/chemistry/shared_release_mechanism_duration.iff", "object/tangible/component/chemistry/shared_biologic_effect_controller.iff"},
-	resourceQuantities = {22, 22, 1, 2, 2},
-	contribution = {100, 100, 100, 100, 100},
-
-	targetTemplate = "object/tangible/medicine/crafted/medpack_enhance_strength_d.iff",
-
-	additionalTemplates = {}
+	numberExperimentalProperties = {1, 1, 1},
+	experimentalProperties = {"XX", "XX", "DR"},
+	experimentalWeights = {1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_durability"},
+	experimentalSubGroupTitles = {"null", "null", "hitpoints"},
+	experimentalMin = {0, 0, 50000},
+	experimentalMax = {0, 0, 100000},
+	experimentalPrecision = {0, 0, 0},
+	experimentalCombineType = {0, 0, 4},
 }
-ObjectTemplates:addTemplate(object_draft_schematic_chemistry_medpack_enhance_strength_d, "object/draft_schematic/chemistry/medpack_enhance_strength_d.iff")
+
+ObjectTemplates:addTemplate(object_tangible_deed_guild_deed_tatooine_hunters_lodge_deed, "object/tangible/deed/guild_deed/tatooine_hunters_lodge_deed.iff")

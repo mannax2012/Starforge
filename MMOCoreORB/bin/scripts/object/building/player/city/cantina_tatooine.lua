@@ -42,19 +42,19 @@
 
 
 object_building_player_city_cantina_tatooine = object_building_player_city_shared_cantina_tatooine:new {
-	lotSize = 5,
+	lotSize = 1,
 	baseMaintenanceRate = 50,
-	allowedZones = {"dantooine", "lok", "tatooine"},
+	allowedZones = {"dantooine", "naboo", "rori", "lok", "tatooine", "corellia", "talus"},
 	length = 7,
 	width = 7,
 	planetMapCategory = "cantina",
-	cityRankRequired = 2,
+	cityRankRequired = 1,
 	limitToOnePerCity = 0,
 	abilityRequired = "place_cantina",
 	skillMods = {
-		{"private_buff_mind", 100},
-		{"private_medical_rating", 100},
-		{"private_med_battle_fatigue", 5},
+		{"private_buff_mind", 150},
+		{"private_medical_rating", 150},
+		{"private_med_battle_fatigue", 15},
 		{"private_safe_logout", 1}
 	},
 	zoneComponent = "StructureZoneComponent",

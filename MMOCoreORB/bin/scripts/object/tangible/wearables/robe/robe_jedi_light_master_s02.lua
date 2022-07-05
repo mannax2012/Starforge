@@ -99,6 +99,7 @@ object_tangible_wearables_robe_robe_jedi_light_master_s02 = object_tangible_wear
 		{"jedi_force_power_max", 2500},
         {"lightsaber_toughness", 40},
         {"jedi_toughness", 40},
+		{"force_defense", 40},
 		{"jedi_force_power_regen", 150}
 	},
 

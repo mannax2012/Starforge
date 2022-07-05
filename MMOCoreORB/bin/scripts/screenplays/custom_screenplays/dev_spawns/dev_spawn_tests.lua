@@ -17,7 +17,7 @@ end
 
 function dev_spawn_tests:spawnSceneObjects()
 
-spawnSceneObject("tatooine", "object/static/structure/content/exar_kun_torture_table.iff", 100, 6100, -25.8, 3900, -104, 0)
+--spawnSceneObject("tatooine", "object/static/structure/content/exar_kun_torture_table.iff", 6033.9, 48.0, 3842.7, 0, -104, 0)
 	--spawnSceneObject("tatooine", "object/static/structure/general/droid_r4_powerdown.iff", 3500, 5, -4601, math.rad(0) )
 	
 end
