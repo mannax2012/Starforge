@@ -114,3 +114,6 @@ includeFile("draft_schematic/bio_engineer/creature/creature_vesp.lua")
 includeFile("draft_schematic/bio_engineer/creature/creature_vir_vur.lua")
 includeFile("draft_schematic/bio_engineer/creature/creature_woolamander.lua")
 includeFile("draft_schematic/bio_engineer/creature/creature_zucca_boar.lua")
+
+--creature_tusken_massif
+includeFile("draft_schematic/bio_engineer/creature/creature_tusken_massif.lua")

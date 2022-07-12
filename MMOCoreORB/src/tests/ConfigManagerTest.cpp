@@ -70,7 +70,7 @@ TEST_F(ConfigManagerTest, TreFiles) {
 	ASSERT_TRUE(treFilesToLoad.size() != 0);
 
 	// Make sure it's not sorted
-	ASSERT_TRUE(treFilesToLoad.get(0) == "mtg_patch_023.tre"); // Top tre in config.lua goes here.
+	ASSERT_TRUE(treFilesToLoad.get(0) == "mannax_rogue.tre"); // Top tre in config.lua goes here.
 
 	std::cerr << "[>>>>>>>>>>] TreFiles = { '";
 

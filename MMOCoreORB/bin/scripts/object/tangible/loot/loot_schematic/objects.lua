@@ -41,6 +41,10 @@
 --which carries forward this exception.
 
 
+object_tangible_loot_loot_schematic_shared_droid_hk47_loot_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_droid_hk47_loot_schematic.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_droid_hk47_loot_schematic, "object/tangible/loot/loot_schematic/shared_droid_hk47_loot_schematic.iff")
+
 object_tangible_loot_loot_schematic_shared_agitator_motor_schematic = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_agitator_motor_schematic.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
@@ -99,6 +103,7 @@ object_tangible_loot_loot_schematic_shared_agitator_motor_schematic = SharedTang
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_agitator_motor_schematic, "object/tangible/loot/loot_schematic/shared_agitator_motor_schematic.iff")
+
 
 object_tangible_loot_loot_schematic_shared_assorted_fruit_schematic = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_assorted_fruit_schematic.iff"

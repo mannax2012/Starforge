@@ -40,6 +40,11 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_draft_schematic_droid_shared_droid_hk47_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/droid/shared_droid_hk47_schematic.iff"}
+ObjectTemplates:addClientTemplate(object_draft_schematic_droid_shared_droid_hk47_schematic, 
+"object/draft_schematic/droid/shared_droid_hk47_schematic.iff")
+
 
 object_draft_schematic_droid_shared_bounty_probot_transmitter = SharedDraftSchematicObjectTemplate:new {
 	clientTemplateFileName = "object/draft_schematic/droid/shared_bounty_probot_transmitter.iff"

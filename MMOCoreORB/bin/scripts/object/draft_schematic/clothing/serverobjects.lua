@@ -550,3 +550,7 @@ includeFile("draft_schematic/clothing/clothing_wke_skirt_s01.lua")
 includeFile("draft_schematic/clothing/clothing_wke_skirt_s02.lua")
 includeFile("draft_schematic/clothing/clothing_wke_skirt_s03.lua")
 includeFile("draft_schematic/clothing/clothing_wke_skirt_s04.lua")
+
+--Rebreather schem
+includeFile("draft_schematic/clothing/clothing_goggles_rebreather.lua")
+includeFile("draft_schematic/clothing/clothing_jewelry_ring_nightsister.lua")

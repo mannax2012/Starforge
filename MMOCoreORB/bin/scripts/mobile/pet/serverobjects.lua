@@ -1,4 +1,6 @@
-
+includeFile("pet/be_tusken_massif.lua")
+includeFile("pet/hk47_crafted.lua")
+--MTG OGs
 includeFile("pet/angler_be.lua")
 includeFile("pet/bageraset_be.lua")
 includeFile("pet/bantha_be.lua")

@@ -40,6 +40,11 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_tangible_deed_guild_deed_shared_tatooine_hunters_lodge_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/guild_deed/shared_tatooine_hunters_lodge_deed.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_guild_deed_shared_tatooine_hunters_lodge_deed, 
+"object/tangible/deed/guild_deed/shared_tatooine_hunters_lodge_deed.iff")
+
 
 object_tangible_deed_guild_deed_shared_corellia_guild_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/guild_deed/shared_corellia_guild_deed.iff"

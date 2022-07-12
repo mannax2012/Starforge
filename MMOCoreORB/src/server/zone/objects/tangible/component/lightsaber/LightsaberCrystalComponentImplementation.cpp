@@ -180,6 +180,23 @@ void LightsaberCrystalComponentImplementation::validateCrystalStats() {
 			attackSpeed = Math::getPrecision(getRandomizedStat(minFloatStat, maxFloatStat, itemLevel), 2);
 	}
 }
+// Do Exceptional Chances modifiers here!
+//	if (crystalExcMod == 1.5){
+//		damage += 10;
+//		woundChance += 1;
+//		floatForceCost -= 0.50;
+//	}
+//	else if (crystalExcMod == 2.0){
+//		damage += 15;
+//		woundChance += 2;
+//		floatForceCost -= 0.75;
+//	}
+//	else if (crystalExcMod == 3.0){
+//		damage += 20;
+//		woundChance += 3;
+//		floatForceCost -= 1.25;
+//	}	
+//}
 
 int LightsaberCrystalComponentImplementation::getCrystalQuality() {
 	if (itemLevel < 40)

@@ -41,9 +41,9 @@
 --which carries forward this exception.
 
 --Determines how often exceptional and legendary items can drop.
-yellowChance = 1000 -- 1 in 1,000
-exceptionalChance = 100000 --1 in 100,000
-legendaryChance = 1000000 --1 in 1,000,000
+yellowChance = 10 -- 1 in 1,000
+exceptionalChance = 50 --1 in 100,000
+legendaryChance = 100 --1 in 1,000,000
 --yellowChance = 50 --1 in 50 for testing
 --exceptionalChance = 100 --1 in 100 for testing
 --legendaryChance = 1000 --1 in 1000 for testing
@@ -54,7 +54,7 @@ exceptionalModifier = 2.5
 legendaryModifier = 5.0
 
 --The chance for random skill mods to be on looted weapons/wearables
-skillModChance = 500 -- 1 in 500
+skillModChance = 1 -- 1 in 500
 
 -- Value ranges for random dots on looted weapons (chance is set individually on the loot items)
 randomDotAttribute = {0, 8} -- See CreatureAttributes.h in src for numbers.
@@ -728,14 +728,14 @@ lootablePolearmStatMods = {
 	"block",
 	"camouflage",
 	"combat_bleeding_defense",
-	"counterattack",
+	--"counterattack",
 	"dizzy_defense",
 	"dodge",
 	"droid_find_chance",
 	"droid_find_speed",
 	"droid_track_chance",
 	"droid_track_speed",
-	"foraging",
+	--"foraging",
 	"group_slope_move",
 	"intimidate",
 	"intimidate_defense",
@@ -744,9 +744,9 @@ lootablePolearmStatMods = {
 	"polearm_accuracy",
 	"polearm_speed",
 	"posture_change_down_defense",
-	"posture_change_up_defense",
+	--"posture_change_up_defense",
 	"ranged_defense",
-	"rescue",
+	--"rescue",
 	"resistance_bleeding",
 	"resistance_disease",
 	"resistance_fire",
@@ -755,8 +755,8 @@ lootablePolearmStatMods = {
 	"stun_defense",
 	"tame_aggro",
 	"tame_non_aggro",
-	"thrown_accuracy",
-	"thrown_speed",
+	--"thrown_accuracy",
+	--"thrown_speed",
 	"warcry"
 }
 
@@ -804,7 +804,7 @@ lootableHeavyWeaponStatMods = {
 -- Values used to generate lightsaber crystal stats
 jediCrystalStats = {
 	lightsaber_module_force_crystal = {
-		minDamage = 0,
+		minDamage = 10,
 		maxDamage = 50,
 		minHitpoints = 700,
 		maxHitpoints = 1400,
@@ -822,8 +822,8 @@ jediCrystalStats = {
 		maxWoundChance = 4,
 	},
 	lightsaber_module_krayt_dragon_pearl = {
-		minDamage = 20,
-		maxDamage = 50,
+		minDamage = 30,
+		maxDamage = 60,
 		minHitpoints = 900,
 		maxHitpoints = 1400,
 		minHealthSac = -6,
@@ -835,7 +835,7 @@ jediCrystalStats = {
 		minAttackSpeed = -0.3,
 		maxAttackSpeed = -0.6,
 		minForceCost = -5.0,
-		maxForceCost = -9.9,
+		maxForceCost = -10,
 		minWoundChance = 2,
 		maxWoundChance = 4,
 	}

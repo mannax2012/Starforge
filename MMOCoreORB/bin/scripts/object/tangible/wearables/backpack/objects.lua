@@ -40,62 +40,16 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+--mannax
+object_tangible_wearables_backpack_shared_backpack_ns_dev_bag = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_ns_dev_bag.iff"
+}
 
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_ns_dev_bag, "object/tangible/wearables/backpack/shared_backpack_ns_dev_bag.iff")
+
+--mtg includes
 object_tangible_wearables_backpack_shared_backpack_s01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_s01.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/backpack_s01_m.sat",
-	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/back.iff",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 8213,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 2,
-	containerVolumeLimit = 50,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@wearables_detail:backpack_s01",
-
-	gameObjectType = 8213,
-
-	locationReservationRadius = 0,
-	lookAtText = "@wearables_lookat:backpack_s01",
-
-	noBuildRadius = 0,
-
-	objectName = "@wearables_name:backpack_s01",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 4059441362,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/container/base/shared_base_container.iff", "object/tangible/container/base/shared_base_container_volume.iff", "object/tangible/wearables/base/shared_base_backpack.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_s01, "object/tangible/wearables/backpack/shared_backpack_s01.iff")

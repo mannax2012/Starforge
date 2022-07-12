@@ -57,6 +57,8 @@ includeFile("utils/quest_spawner.lua")
 
 -- Staff tools
 includeFile("tools/tools.lua")
+includeFile("tools/mission_level_choice.lua")
+includeFile("tools/mission_direction_choice.lua")
 includeFile("tools/shuttle_dropoff.lua")
 includeFile("tools/firework_event.lua")
 

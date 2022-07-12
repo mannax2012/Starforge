@@ -75,7 +75,7 @@ includeFile("creature/player/rodian_male.lua")
 includeFile("creature/player/smc_female.lua") --Singing Mountain Clan female
 includeFile("creature/player/sullustan_female.lua")
 includeFile("creature/player/sullustan_male.lua")
-includeFile("creature/player/talz_male.lua") --Talz male
+--includeFile("creature/player/talz_male.lua") --talz male
 includeFile("creature/player/togruta_female.lua") --Togruta female
 includeFile("creature/player/trandoshan_female.lua")
 includeFile("creature/player/trandoshan_male.lua")

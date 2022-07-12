@@ -764,10 +764,22 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 		difficulty = 4;
 
 	int diffDisplay = difficultyLevel + 7;
-	if (player->isGrouped())
+	PlayerObject* targetGhost = player->getPlayerObject();
+
+	String level = targetGhost->getScreenPlayData("mission_level_choice", "levelChoice");
+
+  	int levelChoice = Integer::valueOf(level);
+
+	if (levelChoice > 0) 
+		diffDisplay += levelChoice;
+
+	else if (player->isGrouped())
 		diffDisplay += player->getGroup()->getGroupLevel();
 	else
 		diffDisplay += playerLevel;
+
+	String dir = targetGhost->getScreenPlayData("mission_direction_choice", "directionChoice");
+  	float dirChoice = Float::valueOf(dir);
 
 	String building = lairTemplateObject->getMissionBuilding(difficulty);
 
@@ -793,9 +805,30 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	while (!foundPosition && maximumNumberOfTries-- > 0) {
 		foundPosition = true;
 
-		int distance = destroyMissionBaseDistance + destroyMissionDifficultyDistanceFactor * difficultyLevel;
-		distance += System::random(destroyMissionRandomDistance) + System::random(destroyMissionDifficultyRandomDistance * difficultyLevel);
-		startPos = player->getWorldCoordinate((float)distance, (float)System::random(360), false);
+		float direction = (float)System::random(360);
+
+		// Player direction choice -/+ 8 degrees deviation from center to spread out the lairs a bit. Any higher will change the direction diplayed on the client.
+		if (dirChoice > 0){
+			int dev = System::random(8);
+			int isMinus = System::random(100);
+
+			if (isMinus > 49)
+				dev *= -1;
+
+			direction = dirChoice + dev;
+
+			// Fix degree values greater than 360
+			if (direction > 360)
+				direction -= 360;
+		}
+
+		// Start position, always based on "facing north"
+		int distance = System::random(1000) + 1000;
+		float angleRads = direction * (M_PI / 180.0f);
+		float newAngle = angleRads + (M_PI / 2);
+		startPos.setX(player->getWorldPositionX() + (cos(newAngle) * distance)); // client has x/y inverted
+		startPos.setY(player->getWorldPositionY() + (sin(newAngle) * distance));
+		startPos.setZ(0.0f);
 
 		if (zone->isWithinBoundaries(startPos)) {
 			float height = zone->getHeight(startPos.getX(), startPos.getY());
@@ -833,20 +866,13 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	mission->setMissionTargetName("@lair_n:" + lairTemplateObject->getName());
 	mission->setTargetTemplate(templateObject);
 	mission->setTargetOptionalTemplate(lairTemplate);
-
-	int reward = destroyMissionBaseReward + destroyMissionDifficultyRewardFactor * difficultyLevel;
-	reward += System::random(destroyMissionRandomReward) + System::random(destroyMissionDifficultyRandomReward * difficultyLevel);
-	mission->setRewardCredits(reward);
-
+	mission->setRewardCredits(System::random(diffDisplay * 15) + (difficultyLevel * 375));
 	mission->setMissionDifficulty(difficultyLevel, diffDisplay, difficulty);
 	mission->setSize(randomLairSpawn->getSize());
 	mission->setFaction(faction);
 
 	int factionPointsReward = randomLairSpawn->getMinDifficulty();
-	if (factionPointsReward > 32)
-	{
-		factionPointsReward = 32;
-	}
+		factionPointsReward *=10.0;
 
 	String messageDifficulty;
 	String missionType;
@@ -858,13 +884,26 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 	else
 		messageDifficulty = "_hard";
 
-	if (lairTemplateObject->getMobType() == LairTemplate::NPC)
+	String groupSuffix;
+ 
+ 	if (lairTemplateObject->getMobType() == LairTemplate::NPC){
 		missionType = "_npc";
-	else
-		missionType = "_creature";
+		groupSuffix = " camp.";
+ 	} else {
+  		missionType = "_creature";
+ 		groupSuffix = " lair.";
+ 	}
+ 		
+ 	const VectorMap<String, int>* mobiles = lairTemplateObject->getMobiles();
+ 	String mobileName = "mysterious";
+ 	
+ 	if (mobiles->size() > 0) {
+ 		mobileName = mobiles->elementAt(0).getKey();
+ 	}
 
-	mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	mission->setMissionTitle("CL" + String::valueOf(diffDisplay), " Destroy the " + mobileName.replaceAll("_", " ") + groupSuffix);
 	mission->setMissionDescription("mission/mission_destroy_neutral" +  messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "d");
+
 
 	switch (faction) {
 	case Factions::FACTIONIMPERIAL:
