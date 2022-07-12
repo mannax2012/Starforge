@@ -60,7 +60,7 @@ object_creature_player_nikto_male = object_creature_player_shared_nikto_male:new
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = { "species_nikto", "social_language_basic_comprehend", "social_language_basic_speak" }
+	startingSkills = { "species_human", "social_language_basic_comprehend", "social_language_basic_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_nikto_male, "object/creature/player/nikto_male.iff")

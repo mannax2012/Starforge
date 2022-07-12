@@ -60,7 +60,7 @@ object_creature_player_nautolan_male = object_creature_player_shared_nautolan_ma
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = { "species_nautolan", "social_language_basic_comprehend", "social_language_basic_speak" }
+	startingSkills = { "species_human", "social_language_basic_comprehend", "social_language_basic_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_nautolan_male, "object/creature/player/nautolan_male.iff")
