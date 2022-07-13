@@ -17,18 +17,58 @@ VillageRaids = ScreenPlay:new {
 		{ 5216, 78.5, -4239, 174 },
 		{ 5294, 78.5, -4203, 156 },
 		{ 5328, 78.5, -4047, 34 },
+		{ 5243.39, 78.5, -4060.49, 33 },
+		{ 5217.02, 78.5, -4084.84, 257 },
+		{ 5239.4, 78.5, -4109.31, 176 },
+		{ 5282.86, 78.5, -4053.75, 53 },
+		{ 5291.06, 78.5, -4061.02, 43 },
+		{ 5306.95, 78.5, -4068.8, 32 },
+		{ 5345.67, 78.5, -4024.85, 198 },
+		{ 5353.77, 78.5, -4027.67, 198 },
+		{ 5336.82, 78.5, -4008.21, 15 },
+		{ 5323.96, 78.5, -4004.81, 15 },
+		{ 5389.39, 78.5, -4040.74, 46 },
+		{ 5346.9, 78.5, -4048.49, 341 },
+		{ 5326.98, 78.5, -4071.66, 11 },
+		{ 5379.55, 78.5, -4105.6, 286 },
+		{ 5400.53, 78.5, -4096.39, 304 },
+		{ 5382.2, 78.5, -4130.87, 217 },
+		{ 5394.31, 78.5, -4137.32, 205 },
+		{ 5414.94, 78.5, -4120.66, 258 },
+		{ 5339.07, 78.5, -4169.61, 29 },
+		{ 5329.32, 78.5, -4136.37, 65 },
+		{ 5321.38, 78.5, -4128.65, 35 },
+		{ 5312.74, 78.5, -4125.08, 9 },
+		{ 5321.93, 78.5, -4183.19, 162 },
+		{ 5286.28, 78.5, -4174.26, 240 },
+		{ 5282.93, 78.5, -4106.15, 43 },
+		{ 5292.03, 78.5, -4113.07, 39 },
+		{ 5271.39, 78.5, -4239.44, 356 },
+		{ 5260.17, 78.5, -4237.79, 35 },
+		{ 5251.79, 78.5, -4214.62, 42 },
+		{ 5235.9, 78.5, -4190.35, 108 },
+		{ 5250.85, 78.5, -4169.17, 168 },
+		{ 5277.51, 78.5, -4168.03, 193 },
+		{ 5316.34, 78.5, -4197.76, 236 },
+		{ 5323.46, 78.5, -4205.96, 235 },
+		{ 5276.21, 78.5, -4253, 186 },
+		{ 5229.05, 78.5, -4245.82, 196 },
+		{ 5256.98, 78.5, -4244.5, 191 },
+		{ 5270.39, 78.5, -4246.7, 186 },
+		{ 5253.63, 78.5, -4228.5, 345 },
+		{ 5265.75, 78.5, -4088.08, 60 },
 	},
 
 	-- Number of players needed near village to move up a wave size
 	playerWaveSizeThresholds = {
-		medium = 10,
-		large = 20,
-		mega = 35
+		medium = 1, -- from 10 -> 1
+		large = 5, -- from 20 -> 5
+		mega = 10 -- from 35 -> 10
 	},
 
 	enemyData = {
-		minSpawnPulse = 5000 * 1000,
-		maxSpawnPulse = 7000 * 1000,
+		minSpawnPulse = 900 * 1000, -- from 5000 -> 900
+		maxSpawnPulse = 1500 * 1000, -- from 7000 -> 1500
 		minDistance = 25, -- Min distance from center of spawn loc
 		maxDistance = 50 -- Max distance from center of spawn loc
 	},
@@ -58,8 +98,8 @@ VillageRaids = ScreenPlay:new {
 	-- Victim wave data
 	victimWaveDataTable = {
 		spawnerPulse = 180 * 1000, -- Time between spawn pulses
-		maxSpawn = 100, -- Max waves of mobiles to spawn over the entire lifetime of the spawner
-		maxPopulation = 2, -- Max mobs to have up at any one time
+		maxSpawn = 150, -- Max waves of mobiles to spawn over the entire lifetime of the spawner
+		maxPopulation = 4, -- Max mobs to have up at any one time
 		mobileLifespan = 20 * 60 * 1000, -- Time until spawned mobs should be destroyed
 		expireTime = 2500 * 1000, -- Time until spawner should expire
 		aiHandlerFunc = "" -- Name of function that should setup a defender after it's spawned

@@ -8,7 +8,7 @@ OldManOutroEncounter = Encounter:new {
 	-- Task properties
 	taskName = "OldManOutroEncounter",
 	-- Encounter properties
-	encounterDespawnTime = 5 * 60 * 1000, -- 5 minutes
+	encounterDespawnTime = 5 * 60 * 1000, -- [Mannax]: 5 minutes
 	despawnMessage = "@quest/force_sensitive/intro:leave",
 	spawnObjectList = {
 		{ template = "old_man", minimumDistance = 64, maximumDistance = 96, referencePoint = 0, followPlayer = true, setNotAttackable = true, runOnDespawn = true }

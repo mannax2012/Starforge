@@ -24,7 +24,7 @@ FsSad1Theater2 = GoToTheater:new {
 		{ template = "sith_shadow_outlaw", minimumDistance = 7, maximumDistance = 12, referencePoint = 0 }
 	},
 	createWaypoint = true,
-	waypointDescription = "@quest/quest_journal/fs_quests_sad:task2",
+	waypointDescription = "Search And Destroy 2/8",
 	activeAreaRadius = 16,
 	flattenLayer = true
 }
