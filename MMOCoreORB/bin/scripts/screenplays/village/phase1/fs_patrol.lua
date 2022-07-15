@@ -7,7 +7,7 @@ FsPatrol = Patrol:new {
 	taskName = "FsPatrol",
 	-- Patrol properties
 	waypointName = "@quest/force_sensitive/fs_patrol:patrol_point",
-	numPoints = 8,
+	numPoints = 3, --[Mannax] Decreased from 8
 	areaSize = 48,
 	originX = 5313,
 	originY = -4161,
