@@ -63,7 +63,7 @@ void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target)
 		}
 
 		// can't invite if the group is full
-		if (group->getGroupSize() >= 20) {
+		if (group->getGroupSize() >= 40) {
 			leader->sendSystemMessage("@group:full");
 			return;
 		}
