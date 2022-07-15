@@ -554,7 +554,7 @@ void ServerCore::registerConsoleCommmands() {
 				cmdResult = SUCCESS;
 			}
 		} catch (const Exception& e) {
-			System::out << "Exception in runLuaFunction " << module << ":" << function << " - " << e.getMessage() << endl << Lua::dumpStack(L);
+			//System::out << "Exception in runLuaFunction " << module << ":" << function << " - " << e.getMessage() << endl << Lua::dumpStack(L);
 		}
 
 		return cmdResult;
