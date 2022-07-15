@@ -40,55 +40,20 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_intangible_pet_shared_be_tusken_massif_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_be_tusken_massif_hue.iff"}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_be_tusken_massif_hue, 
+"object/intangible/pet/shared_be_tusken_massif_hue.iff")
+
+object_intangible_pet_shared_hk47_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_hk47_hue.iff"}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_hk47_hue, 
+"object/intangible/pet/shared_hk47_hue.iff")
 
 object_intangible_pet_shared_21b_surgical_droid = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_21b_surgical_droid.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/droid_21b.sat",
-	arrangementDescriptorFilename = "",
-
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 2059,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 0,
-	collisionActionPassFlags = 0,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 0,
-	collisionMaterialPassFlags = 0,
-	containerType = 1,
-	containerVolumeLimit = 0,
-
-	detailedDescription = "",
-
-	gameObjectType = 2059,
-
-	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
-
-	noBuildRadius = 0,
-
-	objectName = "",
-	onlyVisibleInTools = 0,
-
-	portalLayoutFilename = "",
-
-	scale = 0,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/droid.iff",
-	snapToTerrain = 0,
-	surfaceType = 0,
-
-	totalCellNumber = 0,
-
-	clientObjectCRC = 1339278002,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/intangible/pet/shared_droid_pet.iff"}
-]]
-}
-
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_21b_surgical_droid, "object/intangible/pet/shared_21b_surgical_droid.iff")
+	clientTemplateFileName = "object/intangible/pet/shared_21b_surgical_droid.iff"}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_21b_surgical_droid, 
+"object/intangible/pet/shared_21b_surgical_droid.iff")
 
 object_intangible_pet_shared_3po_protocol_droid = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/pet/shared_3po_protocol_droid.iff"

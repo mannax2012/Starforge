@@ -59,7 +59,7 @@ object_creature_player_togruta_female = object_creature_player_shared_togruta_fe
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = { "species_togruta", "social_language_basic_comprehend", "social_language_basic_speak" }
+	startingSkills = { "species_human", "social_language_basic_comprehend", "social_language_basic_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_togruta_female, "object/creature/player/togruta_female.iff")

@@ -6,7 +6,7 @@ jediManagerName = "VillageJediManager"
 
 NOTINABUILDING = 0
 
-NUMBEROFTREESTOMASTER = 6
+NUMBEROFTREESTOMASTER = 2
 
 VillageJediManager = JediManager:new {
 	screenplayName = jediManagerName,

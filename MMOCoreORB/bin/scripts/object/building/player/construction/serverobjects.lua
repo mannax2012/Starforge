@@ -47,6 +47,7 @@
 -- Server Objects
 includeFile("building/player/construction/construction_player_guildhall_corellia_style_01.lua")
 includeFile("building/player/construction/construction_player_guildhall_naboo_style_01.lua")
+includeFile("building/player/construction/construction_player_guildhall_tatooine_hunters_lodge.lua")
 includeFile("building/player/construction/construction_player_guildhall_tatooine_style_01.lua")
 includeFile("building/player/construction/construction_player_guildhall_tatooine_style_02.lua")
 includeFile("building/player/construction/construction_player_house_corellia_large_style_01.lua")

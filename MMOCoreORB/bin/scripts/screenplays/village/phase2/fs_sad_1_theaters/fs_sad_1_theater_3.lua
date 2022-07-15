@@ -24,7 +24,7 @@ FsSad1Theater3 = GoToTheater:new {
 		{ template = "sith_shadow_pirate", minimumDistance = 7, maximumDistance = 12, referencePoint = 0 }
 	},
 	createWaypoint = true,
-	waypointDescription = "@quest/quest_journal/fs_quests_sad:task3",
+	waypointDescription = "Search And Destroy 3/8",
 	activeAreaRadius = 16,
 	flattenLayer = true
 }

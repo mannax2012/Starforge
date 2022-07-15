@@ -12,7 +12,7 @@ SithShadowEncounter = Encounter:new {
 	-- Task properties
 	taskName = "SithShadowEncounter",
 	-- Encounter properties
-	encounterDespawnTime = 2 * 60 * 1000, -- 2 minutes
+	encounterDespawnTime = 5 * 60 * 1000, -- [Mannax]: 5 minutes 
 	spawnObjectList = {
 		{ template = "sith_shadow_outlaw_mission", minimumDistance = 64, maximumDistance = 96, referencePoint = 0, followPlayer = true, setNotAttackable = false, runOnDespawn = true },
 		{ template = "sith_shadow_outlaw_mission", minimumDistance = 4, maximumDistance = 8, referencePoint = 1, followPlayer = true, setNotAttackable = false, runOnDespawn = true }

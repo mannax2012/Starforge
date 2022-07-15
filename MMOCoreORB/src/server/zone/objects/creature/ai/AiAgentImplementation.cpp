@@ -925,13 +925,30 @@ bool AiAgentImplementation::validateStateAttack() {
 }
 
 SceneObject* AiAgentImplementation::getTargetFromMap() {
-	CreatureObject* target = getThreatMap()->getHighestThreatCreature();
+	TangibleObject* target = getThreatMap()->getHighestThreatAttacker();
 
-	if (target != nullptr && !defenderList.contains(target) && (!target->isDead() && !target->isIncapacitated()) && target->getDistanceTo(asAiAgent()) < 128.f && target->isAttackableBy(asAiAgent()) && lastDamageReceived.miliDifference() < 20000)
-		addDefender(target);
-	else if (target != nullptr && defenderList.contains(target) && (target->isDead() || target->isIncapacitated() || !target->isInRange(asAiAgent(), 128) || !target->isAttackableBy(asAiAgent()))) {
-		removeDefender(target);
-		target = nullptr;
+	if (target != nullptr && !defenderList.contains(target) && target->getDistanceTo(asAiAgent()) < 128.f && target->isAttackableBy(asAiAgent()) && lastDamageReceived.miliDifference() < 20000) {
+		if (target->isCreatureObject()) {
+			CreatureObject* creoTarget = target->asCreatureObject();
+
+			if (creoTarget != nullptr && !creoTarget->isDead() && !creoTarget->isIncapacitated()) {
+				addDefender(target);
+			}
+		} else {
+			addDefender(target);
+		}
+	} else if (target != nullptr && defenderList.contains(target) && (!target->isInRange(asAiAgent(), 128) || !target->isAttackableBy(asAiAgent()))) {
+		if (target->isCreatureObject()) {
+			CreatureObject* tarCreo = target->asCreatureObject();
+
+			if (tarCreo->isDead() || tarCreo->isIncapacitated()) {
+				removeDefender(target);
+				target = nullptr;
+			}
+		} else {
+			removeDefender(target);
+			target = nullptr;
+		}
 	}
 
 	return target;
@@ -1281,8 +1298,8 @@ void AiAgentImplementation::addDefender(SceneObject* defender) {
 	if ((defenderList.size() == 0 || getFollowObject().get() == nullptr) && defender != nullptr) {
 		showFlyText("npc_reaction/flytext", "threaten", 0xFF, 0, 0);
 		setFollowObject(defender);
-		if (defender->isCreatureObject() && threatMap != nullptr)
-			threatMap->addAggro(defender->asCreatureObject(), 1);
+		if (defender->isTangibleObject() && threatMap != nullptr)
+			threatMap->addAggro(defender->asTangibleObject(), 1);
 	} else if (stateCopy <= STALKING) {
 		setFollowState(AiAgent::FOLLOWING);
 	}
@@ -1298,16 +1315,19 @@ void AiAgentImplementation::removeDefender(SceneObject* defender) {
 	if (defender == nullptr)
 		return;
 
-	if (defender->isCreatureObject())
-		getThreatMap()->dropDamage(defender->asCreatureObject());
+	if (defender->isTangibleObject()) {
+		getThreatMap()->dropDamage(defender->asTangibleObject());
+	}
 
 	if (getFollowObject().get() == defender) {
-		CreatureObject* target = getThreatMap()->getHighestThreatCreature();
+		TangibleObject* target = getThreatMap()->getHighestThreatAttacker();
 
 		if (target == nullptr && defenderList.size() > 0) {
 			SceneObject* tarObj = defenderList.get(0);
-			if (tarObj != nullptr && tarObj->isCreatureObject())
-				target = tarObj->asCreatureObject();
+
+			if (tarObj != nullptr && tarObj->isTangibleObject()) {
+				target = tarObj->asTangibleObject();
+			}
 		}
 
 		if (target != nullptr)
@@ -1703,15 +1723,18 @@ void AiAgentImplementation::updatePetSwimmingState() {
 	}
 
 	float waterHeight;
+	bool waterIsDefined = terrainManager->getWaterHeight(getPositionX(), getPositionY(), waterHeight);
+	float petHeight = getPositionZ();
+	float swimVar = (waterHeight - swimHeight + 0.2f);
 
-	if (terrainManager->getWaterHeight(getPositionX(), getPositionY(), waterHeight)) {
-
-		if ((getPositionZ() + getSwimHeight() - waterHeight < 0.2)) {
-			setState(CreatureState::SWIMMING, true);
-		} else {
-			clearState(CreatureState::SWIMMING, true);
-		}
+	if (waterIsDefined && (swimVar - petHeight > 0.1)) {
+		// Pet is in the water.
+		setState(CreatureState::SWIMMING, true);
+		return;
 	}
+
+	// Terrain is above water level.
+	clearState(CreatureState::SWIMMING, true);
 }
 
 void AiAgentImplementation::checkNewAngle() {
@@ -1892,23 +1915,46 @@ bool AiAgentImplementation::findNextPosition(float maxDistance, bool walk) {
 				// okay, we can't go that far in one update (since we've capped update times)
 				// calculate the distance we can go and set nextPosition
 				Vector3 thisPos = thisWorldPos;
-				if (nextPosition.getCell() != nullptr)
+
+				if (nextPosition.getCell() != nullptr) {
 					thisPos = PathFinderManager::transformToModelSpace(thisPos, nextPosition.getCell()->getParent().get());
+				}
 
 				float dx = nextPosition.getX() - thisPos.getX();
 				float dy = nextPosition.getY() - thisPos.getY();
-				float dz = nextPosition.getZ() - thisPos.getZ();
 
-				nextPosition.setX(thisPos.getX() + (maxDist * (dx / dist)));
-				nextPosition.setZ(thisPos.getZ() + (maxDist * (dz / dist)));
-				nextPosition.setY(thisPos.getY() + (maxDist * (dy / dist)));
+				float newX = (thisPos.getX() + (maxDist * (dx / dist)));
+				float newY = (thisPos.getY() + (maxDist * (dy / dist)));
+				float newZ = 0.f;
 
-				// Now do cell checks to get the Z coordinate outside
-				if (nextPosition.getCell() == nullptr && nextPosition.getZ() == 0) {
-					targetMutex.unlock();
-					nextPosition.setZ(getWorldZ(nextPosition.getWorldPosition()));
-					targetMutex.lock();
+				Zone* zone = getZoneUnsafe();
+
+				if (targetPosition.getCell() == nullptr && nextPosition.getCell() == nullptr && zone != nullptr) {
+					newZ = getWorldZ(nextPosition.getWorldPosition());
+
+					PlanetManager* planetManager = zone->getPlanetManager();
+
+					if (planetManager != nullptr) {
+						TerrainManager* terrainManager = planetManager->getTerrainManager();
+
+						if (terrainManager != nullptr) {
+							float waterHeight;
+							bool waterIsDefined = terrainManager->getWaterHeight(newX, newY, waterHeight);
+
+							if (waterIsDefined && (waterHeight > newZ) && isSwimming()) {
+								newZ = (waterHeight - swimHeight);
+							}
+						}
+					}
+				} else {
+					float dz = nextPosition.getZ() - thisPos.getZ();
+
+					newZ = (thisPos.getZ() + (maxDist * (dz / dist)));
 				}
+
+				nextPosition.setX(newX);
+				nextPosition.setZ(newZ);
+				nextPosition.setY(newY);
 			}
 		}
 
@@ -2543,16 +2589,14 @@ int AiAgentImplementation::inflictDamage(TangibleObject* attacker, int damageTyp
 
 	activateRecovery();
 
-	if (attacker->isCreatureObject()) {
-		CreatureObject* creature = attacker->asCreatureObject();
-
-		if (damage > 0) {
-			// This damage is DOT or other types of non direct combat damage, it should not count towards loot and thus not be added to the threat map damage.
-			// Adding aggro should still be done.
-			getThreatMap()->addAggro(creature, 1);
-		}
+	if (damage > 0) {
+		// This damage is DOT or other types of non direct combat damage, it should not count towards loot and thus not be added to the threat map damage.
+		// Adding aggro should still be done.
+		getThreatMap()->addAggro(attacker, 1);
 	}
+
 	activateInterrupt(attacker, ObserverEventType::DAMAGERECEIVED);
+
 	return CreatureObjectImplementation::inflictDamage(attacker, damageType, damage, destroy, notifyClient, isCombatAction);
 }
 
@@ -2561,14 +2605,12 @@ int AiAgentImplementation::inflictDamage(TangibleObject* attacker, int damageTyp
 
 	activateRecovery();
 
-	if (attacker->isCreatureObject()) {
-		CreatureObject* creature = attacker->asCreatureObject();
-
-		if (damage > 0) {
-			getThreatMap()->addDamage(creature, damage, xp);
-		}
+	if (damage > 0) {
+		getThreatMap()->addDamage(attacker, damage, xp);
 	}
+
 	activateInterrupt(attacker, ObserverEventType::DAMAGERECEIVED);
+
 	return CreatureObjectImplementation::inflictDamage(attacker, damageType, damage, destroy, notifyClient, isCombatAction);
 }
 

@@ -12,16 +12,17 @@ ExperienceConverter = ScreenPlay:new {
 	xpConversion = {
 		combat = {
 			{ "bountyhunter", 5 },
-			{ "combat_general", 3 },
-			{ "combat_meleespecialize_onehand", 30 },
-			{ "combat_meleespecialize_polearm", 30 },
-			{ "combat_meleespecialize_twohand", 30 },
-			{ "combat_meleespecialize_unarmed", 30 },
-			{ "combat_rangedspecialize_carbine", 30 },
-			{ "combat_rangedspecialize_heavy", 30 },
-			{ "combat_rangedspecialize_pistol", 30 },
-			{ "combat_rangedspecialize_rifle", 30 },
-			{ "squadleader", 90 }
+			{ "combat_general", 2 },
+			{ "combat_meleespecialize_onehand", 20 },
+			{ "combat_meleespecialize_polearm", 20 },
+			{ "combat_meleespecialize_twohand", 20 },
+			{ "combat_meleespecialize_unarmed", 20 },
+			{ "combat_rangedspecialize_carbine", 20 },
+			{ "combat_rangedspecialize_heavy", 20 },
+			{ "combat_rangedspecialize_pistol", 20 },
+			{ "combat_rangedspecialize_rifle", 20 },
+			{ "squadleader", 20 },
+			{ "jedi_general", 2 }
 		},
 		senses = {
 			{ "bio_engineer_dna_harvesting", 3 },
@@ -38,31 +39,34 @@ ExperienceConverter = ScreenPlay:new {
 			{ "scout", 8 },
 			{ "slicing", 3 },
 			{ "trapping", 25 },
+			{ "jedi_general", 2 }
 		},
 		reflex = {
 			{ "bountyhunter", 5 },
-			{ "combat_general", 3 },
-			{ "combat_meleespecialize_onehand", 30 },
-			{ "combat_meleespecialize_polearm", 30 },
-			{ "combat_meleespecialize_twohand", 30 },
-			{ "combat_meleespecialize_unarmed", 30 },
-			{ "combat_rangedspecialize_carbine", 30 },
-			{ "combat_rangedspecialize_heavy", 30 },
-			{ "combat_rangedspecialize_pistol", 30 },
-			{ "combat_rangedspecialize_rifle", 30 },
-			{ "squadleader", 90 }
+			{ "combat_general", 2 },
+			{ "combat_meleespecialize_onehand", 20 },
+			{ "combat_meleespecialize_polearm", 20 },
+			{ "combat_meleespecialize_twohand", 20 },
+			{ "combat_meleespecialize_unarmed", 20 },
+			{ "combat_rangedspecialize_carbine", 20 },
+			{ "combat_rangedspecialize_heavy", 20 },
+			{ "combat_rangedspecialize_pistol", 20 },
+			{ "combat_rangedspecialize_rifle", 20 },
+			{ "squadleader", 20 },
+			{ "jedi_general", 2 }
 		},
 		crafting = {
-			{ "crafting_bio_engineer_creature", 4 },
-			{ "crafting_clothing_armor", 5 },
-			{ "crafting_clothing_general", 5 },
-			{ "crafting_droid_general", 5 },
-			{ "crafting_food_general", 5 },
-			{ "crafting_general", 8 },
-			{ "crafting_medicine_general", 5 },
-			{ "crafting_spice", 5 },
-			{ "crafting_structure_general", 35 },
-			{ "crafting_weapons_general", 5 }
+			{ "crafting_bio_engineer_creature", 2 },
+			{ "crafting_clothing_armor", 1 },
+			{ "crafting_clothing_general", 1 },
+			{ "crafting_droid_general", 1 },
+			{ "crafting_food_general", 1 },
+			{ "crafting_general", 2 },
+			{ "crafting_medicine_general", 1 },
+			{ "crafting_spice", 1 },
+			{ "crafting_structure_general", 10 },
+			{ "crafting_weapons_general", 1 },
+			{ "jedi_general", 2 }
 		}
 	}
 }

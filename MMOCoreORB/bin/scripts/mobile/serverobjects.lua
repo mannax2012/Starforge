@@ -6,6 +6,7 @@ includeFile("dressgroup/serverobjects.lua")
 
 --New Content
 includeFile("custom_content/serverobjects.lua")
+includeFile("mustafar/serverobjects.lua")
 
 -- Creatures
 includeFile("corellia/serverobjects.lua")

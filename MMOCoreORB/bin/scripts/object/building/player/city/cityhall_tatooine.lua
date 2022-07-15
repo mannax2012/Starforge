@@ -44,7 +44,7 @@
 object_building_player_city_cityhall_tatooine = object_building_player_city_shared_cityhall_tatooine:new {
 	lotSize = 0,
 	baseMaintenanceRate = 0,
-	allowedZones = {"dantooine", "lok", "tatooine"},
+	allowedZones = {"dantooine", "naboo", "rori", "lok", "tatooine", "corellia", "talus"},
 	length = 7,
 	width = 9,
 	zoneComponent = "CityHallZoneComponent",

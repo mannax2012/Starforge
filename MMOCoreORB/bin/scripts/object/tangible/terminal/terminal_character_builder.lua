@@ -1577,16 +1577,16 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 		},
 		"Items",
 		{
+			"Admin Terminal",
+			{
+			  "Character Builder", "object/tangible/terminal/terminal_character_builder.iff",
+			},
+
 			"Jedi Items",
 			{
 				"Color Crystal", "color_crystals",
 				"Krayt Pearl", "krayt_pearls"
 			},
-			--"Attachments",
-			--{
-			--	"Armor Attachment", "object/tangible/gem/armor.iff",
-			--	"Clothing Attachment", "object/tangible/gem/clothing.iff",
-			--},
 			"Armor",
 			{
 				--	"Bone Armor",

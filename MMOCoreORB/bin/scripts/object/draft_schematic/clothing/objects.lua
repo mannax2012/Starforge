@@ -24736,3 +24736,13 @@ object_draft_schematic_clothing_shared_clothing_wke_skirt_s04 = SharedDraftSchem
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_wke_skirt_s04, "object/draft_schematic/clothing/shared_clothing_wke_skirt_s04.iff")
+
+--goggles_rebreather
+
+object_draft_schematic_clothing_shared_clothing_goggles_rebreather = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_goggles_rebreather.iff"}
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_goggles_rebreather, "object/draft_schematic/clothing/shared_clothing_goggles_rebreather.iff")
+
+object_draft_schematic_clothing_shared_clothing_jewelry_ring_nightsister = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_jewelry_ring_nightsister.iff"}
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_jewelry_ring_nightsister, "object/draft_schematic/clothing/shared_clothing_jewelry_ring_nightsister.iff")

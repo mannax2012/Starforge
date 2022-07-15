@@ -60,7 +60,7 @@ object_creature_player_weequay_male = object_creature_player_shared_weequay_male
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = { "species_weequay", "social_language_basic_comprehend", "social_language_basic_speak" }
+	startingSkills = { "species_human", "social_language_basic_comprehend", "social_language_basic_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_weequay_male, "object/creature/player/weequay_male.iff")

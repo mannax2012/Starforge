@@ -60,7 +60,7 @@ object_creature_player_devaronian_male = object_creature_player_shared_devaronia
 	},
 	defaultLanguage = 1,
 	startingItems = { },
-	startingSkills = { "species_devaronian", "social_language_basic_comprehend", "social_language_basic_speak" }
+	startingSkills = { "species_human", "social_language_basic_comprehend", "social_language_basic_speak" }
 }
 
 ObjectTemplates:addTemplate(object_creature_player_devaronian_male, "object/creature/player/devaronian_male.iff")

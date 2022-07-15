@@ -40,7 +40,9 @@
 --gives permission to release a modified version without this exception; 
 --this exception also makes it possible to release a modified version 
 
-
+--Mannax Includes
+includeFile("mobile/hk47_crafted.lua")
+includeFile("mobile/be_tusken_massif.lua")
 
 --Children folder includes
 includeFile("mobile/naboo_npc/serverobjects.lua")

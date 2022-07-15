@@ -84,6 +84,7 @@ void GCWManagerImplementation::loadLuaConfig() {
 	reactivationTimer = lua->getGlobalInt("reactivationTimer");
 	turretAutoFireTimeout = lua->getGlobalInt("turretAutoFireTimeout");
 	maxBasesPerPlayer = lua->getGlobalInt("maxBasesPerPlayer");
+	spawnBaseAlarms = lua->getGlobalBoolean("spawnBaseAlarms");
 	bonusXP = lua->getGlobalInt("bonusXP");
 	winnerBonus = lua->getGlobalInt("winnerBonus");
 	loserBonus = lua->getGlobalInt("loserBonus");
@@ -632,6 +633,30 @@ void GCWManagerImplementation::addTurret(BuildingObject* building, SceneObject* 
 	verifyTurrets(building);
 }
 
+void GCWManagerImplementation::addBaseAlarm(BuildingObject* building, SceneObject* alarm) {
+	if (building == nullptr || alarm == nullptr) {
+		return;
+	}
+
+	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
+
+	if (baseData == nullptr) {
+		return;
+	}
+
+	Locker _lock(building);
+
+	String templateString = alarm->getObjectTemplate()->getTemplateFileName();
+
+	if (baseData != nullptr) {
+		if (templateString.contains("alarm_hack")) {
+			baseData->addHackBaseAlarm(alarm->getObjectID());
+		} else if (templateString.contains("alarm_destruct")) {
+			baseData->addDestructBaseAlarm(alarm->getObjectID());
+		}
+	}
+}
+
 // PRE: Nothing needs to be locked
 // should only be called by the startvulnerabilityTask or when loading from the db in the middle of vuln
 void GCWManagerImplementation::startVulnerability(BuildingObject* building) {
@@ -707,6 +732,7 @@ void GCWManagerImplementation::endVulnerability(BuildingObject* building) {
 	// schedule
 	scheduleVulnerabilityStart(building);
 	verifyTurrets(building);
+	deactivateBaseAlarms(building);
 	building->broadcastCellPermissions();
 }
 
@@ -924,10 +950,36 @@ bool GCWManagerImplementation::isUplinkJammed(BuildingObject* building) {
 }
 
 bool GCWManagerImplementation::isTerminalDamaged(TangibleObject* securityTerminal) {
-	ManagedReference<BuildingObject*> building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
-
-	if (building == nullptr)
+	if (securityTerminal == nullptr) {
 		return true;
+	}
+
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = securityTerminal->getObjectID();
+	ZoneServer* zoneServer = securityTerminal->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return true;
+	}
+
+	switch (terminalID) {
+		case 367428: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923854: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923864: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
+
+	if (building == nullptr) {
+		return true;
+	}
 
 	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
 
@@ -1009,11 +1061,11 @@ bool GCWManagerImplementation::canUseTerminals(CreatureObject* creature, Buildin
 	if (creature->isDead() || creature->isIncapacitated())
 		return false;
 
-	// Make sure the player is in the same cell
-	ValidatedPosition* validPosition = ghost->getLastValidatedPosition();
-	uint64 parentid = validPosition->getParent();
+	// Make sure the player is in the same cell & check distance for temrinals in large rooms
+	uint64 creoParentID = creature->getParentID();
+	uint64 terminalParentID = terminal->getParentID();
 
-	if (parentid != terminal->getParentID()) {
+	if (creoParentID != terminalParentID || creature->getDistanceTo(terminal) > 5)  {
 		creature->sendSystemMessage("@pvp_rating:ch_terminal_too_far"); // you are too far away from the terminal to use it
 		return false;
 	}
@@ -1027,11 +1079,9 @@ bool GCWManagerImplementation::canUseTerminals(CreatureObject* creature, Buildin
 			creature->sendSystemMessage("@hq:declared_only"); // Only Special Forces personnel may access this terminal!
 			return false;
 		}
-	}
-	// check for PvE base
-	else {
+	} else { // check for PvE base
 		if (creature->getFactionStatus() < FactionStatus::COVERT) {
-			creature->sendSystemMessage("You must be at least combatant");
+			// creature->sendSystemMessage("You must be at least combatant");
 			return false;
 		}
 	}
@@ -1100,8 +1150,9 @@ void GCWManagerImplementation::verifyUplinkBand(CreatureObject* creature, Buildi
 	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
 
-	if (ghost == nullptr || baseData == nullptr)
+	if (ghost == nullptr || baseData == nullptr) {
 		return;
+	}
 
 	if (band == baseData->getUplinkBand()) {
 		Locker block(building, creature);
@@ -1162,10 +1213,39 @@ void GCWManagerImplementation::renewUplinkBand(BuildingObject* building) {
 }
 
 bool GCWManagerImplementation::canStartSlice(CreatureObject* creature, TangibleObject* tano) {
+	if (tano == nullptr || creature == nullptr) {
+		return false;
+	}
+
 	Locker _lock(creature);
 	Locker clocker(tano, creature);
 
-	ManagedReference<BuildingObject*> building = tano->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = tano->getObjectID();
+	ZoneServer* zoneServer = tano->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return false;
+	}
+
+	switch (terminalID) {
+		case 367428: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923854: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923864: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = tano->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
+
+	if (building == nullptr) {
+		return false;
+	}
 
 	if (!isBaseVulnerable(building))
 		return false;
@@ -1199,10 +1279,36 @@ bool GCWManagerImplementation::canStartSlice(CreatureObject* creature, TangibleO
 // @pre: player is locked since called from Slicing session
 // @post: player is locked
 void GCWManagerImplementation::completeSecuritySlice(CreatureObject* creature, TangibleObject* securityTerminal) {
-	ManagedReference<BuildingObject*> building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
-
-	if (building == nullptr)
+	if (securityTerminal == nullptr) {
 		return;
+	}
+
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = securityTerminal->getObjectID();
+	ZoneServer* zoneServer = securityTerminal->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	switch (terminalID) {
+		case 367428: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923854: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923864: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
+
+	if (building == nullptr) {
+		return;
+	}
 
 	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
 
@@ -1214,13 +1320,37 @@ void GCWManagerImplementation::completeSecuritySlice(CreatureObject* creature, T
 	creature->sendSystemMessage("@slicing/slicing:hq_security_success"); // You have managed to slice into the terminal. The security protocol for the override terminal has been significantly relaxed.
 	Locker block(building);
 	baseData->setState(DestructibleBuildingDataComponent::SLICED);
+
+	activateBaseAlarms(building, HACKALARM);
 }
 
 void GCWManagerImplementation::failSecuritySlice(TangibleObject* securityTerminal) {
-	if (securityTerminal == nullptr)
+	if (securityTerminal == nullptr) {
 		return;
+	}
 
-	ManagedReference<BuildingObject*> building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = securityTerminal->getObjectID();
+	ZoneServer* zoneServer = securityTerminal->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	switch (terminalID) {
+		case 367428: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923854: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923864: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
 
 	if (building == nullptr)
 		return;
@@ -1242,10 +1372,32 @@ void GCWManagerImplementation::failSecuritySlice(TangibleObject* securityTermina
 }
 
 void GCWManagerImplementation::repairTerminal(CreatureObject* creature, TangibleObject* securityTerminal) {
-	if (securityTerminal == nullptr)
+	if (securityTerminal == nullptr || creature == nullptr) {
 		return;
+	}
 
-	ManagedReference<BuildingObject*> building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = securityTerminal->getObjectID();
+	ZoneServer* zoneServer = securityTerminal->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	switch (terminalID) {
+		case 367428: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923854: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923864: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = securityTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
 
 	if (building == nullptr)
 		return;
@@ -1356,7 +1508,32 @@ void GCWManagerImplementation::sendDNASampleMenu(CreatureObject* creature, Build
 }
 
 void GCWManagerImplementation::processDNASample(CreatureObject* creature, TangibleObject* overrideTerminal, const int index) {
-	ManagedReference<BuildingObject*> building = overrideTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+	if (overrideTerminal == nullptr) {
+		return;
+	}
+
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = overrideTerminal->getObjectID();
+	ZoneServer* zoneServer = overrideTerminal->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	switch (terminalID) {
+		case 367410: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923847: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923862: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = overrideTerminal->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
 
 	if (building == nullptr || creature == nullptr)
 		return;
@@ -1490,10 +1667,36 @@ void GCWManagerImplementation::sendPowerRegulatorControls(CreatureObject* creatu
 }
 
 void GCWManagerImplementation::handlePowerRegulatorSwitch(CreatureObject* creature, TangibleObject* powerRegulator, int index) {
-	ManagedReference<BuildingObject*> building = powerRegulator->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
-
-	if (building == nullptr)
+	if (powerRegulator == nullptr) {
 		return;
+	}
+
+	ManagedReference<BuildingObject*> building = nullptr;
+	uint64 terminalID = powerRegulator->getObjectID();
+	ZoneServer* zoneServer = powerRegulator->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	switch (terminalID) {
+		case 367432: // Corellia - Stronghold
+			building = cast<BuildingObject*>(zoneServer->getObject(2715899).get());
+			break;
+		case 923849: // Rori - Imperial Encampment
+			building = cast<BuildingObject*>(zoneServer->getObject(2935404).get());
+			break;
+		case 923861: // Rori - Rebel Military Base
+			building = cast<BuildingObject*>(zoneServer->getObject(7555646).get());
+			break;
+		default:
+			building = powerRegulator->getParentRecursively(SceneObjectType::FACTIONBUILDING).castTo<BuildingObject*>();
+			break;
+	}
+
+	if (building == nullptr) {
+		return;
+	}
 
 	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
 
@@ -1615,6 +1818,8 @@ void GCWManagerImplementation::scheduleBaseDestruction(BuildingObject* building,
 		Reference<Task*> newTask = new BaseDestructionTask(_this.getReferenceUnsafeStaticCast(), building);
 		newTask->schedule(60000);
 		addDestroyTask(building->getObjectID(), newTask);
+
+		activateBaseAlarms(building, DESTRUCTALARM);
 	}
 }
 
@@ -1758,6 +1963,8 @@ void GCWManagerImplementation::abortShutdownSequence(BuildingObject* building, C
 
 		Reference<Task*> newTask = new BaseRebootTask(_this.getReferenceUnsafeStaticCast(), building, baseData);
 		newTask->schedule(60000);
+
+		deactivateBaseAlarms(building);
 	}
 }
 
@@ -2296,8 +2503,6 @@ void GCWManagerImplementation::performDonateTurret(BuildingObject* building, Cre
 				} else {
 					currentTurretIndex++;
 				}
-			} else {
-				error("Invalid turret template: " + child->getTemplateFile());
 			}
 		}
 	}
@@ -2616,7 +2821,7 @@ int GCWManagerImplementation::isStrongholdCity(String& city) {
 }
 
 void GCWManagerImplementation::runCrackdownScan(AiAgent* scanner, CreatureObject* player) {
-	if (!crackdownScansEnabled || !player->isPlayerCreature() || !scanner->isInRange(player, 16) || !CollisionManager::checkLineOfSight(scanner, player)) {
+	if (!crackdownScansEnabled || !player->isPlayerCreature() || !scanner->isInRange(player, 12) || !CollisionManager::checkLineOfSight(scanner, player)) {
 		return;
 	}
 
@@ -2829,4 +3034,125 @@ void GCWManagerImplementation::despawnBaseTerminals(BuildingObject* bldg) {
 
 	baseData->clearBaseTerminals();
 	baseData->setTerminalsSpawned(false);
+}
+
+void GCWManagerImplementation::activateBaseAlarms(BuildingObject* building, int alarmType) {
+	if (!spawnBaseAlarms) {
+		return;
+	}
+
+	if (building == nullptr) {
+		return;
+	}
+
+	ZoneServer* zoneServer = building->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	Locker blocker(building);
+
+	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
+
+	if (baseData == nullptr) {
+		return;
+	}
+
+	Vector<uint64> alarmIds;
+
+	if (alarmType == HACKALARM) {
+		alarmIds = baseData->getHackAlarms();
+	} else if (alarmType == DESTRUCTALARM) {
+		alarmIds = baseData->getDestructAlarms();
+	} else {
+		error("Incorrect Base Alarm Type in activateBaseAlarms.");
+		return;
+	}
+
+	for (int i = 0; i < alarmIds.size(); ++i) {
+		uint64 alarmID = alarmIds.get(i);
+
+		if (alarmID > 0) {
+			SceneObject* alarm = zoneServer->getObject(alarmID).get();
+
+			if (alarm == nullptr) {
+				continue;
+			}
+
+			Locker alocker(alarm, building);
+
+			if (alarm->isTangibleObject()) {
+				TangibleObject* alarmTano = alarm->asTangibleObject();
+
+				if (alarmTano != nullptr) {
+					alarmTano->setOptionsBitmask(OptionBitmask::ACTIVATED);
+					alarmTano->setMaxCondition(0);
+				}
+			}
+		}
+	}
+}
+
+void GCWManagerImplementation::deactivateBaseAlarms(BuildingObject* building) {
+	if (building == nullptr) {
+		return;
+	}
+
+	ZoneServer* zoneServer = building->getZoneServer();
+
+	if (zoneServer == nullptr) {
+		return;
+	}
+
+	Locker blocker(building);
+
+	DestructibleBuildingDataComponent* baseData = getDestructibleBuildingData(building);
+
+	if (baseData == nullptr) {
+		return;
+	}
+
+	Vector<uint64> hackAlarmIDs = baseData->getHackAlarms();
+	Vector<uint64> destructAlarmIDs = baseData->getDestructAlarms();
+
+	for (int i = 0; i < hackAlarmIDs.size(); ++i) {
+		uint64 hackAlarmID = hackAlarmIDs.get(i);
+
+		if (hackAlarmID > 0) {
+			SceneObject* hackAlarm = zoneServer->getObject(hackAlarmID).get();
+
+			if (hackAlarm == nullptr) {
+				continue;
+			}
+
+			if (hackAlarm->isTangibleObject()) {
+				TangibleObject* hackTano = hackAlarm->asTangibleObject();
+
+				Locker hlocker(hackTano, building);
+
+				hackTano->setOptionsBitmask(OptionBitmask::NONE);
+			}
+		}
+	}
+
+	for (int i = 0; i < destructAlarmIDs.size(); ++i) {
+		uint64 destructAlarmID = destructAlarmIDs.get(i);
+
+		if (destructAlarmID > 0) {
+			SceneObject* destructAlarm = zoneServer->getObject(destructAlarmID).get();
+
+			if (destructAlarm == nullptr) {
+				continue;
+			}
+
+			if (destructAlarm->isTangibleObject()) {
+				TangibleObject* destructTano = destructAlarm->asTangibleObject();
+
+				Locker hlocker(destructTano, building);
+
+				destructTano->setOptionsBitmask(OptionBitmask::NONE);
+			}
+		}
+	}
 }

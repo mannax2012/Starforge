@@ -89,6 +89,7 @@
 #include "templates/params/PaletteColorCustomizationVariable.h"
 #include "templates/appearance/PaletteTemplate.h"
 #include "server/zone/managers/auction/AuctionSearchTask.h"
+#include "server/zone/objects/tangible/Instrument.h"
 
 float CreatureObjectImplementation::DEFAULTRUNSPEED = 5.376f;
 
@@ -143,8 +144,8 @@ void CreatureObjectImplementation::initializeMembers() {
 	groupInviteCounter = 0;
 	targetID = 0;
 	moodID = 0;
-	performanceCounter = 0;
-	instrumentID = 0;
+	performanceStartTime = 0;
+	performanceType = 0;
 
 	optionsBitmask = 0x80;
 
@@ -542,17 +543,15 @@ void CreatureObjectImplementation::setLevel(int level, bool randomHam) {
 	}
 }
 
-void CreatureObjectImplementation::setInstrumentID(int instrumentid,
-		bool notifyClient) {
-	if (instrumentid == instrumentID)
+void CreatureObjectImplementation::setPerformanceType(int type, bool notifyClient) {
+	if (type == performanceType)
 		return;
 
-	instrumentID = instrumentid;
+	performanceType = type;
 
 	if (notifyClient) {
-		CreatureObjectDeltaMessage6* msg = new CreatureObjectDeltaMessage6(
-				asCreatureObject());
-		msg->updateInstrumentID(instrumentID);
+		CreatureObjectDeltaMessage6* msg = new CreatureObjectDeltaMessage6(asCreatureObject());
+		msg->updatePerformanceType(performanceType);
 		msg->close();
 
 		broadcastMessage(msg, true);
@@ -1784,18 +1783,19 @@ void CreatureObjectImplementation::setMoodString(
 	}
 }
 
-void CreatureObjectImplementation::setPerformanceCounter(int counter,
-		bool notifyClient) {
-	if (performanceCounter == counter)
+void CreatureObjectImplementation::setPerformanceStartTime(int time, bool notifyClient) {
+	// This value doesn't seem to be used by the client.
+
+	if (performanceStartTime == time)
 		return;
 
-	performanceCounter = counter;
+	performanceStartTime = time;
 
 	if (!notifyClient)
 		return;
 
 	CreatureObjectDeltaMessage6* codm4 = new CreatureObjectDeltaMessage6(asCreatureObject());
-	codm4->updatePerformanceCounter(counter);
+	codm4->updatePerformanceStartTime(time);
 	codm4->close();
 	broadcastMessage(codm4, true);
 }
@@ -1815,8 +1815,7 @@ void CreatureObjectImplementation::setListenToID(uint64 id, bool notifyClient) {
 	sendMessage(codm4);
 }
 
-void CreatureObjectImplementation::setPerformanceAnimation(
-		const String& animation, bool notifyClient) {
+void CreatureObjectImplementation::setPerformanceAnimation(const String& animation, bool notifyClient) {
 	if (performanceAnimation == animation)
 		return;
 
@@ -1989,7 +1988,7 @@ void CreatureObjectImplementation::activateQueueAction() {
 	// Remove element from queue after it has been executed in order to ensure that other commands are enqueued and not activated at immediately.
 	for (int i = 0; i < commandQueue->size(); i++) {
 		Reference<CommandQueueAction*> actionToDelete = commandQueue->get(i);
-		if (action->getCommand() == actionToDelete->getCommand() && action->getActionCounter() == actionToDelete->getActionCounter() && action->getCompareToCounter() == actionToDelete->getCompareToCounter()) {
+		if (action == actionToDelete) {
 			commandQueue->remove(i);
 			break;
 		}
@@ -3952,6 +3951,34 @@ void CreatureObjectImplementation::setHue(int hueIndex) {
 	}
 
 	hueValue = hueIndex;
+}
+
+Instrument* CreatureObjectImplementation::getPlayableInstrument() {
+	Reference<Instrument*> instrument = getSlottedObject("hold_r").castTo<Instrument*> ();
+
+	if (instrument == nullptr) {
+		ZoneServer* zoneServer = getZoneServer();
+
+		if (zoneServer == nullptr)
+			return nullptr;
+
+		ManagedReference<SceneObject*> target = zoneServer->getObject(targetID);
+
+		if (target == nullptr || getParentID() != target->getParentID() || !isInRange(target, 3))
+			return nullptr;
+
+		instrument = cast<Instrument*> (target.get());
+
+		if (instrument == nullptr)
+			return nullptr;
+
+		ManagedReference<CreatureObject*> spawnerPlayer = instrument->getSpawnerPlayer().get();
+
+		if (spawnerPlayer == nullptr || spawnerPlayer != asCreatureObject())
+			return nullptr;
+	}
+
+	return instrument;
 }
 
 void CreatureObjectImplementation::setClient(ZoneClientSession* cli) {

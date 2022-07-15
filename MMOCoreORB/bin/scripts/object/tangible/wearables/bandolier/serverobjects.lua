@@ -65,3 +65,8 @@ includeFile("tangible/wearables/bandolier/ith_mercenary_bandolier.lua")
 includeFile("tangible/wearables/bandolier/ith_multipocket_bandolier.lua")
 includeFile("tangible/wearables/bandolier/mercenary_bandolier.lua")
 includeFile("tangible/wearables/bandolier/multipocket_bandolier.lua")
+--mannax is awesome
+includeFile("tangible/wearables/bandolier/bandolier_wke_backpack.lua")
+includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s01.lua")
+includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s02.lua")
+includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s03.lua")

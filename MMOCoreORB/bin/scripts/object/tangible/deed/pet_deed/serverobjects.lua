@@ -45,6 +45,7 @@
 --Children folder includes
 
 -- Server Objects
+includeFile("tangible/deed/pet_deed/droid_hk47_deed.lua")
 includeFile("tangible/deed/pet_deed/acklay_deed.lua")
 includeFile("tangible/deed/pet_deed/angler_deed.lua")
 includeFile("tangible/deed/pet_deed/bageraset_deed.lua")
@@ -144,3 +145,4 @@ includeFile("tangible/deed/pet_deed/vesp_deed.lua")
 includeFile("tangible/deed/pet_deed/vir_vur_deed.lua")
 includeFile("tangible/deed/pet_deed/woolamander_deed.lua")
 includeFile("tangible/deed/pet_deed/zucca_boar_deed.lua")
+includeFile("tangible/deed/pet_deed/be_tusken_massif_deed.lua")

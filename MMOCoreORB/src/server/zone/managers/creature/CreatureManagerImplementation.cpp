@@ -638,12 +638,6 @@ int CreatureManagerImplementation::notifyDestruction(TangibleObject* destructor,
 		}
 	}
 
-	const DeltaVector<ManagedReference<SceneObject*> >* defenderList = destructor->getDefenderList();
-
-	if (defenderList->size() == 0) {
-		destructor->clearCombatState(false);
-	}
-
 	// now we can safely lock destructor again
 	if (destructedObject != destructor) {
 		destructor->wlock(destructedObject);
@@ -652,12 +646,22 @@ int CreatureManagerImplementation::notifyDestruction(TangibleObject* destructor,
 
 		if (destructorThreatMap != nullptr) {
 			for (int i = 0; i < destructorThreatMap->size(); i++) {
-				CreatureObject* destructedCreo = destructorThreatMap->elementAt(i).getKey();
+				TangibleObject* destructedTano = destructorThreatMap->elementAt(i).getKey();
 
-				if (destructedCreo == destructedObject) {
+				if (destructedTano == destructedObject) {
 					destructorThreatMap->remove(i);
 				}
 			}
+		}
+
+		if (destructor->hasDefender(destructedObject)) {
+			destructor->removeDefender(destructedObject);
+		}
+
+		const DeltaVector<ManagedReference<SceneObject*> >* defenderList = destructor->getDefenderList();
+
+		if (defenderList->size() == 0) {
+			destructor->clearCombatState(false);
 		}
 	}
 
@@ -675,8 +679,9 @@ void CreatureManagerImplementation::droidHarvest(Creature* creature, CreatureObj
 	Locker pLock(owner, droid);
 
 	Zone* zone = creature->getZone();
+	Zone* droidZone = droid->getZone();
 
-	if (zone == nullptr || !creature->isCreature()) {
+	if (zone == nullptr || !creature->isCreature() || droidZone == nullptr) {
 		return;
 	}
 
@@ -708,14 +713,14 @@ void CreatureManagerImplementation::droidHarvest(Creature* creature, CreatureObj
 	int quantityExtracted = int(quantity * float(ownerSkill / 100.0f));
 	// add in droid bonus
 	quantityExtracted = Math::max(quantityExtracted, 3);
-	ManagedReference<ResourceSpawn*> resourceSpawn = resourceManager->getCurrentSpawn(restype, droid->getZone()->getZoneName());
+	ManagedReference<ResourceSpawn*> resourceSpawn = resourceManager->getCurrentSpawn(restype, droidZone->getZoneName());
 
 	if (resourceSpawn == nullptr) {
 		owner->sendSystemMessage("Error: Server cannot locate a current spawn of " + restype);
 		return;
 	}
 
-	float density = resourceSpawn->getDensityAt(droid->getZone()->getZoneName(), droid->getPositionX(), droid->getPositionY());
+	float density = resourceSpawn->getDensityAt(droidZone->getZoneName(), droid->getPositionX(), droid->getPositionY());
 
 	String creatureHealth = "";
 
