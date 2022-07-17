@@ -278,6 +278,6 @@ function RoriStaticSpawnsScreenPlay:spawnMobiles()
 	--Test Test Test - REMOVE WHEN CONFIRMED
 	--The end of the spawn line should read 2835552 but changed to 0 for testing purposes.  Believe it is used
 	--to call a CRC.  Wondering if 0 works since it's not a custom npc.  60 second timer
-	spawnMobile("rori", "sith_shadow_pirate", 60, -1.8863, 0.624996, -3.58423, 253, 0)
+	spawnMobile("rori", "sith_shadow_pirate", 60, -1.8863, 90.6, -3.58423, 253, 0)
 
 end
