@@ -45,5 +45,13 @@
 --Children folder includes
 
 -- Server Objects
+includeFile("weapon/melee/special/massassiknuckler.lua")
+includeFile("weapon/melee/special/fan_metal.lua")
+includeFile("weapon/melee/special/pvp_bf_knuckler.lua")
+includeFile("weapon/melee/special/wookiee_knuckler_wod.lua")
+includeFile("weapon/melee/special/wod_war_fan.lua")
+includeFile("weapon/melee/special/blasterfist.lua")
+
 includeFile("weapon/melee/special/blacksun_razor.lua")
+includeFile("weapon/melee/special/punch_dagger.lua")
 includeFile("weapon/melee/special/vibroknuckler.lua")

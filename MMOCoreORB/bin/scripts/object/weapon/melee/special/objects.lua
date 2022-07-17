@@ -40,6 +40,41 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_weapon_melee_special_shared_blasterfist = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_blasterfist.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_blasterfist, 
+"object/weapon/melee/special/shared_blasterfist.iff")
+
+object_weapon_melee_special_shared_massassiknuckler = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_massassiknuckler.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_massassiknuckler, 
+"object/weapon/melee/special/shared_massassiknuckler.iff")
+
+object_weapon_melee_special_shared_pvp_bf_knuckler = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_pvp_bf_knuckler.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_pvp_bf_knuckler, 
+"object/weapon/melee/special/shared_pvp_bf_knuckler.iff")
+
+object_weapon_melee_special_shared_wookiee_knuckler_wod = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_wookiee_knuckler_wod.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_wookiee_knuckler_wod, 
+"object/weapon/melee/special/shared_wookiee_knuckler_wod.iff")
+
+object_weapon_melee_special_shared_wod_war_fan = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_wod_war_fan.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_wod_war_fan, 
+"object/weapon/melee/special/shared_wod_war_fan.iff")
+
+object_weapon_melee_special_shared_punch_dagger = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_punch_dagger.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_punch_dagger, 
+"object/weapon/melee/special/shared_punch_dagger.iff")
+
+object_weapon_melee_special_shared_fan_metal = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_fan_metal.iff"}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_fan_metal, 
+"object/weapon/melee/special/shared_fan_metal.iff")
+
 
 object_weapon_melee_special_shared_blacksun_razor = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/special/shared_blacksun_razor.iff"
