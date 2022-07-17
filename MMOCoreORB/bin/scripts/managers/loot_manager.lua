@@ -265,17 +265,17 @@ lootableClothingAttachmentStatMods = {
 	"jedi_force_power_regen",
 	"onehandedlighsaber_accuracy",
 	"onehandedlighsaber_speed",
-	"twohandlightsaber_accuracy"
+	"twohandlightsaber_accuracy",
 	"twohandlightsaber_speed",
 	"polearmlightsaber_accuracy",
 	"polearmlightsaber_speed",
-	"forceknockdown_accuracy"
+	"forceknockdown_accuracy",
 	"forceknockdown_speed",
-	"forcelightning_accuracy"
+	"forcelightning_accuracy",
 	"forcelightning_speed",
 	"forcelightning_accuracy",
 	"forcelightning_speed",
-	"forceweaken_accuracy"
+	"forceweaken_accuracy",
 	"forceweaken_speed",
 	"mindblast_accuracy",
 	"mindblast_speed",

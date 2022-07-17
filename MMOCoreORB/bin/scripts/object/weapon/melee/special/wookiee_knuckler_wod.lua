@@ -147,8 +147,8 @@ object_weapon_melee_special_wookiee_knuckler_wod = object_weapon_melee_special_s
 	maxRange = 3,
 	maxRangeAccuracy = 10,
 
-	minDamage = 20,
-	maxDamage = 120,
+	minDamage = 120,
+	maxDamage = 220,
 
 	attackSpeed = 2.6,
 
