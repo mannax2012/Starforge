@@ -66,7 +66,7 @@ object_draft_schematic_item_quest_item_fs_craft_puzzle_signal_amp = object_draft
 	ingredientTitleNames = {"transformer", "checksum_hardware", "component_housing", "socket_connection"},
 	ingredientSlotType = {0, 0, 0, 0},
 	resourceTypes = {"copper", "ore_carbonate", "fiberplast_talus", "aluminum"},
-	resourceQuantities = {70, 20, 25, 20},
+	resourceQuantities = {7, 2, 2, 2},
 	contribution = {100, 100, 100, 100},
 
 	targetTemplate = "object/tangible/item/quest/force_sensitive/fs_craft_puzzle_signal_amp.iff",

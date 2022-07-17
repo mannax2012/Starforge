@@ -66,7 +66,7 @@ object_draft_schematic_item_quest_item_fs_craft_puzzle_config_processor = object
 	ingredientTitleNames = {"diode_cluster", "jumper_circuitry", "component_housing", "socket_connection"},
 	ingredientSlotType = {0, 0, 0, 0},
 	resourceTypes = {"fiberplast_rori", "copper", "aluminum", "copper"},
-	resourceQuantities = {50, 30, 40, 15},
+	resourceQuantities = {5, 3, 4, 1},
 	contribution = {100, 100, 100, 100},
 
 	targetTemplate = "object/tangible/item/quest/force_sensitive/fs_craft_puzzle_config_processor.iff",
