@@ -838,7 +838,8 @@
 #include "InspacerrCommand.h"
 #include "RequestSpaceTrainerCommand.h"
 
-
+//custom commands
+#include "VillageCommand.h"
 
 
 #endif /* COMMANDSNEW_H_ */
