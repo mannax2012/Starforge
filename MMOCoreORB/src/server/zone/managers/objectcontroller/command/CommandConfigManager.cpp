@@ -3,7 +3,7 @@
 		See file COPYING for copying conditions. */
 
 #include "CommandConfigManager.h"
-
+#include "server/zone/objects/creature/commands/commands.h"
 #include "server/zone/ZoneProcessServer.h"
 #include "server/zone/ZoneServer.h"
 #include "server/zone/Zone.h"
@@ -850,4 +850,8 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<PetPatrolCommand>(String("petPatrol").toLowerCase());
 	commandFactory.registerCommand<PetClearPatrolPointsCommand>(String("petClearPatrolPoints").toLowerCase());
 	commandFactory.registerCommand<PetGetPatrolPointCommand>(String("petGetPatrolPoint").toLowerCase());
+	//custom commands
+	commandFactory.registerCommand<VillageCommand>(String("village").toLowerCase());
+	commandFactory.registerCommand<RegrantSkillsCommand>(String("regrantSkills").toLowerCase());
+
 }
