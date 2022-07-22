@@ -840,6 +840,7 @@
 
 //custom commands
 #include "VillageCommand.h"
+#include "RegrantSkillsCommand.h"
 
 
 #endif /* COMMANDSNEW_H_ */

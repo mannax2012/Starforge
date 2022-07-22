@@ -17,6 +17,8 @@ public:
 	}
 
 	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
+		//creature->sendSystemMessage("Village Phase Timer has been disabled by admin due to how dumb he is.");
+
 		if (!checkStateMask(creature)) {
 			return INVALIDSTATE;
 		}
@@ -28,9 +30,9 @@ public:
 		if (JediManager::instance()->getJediProgressionType() != JediManager::VILLAGEJEDIPROGRESSION) {
 			return GENERALERROR;
 		}
-
+	
 		if (!creature->checkCooldownRecovery("villageCommand"))  {
-			Time* cooldownTime = creature->getCooldownTime("villageCommand");
+			const Time* cooldownTime = creature->getCooldownTime("villageCommand");
 			if (cooldownTime != nullptr) {
 				float timeLeft = round(fabs(cooldownTime->miliDifference() / 1000.f));
 				creature->sendSystemMessage("You can use the village command again in " + String::valueOf(timeLeft) + " second" + ((timeLeft == 1.0f) ? "." : "s."));
@@ -41,9 +43,9 @@ public:
                 return GENERALERROR;
 			}
 		}
-
+		creature->sendSystemMessage("Village Phase Timer has been disabled. Code is incomplete.");
 		Lua* lua = DirectorManager::instance()->getLuaInstance();
-		Reference<LuaFunction*> luaVillageCommand = lua->createFunction("VillageCommand", "villageCommand", 0);
+		Reference<LuaFunction*> luaVillageCommand = lua->createFunction("VillageJediManagerTownship", "getNextPhaseChangeTime", 0);
 		*luaVillageCommand<< creature;
 
 		luaVillageCommand->callFunction();
@@ -52,7 +54,6 @@ public:
 
 		return SUCCESS;
 	}
-
 };
 
 #endif //VILLAGECOMMAND_H_
