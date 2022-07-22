@@ -43,14 +43,13 @@ public:
                 return GENERALERROR;
 			}
 		}
-		creature->sendSystemMessage("Village Phase Timer has been disabled. Code is incomplete.");
+		
 		Lua* lua = DirectorManager::instance()->getLuaInstance();
-		Reference<LuaFunction*> luaVillageCommand = lua->createFunction("VillageJediManagerTownship", "getNextPhaseChangeTime", 0);
-		*luaVillageCommand<< creature;
 
-		luaVillageCommand->callFunction();
+		Reference<LuaFunction*> luaVillageCmd = lua->createFunction("VillageSui", "showMainPage", 0);
+		*luaVillageCmd << creature;
 
-		creature->updateCooldownTimer("villageCommand", 10000);   // 10 Second cooldown
+		luaVillageCmd->callFunction();
 
 		return SUCCESS;
 	}
