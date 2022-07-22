@@ -56,7 +56,7 @@ VillageRaids = ScreenPlay:new {
 		{ 5256.98, 78.5, -4244.5, 191 },
 		{ 5270.39, 78.5, -4246.7, 186 },
 		{ 5253.63, 78.5, -4228.5, 345 },
-		{ 5265.75, 78.5, -4088.08, 60 },
+		{ 5274.75, 78.5, -4091.08, 60 },
 	},
 
 	-- Number of players needed near village to move up a wave size
