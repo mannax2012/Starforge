@@ -853,5 +853,5 @@ void CommandConfigManager::registerCommands() {
 	//custom commands
 	commandFactory.registerCommand<VillageCommand>(String("village").toLowerCase());
 	commandFactory.registerCommand<RegrantSkillsCommand>(String("regrantSkills").toLowerCase());
-
+	commandFactory.registerCommand<SetPvPCommand>(String("SetPvP").toLowerCase());
 }

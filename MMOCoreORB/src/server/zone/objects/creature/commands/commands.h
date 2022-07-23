@@ -841,7 +841,7 @@
 //custom commands
 #include "VillageCommand.h"
 #include "RegrantSkillsCommand.h"
-
+#include "SetPvPCommand.h"
 
 #endif /* COMMANDSNEW_H_ */
 
