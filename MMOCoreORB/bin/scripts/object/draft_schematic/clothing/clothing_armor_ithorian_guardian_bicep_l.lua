@@ -50,7 +50,8 @@ object_draft_schematic_clothing_clothing_armor_ithorian_guardian_bicep_l = objec
    craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
    complexity = 25, 
    size = 3, 
-   factoryCrateType = "object/factory/factory_crate_clothing.iff",
+   factoryCrateType = "object/factory/factory_crate_clothing.iff",  
+factoryCrateSize = 1000,
 
    xpType = "crafting_clothing_armor", 
    xp = 180, 
