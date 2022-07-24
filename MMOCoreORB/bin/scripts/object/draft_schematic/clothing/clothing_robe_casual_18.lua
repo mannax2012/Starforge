@@ -50,7 +50,8 @@ object_draft_schematic_clothing_clothing_robe_casual_18 = object_draft_schematic
    craftingToolTab = 8, -- (See DraftSchematicObjectTemplate.h)
    complexity = 20, 
    size = 2, 
-   factoryCrateType = "object/factory/factory_crate_clothing.iff",
+   factoryCrateType = "object/factory/factory_crate_clothing.iff",  
+factoryCrateSize = 1000,
 
    xpType = "crafting_clothing_general", 
    xp = 120, 
