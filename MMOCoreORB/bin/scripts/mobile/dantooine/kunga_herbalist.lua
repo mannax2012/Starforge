@@ -39,7 +39,7 @@ kunga_herbalist = Creature:new {
 				{group = "clothing_attachments", chance = 500000},
 				{group = "wearables_common", chance = 1000000},
 				{group = "wearables_uncommon", chance = 1000000},
-				{group = "power_crystals", chance = 500000}
+				{group = "kunga_common", chance = 500000}
 			}
 		}
 	},
