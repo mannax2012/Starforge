@@ -10,6 +10,9 @@ JUNKGUNGAN = 128
 JUNKCORSEC = 256
 
 
+--custom crystals
+includeFile("items/force_crystal_adegan_silver.lua")
+--original content
 includeFile("items/attachment_armor.lua")
 includeFile("items/attachment_clothing.lua")
 includeFile("items/balanced_feed_mechanism.lua")
@@ -495,6 +498,12 @@ includeFile("items/npc/gorax_bone_shards_common.lua")
 includeFile("items/npc/gorax_bone_shards_rare.lua")
 includeFile("items/npc/gungan_lance.lua")
 includeFile("items/npc/gungan_signet.lua")
+includeFile("items/npc/kunga_blood.lua")
+includeFile("items/npc/kunga_hides.lua")
+includeFile("items/npc/mokk_blood.lua")
+includeFile("items/npc/mokk_hides.lua")
+includeFile("items/npc/dantari_blood.lua")
+includeFile("items/npc/dantari_hides.lua")
 includeFile("items/npc/janta_blood.lua")
 includeFile("items/npc/janta_hides.lua")
 includeFile("items/npc/jawa_beads.lua")
