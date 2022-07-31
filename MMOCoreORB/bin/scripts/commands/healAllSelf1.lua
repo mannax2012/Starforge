@@ -44,9 +44,9 @@
 HealAllSelf1Command = {
 	name = "healallself1",
 	healAmount = 500,
-	forceCost = 250,
-	forceCostMultiplier = 0.05,
-	defaultTime = 6,
+	forceCost = 125,
+	--forceCostMultiplier = 0.05, --makes healing flat rate
+	--defaultTime = 6, --if the player wants to nuke their force pool overhealing, let them
 	attributesToHeal = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
 }
 
