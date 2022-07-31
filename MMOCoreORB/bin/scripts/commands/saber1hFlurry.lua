@@ -44,14 +44,14 @@
 Saber1hFlurryCommand = {
         name = "saber1hflurry",
 
-	damageMultiplier = 3.5,
+	damageMultiplier = 3.18,
 	speedMultiplier = 3.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
 	areaRange = 16,
 	areaAction = true,
-	forceCostMultiplier = 2.5,
+	forceCostMultiplier = 2.27,
 	visMod = 25,
 
 	stateEffects = {
