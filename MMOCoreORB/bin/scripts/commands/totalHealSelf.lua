@@ -59,8 +59,8 @@ TotalHealSelfCommand = {
 	woundAttributesToHeal = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
 	healBattleFatigue = -1,
 	healWoundAmount = -1,
-	forceCostMultiplier = 0.05,
-	defaultTime = 3,
+	--forceCostMultiplier = 0.05,
+	--defaultTime = 3,
 }
 
 AddCommand(TotalHealSelfCommand)
