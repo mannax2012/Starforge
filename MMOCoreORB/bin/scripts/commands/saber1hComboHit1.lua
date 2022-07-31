@@ -44,13 +44,25 @@
 Saber1hComboHit1Command = {
         name = "saber1hcombohit1",
 
-	damageMultiplier = 1.5,
+	damageMultiplier = 1.36,
 	speedMultiplier = 1.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.25,
+	forceCostMultiplier = 1.14,
 	visMod = 25,
+	
+	stateEffects = {
+	   StateEffect( 
+		KNOCKDOWN_EFFECT, 
+		{ "knockdownRecovery", "lastKnockdown" }, 
+		{ "knockdown_defense" }, 
+		{},
+		100, 
+		0, 
+		0
+	  )
+	},
 
 	animation = "combo_3b",
 	animType = GENERATE_INTENSITY,
