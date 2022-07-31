@@ -44,23 +44,25 @@
 Saber2hSweep3Command = {
         name = "saber2hsweep3",
 
-	damageMultiplier = 3.0,
+	damageMultiplier = 3.5,
 	speedMultiplier = 3.5,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
+	areaAction = true,
+	areaRange = 16,
 	forceCostMultiplier = 2.25,
 	visMod = 25,
 
 	stateEffects = {
-	  StateEffect( 
-		POSTUREDOWN_EFFECT, 
-		{ "postureDownRecovery" }, 
-		{ "posture_change_down_defense" }, 
+	   StateEffect( 
+		KNOCKDOWN_EFFECT, 
+		{ "knockdownRecovery", "lastKnockdown" }, 
+		{ "knockdown_defense" }, 
 		{},
-		100, 
+		85, 
 		0, 
-		0 
+		0
 	  )
 	},
 
@@ -68,7 +70,7 @@ Saber2hSweep3Command = {
 
 	combatSpam = "saber2hsweep3",
 
-	poolsToDamage = RANDOM_ATTRIBUTE,
+	poolsToDamage = HEALTH_ATTRIBUTE + ACTION_ATTRIBUTE + MIND_ATTRIBUTE,
 
 	weaponType = TWOHANDJEDIWEAPON,
 
