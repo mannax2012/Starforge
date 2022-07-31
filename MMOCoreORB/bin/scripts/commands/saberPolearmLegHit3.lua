@@ -44,12 +44,12 @@
 SaberPolearmLegHit3Command = {
         name = "saberpolearmleghit3",
 
-	damageMultiplier = 2.25,
+	damageMultiplier = 2.63,
 	speedMultiplier = 2.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.75,
+	forceCostMultiplier = 1.84,
 	visMod = 25,
 
 	animation = "combo_3d", 
@@ -59,6 +59,18 @@ SaberPolearmLegHit3Command = {
 
 	poolsToDamage = ACTION_ATTRIBUTE,
 
+	stateEffects = {
+	  StateEffect( 
+		DIZZY_EFFECT, 
+		{}, 
+		{ "dizzy_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		75, 
+		0, 
+		60 
+	  )
+	},
+	
 	weaponType = POLEARMJEDIWEAPON,
 
 	range = -1
