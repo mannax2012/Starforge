@@ -44,14 +44,15 @@
 SaberPolearmDervishCommand = {
         name = "saberpolearmdervish",
 
-	damageMultiplier = 3.5,
+	damageMultiplier = 3.85,
 	speedMultiplier = 3.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	areaAction = true,
-	areaRange = 16,
-	forceCostMultiplier = 2.5,
+	coneAngle = 45,
+	coneAction = true,
+	coneRange = 24,
+	forceCostMultiplier = 2.63,
 	visMod = 25,
 
 		stateEffects = {
@@ -62,7 +63,7 @@ SaberPolearmDervishCommand = {
 		{ "jedi_state_defense", "resistance_states" },
 		75, 
 		0, 
-		60
+		30
 	  ),
 	  StateEffect( 
 		DIZZY_EFFECT, 
@@ -80,7 +81,7 @@ SaberPolearmDervishCommand = {
 		{ "jedi_state_defense", "resistance_states" },
 		75, 
 		0, 
-		60 
+		30 
 	  )
 	},
 
