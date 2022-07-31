@@ -178,25 +178,23 @@ void LightsaberCrystalComponentImplementation::validateCrystalStats() {
 
 		if (attackSpeed > maxFloatStat || attackSpeed < minFloatStat)
 			attackSpeed = Math::getPrecision(getRandomizedStat(minFloatStat, maxFloatStat, itemLevel), 2);
-	}
+		}
+
+	// Do Exceptional Chances modifiers here!
+	if (crystalExcMod == 1.5){
+		damage += 10;
+		woundChance += 1;
+		floatForceCost -= 0.50;
+	}else if (crystalExcMod == 2.0){
+		damage += 15;
+		woundChance += 2;
+		floatForceCost -= 0.75;
+	}else if (crystalExcMod == 3.0){
+		damage += 20;
+		woundChance += 3;
+		floatForceCost -= 1.25;
+	}	
 }
-// Do Exceptional Chances modifiers here!
-//	if (crystalExcMod == 1.5){
-//		damage += 10;
-//		woundChance += 1;
-//		floatForceCost -= 0.50;
-//	}
-//	else if (crystalExcMod == 2.0){
-//		damage += 15;
-//		woundChance += 2;
-//		floatForceCost -= 0.75;
-//	}
-//	else if (crystalExcMod == 3.0){
-//		damage += 20;
-//		woundChance += 3;
-//		floatForceCost -= 1.25;
-//	}	
-//}
 
 int LightsaberCrystalComponentImplementation::getCrystalQuality() {
 	if (itemLevel < 40)
@@ -466,7 +464,7 @@ void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValu
 	int color = values->getCurrentValue("color");
 
 	if (colorMax != 31) {
-		int finalColor = Math::min(color, 11);
+		int finalColor = Math::min(color, 63);
 		setColor(finalColor);
 		updateCrystal(finalColor);
 	} else {

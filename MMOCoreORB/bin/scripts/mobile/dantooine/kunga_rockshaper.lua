@@ -38,7 +38,7 @@ kunga_rockshaper = Creature:new {
 				{group = "armor_attachments", chance = 500000},
 				{group = "clothing_attachments", chance = 500000},
 				{group = "wearables_all", chance = 2000000},
-				{group = "power_crystals", chance = 500000}
+				{group = "kunga_common", chance = 500000}
 			}
 		}
 	},

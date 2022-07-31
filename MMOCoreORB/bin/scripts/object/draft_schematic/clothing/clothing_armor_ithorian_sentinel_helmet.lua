@@ -50,7 +50,8 @@ object_draft_schematic_clothing_clothing_armor_ithorian_sentinel_helmet = object
    craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
    complexity = 45, 
    size = 4, 
-   factoryCrateType = "object/factory/factory_crate_clothing.iff",
+   factoryCrateType = "object/factory/factory_crate_clothing.iff",  
+factoryCrateSize = 1000,
 
    xpType = "crafting_clothing_armor", 
    xp = 550, 

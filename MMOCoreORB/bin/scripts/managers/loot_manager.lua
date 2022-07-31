@@ -50,8 +50,8 @@ legendaryChance = 100 --1 in 1,000,000
 
 --Determines how much of an increase in the base stats will be applied to the object.
 yellowModifier = 1.5
-exceptionalModifier = 2.5
-legendaryModifier = 5.0
+exceptionalModifier = 2
+legendaryModifier = 3.0
 
 --The chance for random skill mods to be on looted weapons/wearables
 skillModChance = 1 -- 1 in 500
@@ -265,17 +265,17 @@ lootableClothingAttachmentStatMods = {
 	"jedi_force_power_regen",
 	"onehandedlighsaber_accuracy",
 	"onehandedlighsaber_speed",
-	"twohandlightsaber_accuracy"
+	"twohandlightsaber_accuracy",
 	"twohandlightsaber_speed",
 	"polearmlightsaber_accuracy",
 	"polearmlightsaber_speed",
-	"forceknockdown_accuracy"
+	"forceknockdown_accuracy",
 	"forceknockdown_speed",
-	"forcelightning_accuracy"
+	"forcelightning_accuracy",
 	"forcelightning_speed",
 	"forcelightning_accuracy",
 	"forcelightning_speed",
-	"forceweaken_accuracy"
+	"forceweaken_accuracy",
 	"forceweaken_speed",
 	"mindblast_accuracy",
 	"mindblast_speed",
@@ -858,7 +858,7 @@ jediCrystalStats = {
 	},
 	lightsaber_module_krayt_dragon_pearl = {
 		minDamage = 30,
-		maxDamage = 60,
+		maxDamage = 50,
 		minHitpoints = 900,
 		maxHitpoints = 1400,
 		minHealthSac = -6,
