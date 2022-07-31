@@ -59,6 +59,18 @@ Saber2hBodyHit2Command = {
 	
 	poolsToDamage = HEALTH_ATTRIBUTE,
 	
+	stateEffects = {
+	  StateEffect( 
+		STUN_EFFECT, 
+		{}, 
+		{ "stun_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		30, 
+		0, 
+		30 
+	  )
+	},
+	
 	weaponType = TWOHANDJEDIWEAPON,
 
 	range = -1
