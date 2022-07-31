@@ -65,7 +65,7 @@ SaberPolearmLegHit3Command = {
 		{}, 
 		{ "dizzy_defense" }, 
 		{ "jedi_state_defense", "resistance_states" },
-		75, 
+		85, 
 		0, 
 		60 
 	  )
