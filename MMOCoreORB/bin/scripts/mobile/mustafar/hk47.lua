@@ -29,7 +29,9 @@ hk47 = Creature:new {
 	templates = {"object/mobile/som/hk47.iff"},
 	lootGroups = {
 		{
-			groups = {},
+			groups = {
+				{group = "color_crystals_custom_01", chance = 10000000}
+			},
 			lootChance = 2100000
 		}
 	},

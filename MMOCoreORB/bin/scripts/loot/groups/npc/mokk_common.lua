@@ -9,7 +9,7 @@ mokk_common = {
 		{itemTemplate = "clothing_attachments", weight = 1000000},
 		{itemTemplate = "power_crystals", weight = 500000},
 		{itemTemplate = "mokk_hides", weight = 3500000},
-		{itemTemplate = "spear_rack_schematic", weight = 500000},
+		{itemTemplate = "armor_attachments", weight = 500000},
 		{groupTemplate = "wearables_common", weight = 1000000},
 		{groupTemplate = "wearables_uncommon", weight = 500000},
 		{groupTemplate = "force_crystal_adegan_silver", weight = 500000}
