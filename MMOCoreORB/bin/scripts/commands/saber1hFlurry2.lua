@@ -44,14 +44,14 @@
 Saber1hFlurry2Command = {
         name = "saber1hflurry2",
 
-	damageMultiplier = 4.0,
+	damageMultiplier = 3.64,
 	speedMultiplier = 4.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
 	areaRange = 16,
 	areaAction = true,
-	forceCostMultiplier = 3.0,
+	forceCostMultiplier = 2.73,
 	visMod = 25,
 
 		stateEffects = {
@@ -71,7 +71,7 @@ Saber1hFlurry2Command = {
 		{ "jedi_state_defense", "resistance_states" },
 		85, 
 		0, 
-		30
+		60
 	  ),
 	  StateEffect( 
 		STUN_EFFECT, 
