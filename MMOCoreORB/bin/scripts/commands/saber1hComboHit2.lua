@@ -44,12 +44,15 @@
 Saber1hComboHit2Command = {
         name = "saber1hcombohit2",
 
-	damageMultiplier = 2.5,
+	damageMultiplier = 2.27,
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.75,
+	coneAngle = 45,
+	coneAction = true,
+	coneRange = 24,
+	forceCostMultiplier = 1.59,
 	visMod = 25,
 
 	animation = "combo_5b",
@@ -61,7 +64,7 @@ Saber1hComboHit2Command = {
 		{ "postureDownRecovery" },
 		{ "posture_change_down_defense" },
 		{},
-		40,
+		75,
 		0,
 		0
 	  )
