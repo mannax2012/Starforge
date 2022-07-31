@@ -44,12 +44,12 @@
 Saber2hHit3Command = {
         name = "saber2hhit3",
 
-	damageMultiplier = 2.75,
+	damageMultiplier = 2.5,
 	speedMultiplier = 2.5,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 2.10,
+	forceCostMultiplier = 2.0,
 	visMod = 25,
 
 	animation = "showoff_3", 
