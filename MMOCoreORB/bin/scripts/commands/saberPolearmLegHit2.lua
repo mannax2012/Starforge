@@ -44,12 +44,12 @@
 SaberPolearmLegHit2Command = {
         name = "saberpolearmleghit2",
 
-	damageMultiplier = 1.5,
+	damageMultiplier = 2.1,
 	speedMultiplier = 1.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.25,
+	forceCostMultiplier = 1.58,
 	visMod = 25,
 
 	animation = "combo_3b", 
@@ -58,6 +58,18 @@ SaberPolearmLegHit2Command = {
 	combatSpam = "saberpolearmleghit2",
 
 	poolsToDamage = ACTION_ATTRIBUTE,
+	
+	stateEffects = {
+	  StateEffect( 
+		DIZZY_EFFECT, 
+		{}, 
+		{ "dizzy_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		30, 
+		0, 
+		30 
+	  )
+	},
 
 	weaponType = POLEARMJEDIWEAPON,
 
