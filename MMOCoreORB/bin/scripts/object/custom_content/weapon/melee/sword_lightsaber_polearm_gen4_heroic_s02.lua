@@ -120,8 +120,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen4_heroic_s
 	maxRange = 5,
 	maxRangeAccuracy = 5,
 
-	minDamage = 105,
-	maxDamage = 195,
+	minDamage = 245,
+	maxDamage = 345,
 
 	attackSpeed = 5.1,
 
@@ -140,8 +140,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_gen4_heroic_s
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 225, 305, 5.1, 10, 15, 35, 40, 20},
-	experimentalMax = {0, 0, 235, 325, 4.8, 20, 12, 25, 25, 15},
+	experimentalMin = {0, 0, 245, 325, 5.1, 10, 15, 35, 40, 20},
+	experimentalMax = {0, 0, 255, 345, 4.8, 20, 12, 25, 25, 15},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 }
