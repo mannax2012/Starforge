@@ -49,6 +49,9 @@ Saber2hSweep2Command = {
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
+	coneAngle = 45,
+	coneAction = true,
+	coneRange = 24,
 	forceCostMultiplier = 1.75,
 	visMod = 25,
 
@@ -58,7 +61,7 @@ Saber2hSweep2Command = {
 		{ "postureDownRecovery" }, 
 		{ "posture_change_down_defense" }, 
 		{},
-		100, 
+		75, 
 		0, 
 		0 
 	  )
