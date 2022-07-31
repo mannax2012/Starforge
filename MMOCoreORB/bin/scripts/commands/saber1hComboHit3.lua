@@ -63,7 +63,7 @@ Saber1hComboHit3Command = {
 		{ "knockdownRecovery", "lastKnockdown" }, 
 		{ "knockdown_defense" }, 
 		{},
-		100, 
+		85, 
 		0, 
 		0
 	  )
