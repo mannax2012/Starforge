@@ -162,8 +162,8 @@ object_weapon_melee_2h_sword_crafted_saber_sword_lightsaber_two_handed_gcw_s01_g
 	maxRange = 5,
 	maxRangeAccuracy = 5,
 
-	minDamage = 75,
-	maxDamage = 125,
+	minDamage = 245,
+	maxDamage = 345,
 
 	attackSpeed = 4.5,
 
@@ -182,8 +182,8 @@ object_weapon_melee_2h_sword_crafted_saber_sword_lightsaber_two_handed_gcw_s01_g
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "exp_durability", "expRange", "expRange", "null", "expRange", "null", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "hitpoints", "zerorangemod", "maxrangemod", "midrange", "midrangemod", "maxrange", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 53, 88, 5.6, 12, 750, 0, 0, 3, 0, 4, 52, 17, 10},
-	experimentalMax = {0, 0, 98, 163, 4.1, 22, 1500, 10, 10, 3, 10, 4, 26, 8, 4},
+	experimentalMin = {0, 0, 245, 325, 5.6, 12, 750, 0, 0, 3, 0, 4, 52, 17, 10},
+	experimentalMax = {0, 0, 255, 345, 4.1, 22, 1500, 10, 10, 3, 10, 4, 26, 8, 4},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
