@@ -1,5 +1,5 @@
 #include "CommandConfigManager.h"
-
+#include "server/zone/objects/creature/commands/commands.h"
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/objects/creature/ai/Creature.h"
 
@@ -634,4 +634,22 @@ void CommandConfigManager::registerCommands3() {
 	commandFactory.registerCommand<StrafeShot2Command>(String("strafeShot2").toLowerCase());
 	commandFactory.registerCommand<StructurestatusCommand>(String("structurestatus").toLowerCase());
 	commandFactory.registerCommand<StunAttackCommand>(String("stunAttack").toLowerCase());
+	commandFactory.registerCommand<SaberLegHit1Command>(String("saberLegHit1").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberLegHit2Command>(String("saberLegHit2").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberLegHit3Command>(String("saberLegHit3").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberSpinAttack1Command>(String("saberSpinAttack1").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberSpinAttack2Command>(String("saberSpinAttack2").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberSpinAttack3Command>(String("saberSpinAttack3").toLowerCase());      // Custom
+    commandFactory.registerCommand<SaberSweep1Command>(String("saberSweep1").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberSweep2Command>(String("saberSweep2").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberSweep3Command>(String("saberSweep3").toLowerCase());      // Custom	
+    commandFactory.registerCommand<SaberBodyHit1Command>(String("saberBodyHit1").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberBodyHit2Command>(String("saberBodyHit2").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberBodyHit3Command>(String("saberBodyHit3").toLowerCase());      // Custom
+    commandFactory.registerCommand<SaberComboHit1Command>(String("saberComboHit1").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberComboHit2Command>(String("saberComboHit2").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberComboHit3Command>(String("saberComboHit3").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberHeadHit1Command>(String("saberHeadHit1").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberHeadHit2Command>(String("saberHeadHit2").toLowerCase());      // Custom
+	commandFactory.registerCommand<SaberHeadHit3Command>(String("saberHeadHit3").toLowerCase());      // Custom
 }
