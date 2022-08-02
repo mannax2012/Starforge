@@ -51,7 +51,7 @@ object_draft_schematic_food_drink_blue_milk = object_draft_schematic_food_shared
    complexity = 12, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 80, 
 

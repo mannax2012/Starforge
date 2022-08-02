@@ -51,7 +51,7 @@ object_draft_schematic_food_dish_kanali_wafers = object_draft_schematic_food_sha
    complexity = 4, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 80, 
 

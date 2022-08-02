@@ -51,7 +51,7 @@ object_draft_schematic_food_drink_gralinyn_juice = object_draft_schematic_food_s
    complexity = 12, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 140, 
 

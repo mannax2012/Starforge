@@ -51,7 +51,7 @@ object_draft_schematic_food_dish_vercupti_of_agazza_boleruuee = object_draft_sch
    complexity = 15, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 200, 
 

@@ -51,7 +51,7 @@ object_draft_schematic_food_dish_gruuvan_shaal = object_draft_schematic_food_sha
    complexity = 10, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 200, 
 
