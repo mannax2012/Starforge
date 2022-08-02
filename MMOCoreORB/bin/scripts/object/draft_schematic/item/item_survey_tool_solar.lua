@@ -51,7 +51,7 @@ object_draft_schematic_item_item_survey_tool_solar = object_draft_schematic_item
    complexity = 5, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 32, 
 

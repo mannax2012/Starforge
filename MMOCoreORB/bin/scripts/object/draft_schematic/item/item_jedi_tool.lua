@@ -51,7 +51,7 @@ object_draft_schematic_item_item_jedi_tool = object_draft_schematic_item_shared_
    complexity = 10, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "jedi_general", 
    xp = 0, 
 

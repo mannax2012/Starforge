@@ -51,7 +51,7 @@ object_draft_schematic_scout_item_trap_flash_bomb = object_draft_schematic_scout
    complexity = 14, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "camp", 
    xp = 70, 
 

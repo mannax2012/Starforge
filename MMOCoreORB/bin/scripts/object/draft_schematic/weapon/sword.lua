@@ -51,7 +51,7 @@ object_draft_schematic_weapon_sword = object_draft_schematic_weapon_shared_sword
    complexity = 15, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 45, 
 

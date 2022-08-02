@@ -51,7 +51,7 @@ object_draft_schematic_instrument_instrument_mandoviol = object_draft_schematic_
    complexity = 18, 
    size = 0, 
    factoryCrateType = "object/factory/factory_crate_generic_items.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "music", 
    xp = 120, 
 

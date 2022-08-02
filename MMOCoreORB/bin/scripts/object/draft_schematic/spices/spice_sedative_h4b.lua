@@ -51,7 +51,7 @@ object_draft_schematic_spices_spice_sedative_h4b = object_draft_schematic_spices
    complexity = 11, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_spice", 
    xp = 115, 
 

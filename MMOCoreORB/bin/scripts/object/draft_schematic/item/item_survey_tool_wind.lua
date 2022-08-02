@@ -51,7 +51,7 @@ object_draft_schematic_item_item_survey_tool_wind = object_draft_schematic_item_
    complexity = 8, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 32, 
 

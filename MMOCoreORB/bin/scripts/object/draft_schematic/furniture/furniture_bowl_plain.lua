@@ -50,7 +50,7 @@ object_draft_schematic_furniture_furniture_bowl_plain = object_draft_schematic_f
    craftingToolTab = 512, -- (See DraftSchematicObjectTemplate.h)
    complexity = 9, 
    size = 1, 
-   factoryCrateSize = 0,
+   factoryCrateSize = 1000,
    factoryCrateType = "object/factory/factory_crate_furniture.iff",
    
    xpType = "crafting_general", 

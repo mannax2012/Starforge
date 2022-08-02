@@ -51,7 +51,7 @@ object_draft_schematic_scout_item_camokit_dathomir = object_draft_schematic_scou
    complexity = 2, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "scout", 
    xp = 280, 
 

@@ -51,7 +51,7 @@ object_draft_schematic_weapon_battleaxe = object_draft_schematic_weapon_shared_b
    complexity = 20, 
    size = 4, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 135, 
 

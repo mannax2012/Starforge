@@ -41,40 +41,40 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_draft_schematic_item_item_firework_eighteen = object_draft_schematic_item_shared_item_firework_eighteen:new {
+object_draft_schematic_weapon_punch_dagger = object_draft_schematic_weapon_shared_punch_dagger:new {
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "Type 18 Firework",
+   customObjectName = "Punch Dagger",
 
-   craftingToolTab = 524288, -- (See DraftSchematicObjectTemplate.h)
-   complexity = 11, 
-   size = 1, 
-   factoryCrateType = "object/factory/factory_crate_electronics.iff",
+   craftingToolTab = 1, -- (See DraftSchematicObjectTemplate.h)
+   complexity = 25, 
+   size = 2, 
+   factoryCrateType = "object/factory/factory_crate_weapon.iff",
    factoryCrateSize = 1000,
-   xpType = "crafting_general", 
-   xp = 28, 
+   xpType = "crafting_weapons_general", 
+   xp = 65, 
 
-   assemblySkill = "general_assembly", 
-   experimentingSkill = "general_experimentation", 
-   customizationSkill = "clothing_customization", 
+   assemblySkill = "weapon_assembly", 
+   experimentingSkill = "weapon_experimentation", 
+   customizationSkill = "weapon_customization", 
 
    customizationOptions = {},
    customizationStringNames = {},
    customizationDefaults = {},
 
-   ingredientTemplateNames = {"craft_item_ingredients_n", "craft_item_ingredients_n", "craft_item_ingredients_n", "craft_item_ingredients_n"},
-   ingredientTitleNames = {"canister", "booster_charge", "burster_charge", "effect_generator"},
-   ingredientSlotType = {0, 0, 0, 0},
-   resourceTypes = {"mineral", "chemical", "chemical", "gas"},
-   resourceQuantities = {6, 4, 2, 2},
-   contribution = {100, 100, 100, 100},
+   ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
+   ingredientTitleNames = {"grip_unit", "strike_face", "vibro_unit_and_power_cell_brackets", "power_cell_socket", "vibration_generator"},
+   ingredientSlotType = {0, 0, 0, 0, 1},
+   resourceTypes = {"metal_ferrous", "steel", "metal", "copper", "object/tangible/component/weapon/shared_vibro_unit.iff"},
+   resourceQuantities = {12, 8, 8, 4, 1},
+   contribution = {100, 100, 100, 100, 100},
 
 
-   targetTemplate = "object/tangible/firework/firework_s18.iff",
+   targetTemplate = "object/weapon/melee/special/punch_dagger.iff",
 
    additionalTemplates = {
              }
 
 }
-ObjectTemplates:addTemplate(object_draft_schematic_item_item_firework_eighteen, "object/draft_schematic/item/item_firework_eighteen.iff")
+ObjectTemplates:addTemplate(object_draft_schematic_weapon_punch_dagger, "object/draft_schematic/weapon/punch_dagger.iff")

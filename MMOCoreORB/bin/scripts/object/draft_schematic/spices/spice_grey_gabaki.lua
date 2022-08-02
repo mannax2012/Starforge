@@ -51,7 +51,7 @@ object_draft_schematic_spices_spice_grey_gabaki = object_draft_schematic_spices_
    complexity = 10, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_spice", 
    xp = 80, 
 

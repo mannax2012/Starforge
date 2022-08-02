@@ -51,7 +51,7 @@ object_draft_schematic_droid_component_personality_module_prissy = object_draft_
    complexity = 18, 
    size = 2, 
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
-
+   factoryCrateSize = 1000,
    xpType = "crafting_droid_general", 
    xp = 40, 
 

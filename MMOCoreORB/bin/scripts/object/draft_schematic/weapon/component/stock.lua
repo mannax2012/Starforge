@@ -51,7 +51,7 @@ object_draft_schematic_weapon_component_stock = object_draft_schematic_weapon_co
    complexity = 3, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 40, 
 

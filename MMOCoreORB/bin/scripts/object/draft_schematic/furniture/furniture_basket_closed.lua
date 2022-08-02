@@ -50,7 +50,7 @@ object_draft_schematic_furniture_furniture_basket_closed = object_draft_schemati
    craftingToolTab = 512, -- (See DraftSchematicObjectTemplate.h)
    complexity = 18, 
    size = 1, 
-   factoryCrateSize = 0,
+   factoryCrateSize = 1000,
 	factoryCrateType = "object/factory/factory_crate_furniture.iff",
    
    xpType = "crafting_structure_general", 
