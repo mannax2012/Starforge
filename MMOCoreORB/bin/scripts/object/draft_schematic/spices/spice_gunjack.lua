@@ -51,7 +51,7 @@ object_draft_schematic_spices_spice_gunjack = object_draft_schematic_spices_shar
    complexity = 12, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_spice", 
    xp = 150, 
 

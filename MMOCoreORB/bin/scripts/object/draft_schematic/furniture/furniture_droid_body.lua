@@ -55,7 +55,7 @@ object_draft_schematic_furniture_furniture_droid_body = object_draft_schematic_f
    xpType = "crafting_droid_general", 
    xp = 1480, 
 
-   factoryCrateSize = 0,
+   factoryCrateSize = 1000,
 
    assemblySkill = "droid_assembly", 
    experimentingSkill = "droid_experimentation", 

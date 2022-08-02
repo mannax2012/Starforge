@@ -50,11 +50,11 @@ object_draft_schematic_droid_navicomputer_1 = object_draft_schematic_droid_share
 	craftingToolTab = 32, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 15,
 	size = 1,
-	factoryCrateSize = 10,
+	factoryCrateSize = 1000,
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
 
 	xpType = "crafting_droid_general",
-	xp = 140,
+	xp = 1400,
 
 	assemblySkill = "droid_assembly",
 	experimentingSkill = "droid_experimentation",

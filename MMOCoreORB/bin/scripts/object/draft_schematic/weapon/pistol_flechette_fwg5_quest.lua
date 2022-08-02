@@ -51,7 +51,7 @@ object_draft_schematic_weapon_pistol_flechette_fwg5_quest = object_draft_schemat
    complexity = 30, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 100, 
 

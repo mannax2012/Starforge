@@ -51,7 +51,7 @@ object_draft_schematic_droid_component_stimpack_dispensor = object_draft_schemat
    complexity = 17, 
    size = 1, 
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
-
+   factoryCrateSize = 1000,
    xpType = "crafting_droid_general", 
    xp = 165, 
 

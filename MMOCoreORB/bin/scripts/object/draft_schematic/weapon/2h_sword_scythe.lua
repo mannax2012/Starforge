@@ -51,7 +51,7 @@ object_draft_schematic_weapon_2h_sword_scythe = object_draft_schematic_weapon_sh
    complexity = 35, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 250, 
 

@@ -51,7 +51,7 @@ object_draft_schematic_item_item_generic_tool = object_draft_schematic_item_shar
    complexity = 10, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 40, 
 

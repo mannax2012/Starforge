@@ -51,7 +51,7 @@ object_draft_schematic_instrument_instrument_organ_max_rebo = object_draft_schem
    complexity = 18, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_generic_items.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "", 
    xp = 0, 
 

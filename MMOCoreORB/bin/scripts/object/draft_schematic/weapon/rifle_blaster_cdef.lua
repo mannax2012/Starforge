@@ -51,7 +51,7 @@ object_draft_schematic_weapon_rifle_blaster_cdef = object_draft_schematic_weapon
    complexity = 8, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 42, 
 

@@ -51,7 +51,7 @@ object_draft_schematic_munition_grenade_fragmentation_c_22 = object_draft_schema
    complexity = 36, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 35, 
 

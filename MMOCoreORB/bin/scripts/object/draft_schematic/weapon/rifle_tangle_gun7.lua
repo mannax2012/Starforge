@@ -51,7 +51,7 @@ object_draft_schematic_weapon_rifle_tangle_gun7 = object_draft_schematic_weapon_
    complexity = 18, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 170, 
 

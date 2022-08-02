@@ -51,7 +51,7 @@ object_draft_schematic_weapon_katana = object_draft_schematic_weapon_shared_kata
    complexity = 30, 
    size = 4, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 110, 
 

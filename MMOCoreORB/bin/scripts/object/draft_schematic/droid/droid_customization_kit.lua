@@ -51,7 +51,7 @@ object_draft_schematic_droid_droid_customization_kit = object_draft_schematic_dr
    complexity = 12, 
    size = 1, 
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
-
+	factoryCrateSize = 1000,
    xpType = "crafting_droid_general", 
    xp = 40, 
 

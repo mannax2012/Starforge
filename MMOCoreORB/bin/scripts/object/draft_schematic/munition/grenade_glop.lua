@@ -51,7 +51,7 @@ object_draft_schematic_munition_grenade_glop = object_draft_schematic_munition_s
    complexity = 25, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 60, 
 

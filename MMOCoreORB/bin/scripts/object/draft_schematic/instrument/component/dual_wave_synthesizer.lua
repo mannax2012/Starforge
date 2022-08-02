@@ -51,7 +51,7 @@ object_draft_schematic_instrument_component_dual_wave_synthesizer = object_draft
    complexity = 15, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_generic_items.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "music", 
    xp = 100, 
 

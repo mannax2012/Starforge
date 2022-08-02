@@ -51,7 +51,7 @@ object_draft_schematic_weapon_rifle_tenloss_disrupter = object_draft_schematic_w
    complexity = 28, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 150, 
 

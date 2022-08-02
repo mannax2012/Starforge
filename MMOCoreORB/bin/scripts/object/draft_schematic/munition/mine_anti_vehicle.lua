@@ -51,7 +51,7 @@ object_draft_schematic_munition_mine_anti_vehicle = object_draft_schematic_munit
    complexity = 35, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 60, 
 

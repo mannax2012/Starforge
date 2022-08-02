@@ -51,7 +51,7 @@ object_draft_schematic_item_item_battery_droid = object_draft_schematic_item_sha
    complexity = 7, 
    size = 4, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 30, 
 

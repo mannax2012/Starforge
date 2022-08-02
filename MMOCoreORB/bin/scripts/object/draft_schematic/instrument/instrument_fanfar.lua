@@ -51,7 +51,7 @@ object_draft_schematic_instrument_instrument_fanfar = object_draft_schematic_ins
    complexity = 14, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_generic_items.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "music", 
    xp = 110, 
 

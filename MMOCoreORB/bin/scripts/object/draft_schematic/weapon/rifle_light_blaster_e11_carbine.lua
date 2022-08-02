@@ -51,7 +51,7 @@ object_draft_schematic_weapon_rifle_light_blaster_e11_carbine = object_draft_sch
    complexity = 22, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 140, 
 

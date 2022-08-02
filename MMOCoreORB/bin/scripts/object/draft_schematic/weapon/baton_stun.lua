@@ -51,7 +51,7 @@ object_draft_schematic_weapon_baton_stun = object_draft_schematic_weapon_shared_
    complexity = 20, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 110, 
 

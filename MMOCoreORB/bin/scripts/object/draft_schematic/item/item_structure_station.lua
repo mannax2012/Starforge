@@ -51,7 +51,7 @@ object_draft_schematic_item_item_structure_station = object_draft_schematic_item
    complexity = 20, 
    size = 5, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_structure_general", 
    xp = 900, 
 

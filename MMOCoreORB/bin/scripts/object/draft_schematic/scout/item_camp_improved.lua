@@ -51,7 +51,7 @@ object_draft_schematic_scout_item_camp_improved = object_draft_schematic_scout_s
    complexity = 7, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "camp", 
    xp = 84, 
 

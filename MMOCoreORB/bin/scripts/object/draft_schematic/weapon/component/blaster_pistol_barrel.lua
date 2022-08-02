@@ -51,7 +51,7 @@ object_draft_schematic_weapon_component_blaster_pistol_barrel = object_draft_sch
 		complexity = 20,
 		size = 2,
 		factoryCrateType = "object/factory/factory_crate_weapon.iff",
-
+		factoryCrateSize = 1000,
 		xpType = "crafting_weapons_general",
 		xp = 60,
 

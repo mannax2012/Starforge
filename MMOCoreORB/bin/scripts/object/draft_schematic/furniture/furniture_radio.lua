@@ -50,7 +50,7 @@ object_draft_schematic_furniture_furniture_radio = object_draft_schematic_furnit
    craftingToolTab = 512, -- (See DraftSchematicObjectTemplate.h)
    complexity = 12, 
    size = 1, 
-   factoryCrateSize = 0,
+   factoryCrateSize = 1000,
    factoryCrateType = "object/factory/factory_crate_furniture.iff",
    
 
