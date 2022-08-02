@@ -51,7 +51,7 @@ object_draft_schematic_food_dish_exo_protein_wafers = object_draft_schematic_foo
    complexity = 3, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 30, 
 

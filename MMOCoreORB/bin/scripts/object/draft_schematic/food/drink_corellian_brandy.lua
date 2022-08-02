@@ -51,7 +51,7 @@ object_draft_schematic_food_drink_corellian_brandy = object_draft_schematic_food
    complexity = 8, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 160, 
 

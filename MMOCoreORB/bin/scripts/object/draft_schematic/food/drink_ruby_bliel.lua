@@ -51,7 +51,7 @@ object_draft_schematic_food_drink_ruby_bliel = object_draft_schematic_food_share
    complexity = 4, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 70, 
 

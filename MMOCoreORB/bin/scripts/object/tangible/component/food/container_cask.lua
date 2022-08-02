@@ -50,7 +50,7 @@ object_tangible_component_food_container_cask = object_tangible_component_food_s
 	experimentalGroupTitles = {"null", "null", "null"},
 	experimentalSubGroupTitles = {"null", "null", "quantity_bonus"},
 	experimentalMin = {0, 0, 3},
-	experimentalMax = {0, 0, 3},
+	experimentalMax = {0, 0, 4},
 	experimentalPrecision = {0, 0, 0},
 	experimentalCombineType = {0, 0, 1},
 }

@@ -51,6 +51,7 @@ object_draft_schematic_food_dessert_smugglers_delight = object_draft_schematic_f
    complexity = 12, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
+   factoryCrateSize = 1000,
    
    xpType = "crafting_food_general", 
    xp = 160, 
