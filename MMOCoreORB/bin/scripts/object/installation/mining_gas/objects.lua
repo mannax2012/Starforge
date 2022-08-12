@@ -41,6 +41,11 @@
 --which carries forward this exception.
 
 
+object_installation_mining_gas_shared_mining_gas_harvester_adv = SharedInstallationObjectTemplate:new {
+	clientTemplateFileName = "object/installation/mining_gas/shared_mining_gas_harvester_adv.iff"}
+ObjectTemplates:addClientTemplate(object_installation_mining_gas_shared_mining_gas_harvester_adv, 
+"object/installation/mining_gas/shared_mining_gas_harvester_adv.iff")
+
 object_installation_mining_gas_shared_mining_gas_harvester_style_1 = SharedInstallationObjectTemplate:new {
 	clientTemplateFileName = "object/installation/mining_gas/shared_mining_gas_harvester_style_1.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups

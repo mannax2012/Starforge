@@ -4,7 +4,7 @@ mokk_loreweaver = Creature:new {
 	randomNameTag = true,
 	socialGroup = "mokk_tribe",
 	faction = "mokk_tribe",
-	level = 47,
+	level = 147,
 	chanceHit = 0.47,
 	damageMin = 370,
 	damageMax = 450,
@@ -33,13 +33,9 @@ mokk_loreweaver = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3500000},
-				{group = "loot_kit_parts", chance = 3000000},
-				{group = "armor_attachments", chance = 500000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "wearables_common", chance = 1000000},
-				{group = "wearables_uncommon", chance = 1000000},
-				{group = "color_crystals", chance = 500000}
+				{group = "junk", chance = 5500000},
+				{group = "mokk_common", chance = 1500000},
+				{group = "loot_kit_parts", chance = 3000000}
 			}
 		}
 	},

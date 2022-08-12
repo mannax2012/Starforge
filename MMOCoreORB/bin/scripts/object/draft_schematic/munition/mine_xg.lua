@@ -51,7 +51,7 @@ object_draft_schematic_munition_mine_xg = object_draft_schematic_munition_shared
    complexity = 30, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 60, 
 

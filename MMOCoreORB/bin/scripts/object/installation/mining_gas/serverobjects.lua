@@ -46,6 +46,7 @@
 includeFile("installation/mining_gas/base/serverobjects.lua")
 
 -- Server Objects
+includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
 includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
 includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
 includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")

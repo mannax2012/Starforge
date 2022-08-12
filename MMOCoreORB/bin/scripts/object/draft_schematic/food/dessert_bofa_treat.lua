@@ -51,7 +51,7 @@ object_draft_schematic_food_dessert_bofa_treat = object_draft_schematic_food_sha
    complexity = 3, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 20, 
 

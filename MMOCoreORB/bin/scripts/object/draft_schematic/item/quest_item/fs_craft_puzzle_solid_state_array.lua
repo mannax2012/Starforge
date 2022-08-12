@@ -66,7 +66,7 @@ object_draft_schematic_item_quest_item_fs_craft_puzzle_solid_state_array = objec
 	ingredientTitleNames = {"solid_state_units", "cooling_network", "array_housing", "socket_connection"},
 	ingredientSlotType = {0, 0, 0, 0},
 	resourceTypes = {"ore_extrusive", "water_vapor_naboo", "petrochem_inert_polymer", "copper"},
-	resourceQuantities = {100, 10, 20, 10},
+	resourceQuantities = {5, 2, 4, 2},
 	contribution = {100, 100, 100, 100},
 
 	targetTemplate = "object/tangible/item/quest/force_sensitive/fs_craft_puzzle_solid_state_array.iff",

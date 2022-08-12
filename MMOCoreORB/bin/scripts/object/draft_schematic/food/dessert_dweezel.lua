@@ -51,7 +51,7 @@ object_draft_schematic_food_dessert_dweezel = object_draft_schematic_food_shared
    complexity = 8, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 200, 
 

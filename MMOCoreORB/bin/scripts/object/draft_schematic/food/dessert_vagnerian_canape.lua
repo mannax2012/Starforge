@@ -51,7 +51,7 @@ object_draft_schematic_food_dessert_vagnerian_canape = object_draft_schematic_fo
    complexity = 12, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_food.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_food_general", 
    xp = 160, 
 

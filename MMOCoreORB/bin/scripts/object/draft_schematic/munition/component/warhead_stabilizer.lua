@@ -51,7 +51,7 @@ object_draft_schematic_munition_component_warhead_stabilizer = object_draft_sche
    complexity = 30, 
    size = 8, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 85, 
 

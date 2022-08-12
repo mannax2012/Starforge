@@ -41,16 +41,16 @@
 --which carries forward this exception.
 
 --Time, in seconds, that a shuttle is away for
-shuttleportAwayTime = 15
-starportAwayTime = 15
+shuttleportAwayTime = 10
+starportAwayTime = 10
 
 --Time, in seconds, that a shuttle takes to land
 shuttleportLandingTime = 1
 starportLandingTime = 1
 
 --Time, in seconds, that a shuttle is landed for
-shuttleportLandedTime = 1500
-starportLandedTime = 1500
+shuttleportLandedTime = 86400
+starportLandedTime = 86400
 
 
 corellia = {
@@ -148,7 +148,8 @@ dathomir = {
 
 	planetTravelPoints = {
 		{name = "Trade Outpost", x = 618.89258, z = 6.039608, y = 3092.0142, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1, cityControlLandingPoint = 0},
-		{name = "Science Outpost", x = -49.021923, z = 18, y = -1584.7278, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1, cityControlLandingPoint = 0}
+		{name = "Science Outpost", x = -49.021923, z = 18, y = -1584.7278, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1, cityControlLandingPoint = 0},
+		{name = "Village Shuttleport", x = 5256.5, z = 78.5, y = -4079.7, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1, cityControlLandingPoint = 0}
 	},
 
 	badgeAreas = {
@@ -195,6 +196,7 @@ dathomir = {
 	},
 
 	planetObjects = {
+		--{templateFile = "object/tangible/terminal/terminal_mission.iff", ox = 0, oy = 177, oz = 0, ow = 0.712705, x = 5252, z = 78, y = -4094, parentid = 0},
 		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.701463, oz = 0, ow = 0.712705, x = 592.612, z = 6, y = 3089.84, parentid = 0},
 		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.314904, oz = 0, ow = 0.949123, x = -67.6585, z = 18, y = -1595.3, parentid = 0},
 		{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.314904, oz = 0, ow = 0.949123, x = 5289.6, z = 78.5, y = -4146.1, parentid = 0}

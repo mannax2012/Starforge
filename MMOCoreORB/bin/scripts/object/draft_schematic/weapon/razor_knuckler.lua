@@ -51,7 +51,7 @@ object_draft_schematic_weapon_razor_knuckler = object_draft_schematic_weapon_sha
    complexity = 25, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 250, 
 

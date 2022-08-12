@@ -12,7 +12,7 @@ janta_common = {
 		{itemTemplate = "spear_rack_schematic", weight = 500000},
 		{groupTemplate = "wearables_common", weight = 1000000},
 		{groupTemplate = "wearables_uncommon", weight = 500000},
-		{groupTemplate = "power_crystals", weight = 500000}
+		{groupTemplate = "force_crystal_adegan_silver", weight = 500000}
 	}
 }
 

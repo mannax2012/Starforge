@@ -47,6 +47,7 @@ includeFile("installation/mining_ore/base/serverobjects.lua")
 includeFile("installation/mining_ore/construction/serverobjects.lua")
 
 -- Server Objects
+includeFile("installation/mining_ore/mining_ore_harvester_adv.lua")
 includeFile("installation/mining_ore/mining_ore_harvester_heavy.lua")
 includeFile("installation/mining_ore/mining_ore_harvester_style_1.lua")
 includeFile("installation/mining_ore/mining_ore_harvester_style_2.lua")

@@ -3,12 +3,12 @@
 janta_blood = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Janta Blood",
 	directObjectTemplate = "object/tangible/component/chemistry/janta_blood.iff",
 	craftingValues = {
-		{"power",100,250,0},
+		{"power",180,250,0},
 		{"charges",10,25,0},
-		{"useCount",1,8,0},
+		{"useCount",3,10,0},
 	},
 	customizationStringNames = {},
 	customizationValues = {}

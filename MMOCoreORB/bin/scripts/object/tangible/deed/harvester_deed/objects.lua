@@ -984,3 +984,28 @@ object_tangible_deed_harvester_deed_shared_harvester_ore_s2_deed = SharedTangibl
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_harvester_deed_shared_harvester_ore_s2_deed, "object/tangible/deed/harvester_deed/shared_harvester_ore_s2_deed.iff")
+
+object_tangible_deed_harvester_deed_shared_harvester_flora_deed_adv = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/harvester_deed/shared_harvester_flora_deed_adv.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_harvester_deed_shared_harvester_flora_deed_adv, 
+"object/tangible/deed/harvester_deed/shared_harvester_flora_deed_adv.iff")
+
+object_tangible_deed_harvester_deed_shared_harvester_ore_deed_adv = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/harvester_deed/shared_harvester_ore_deed_adv.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_harvester_deed_shared_harvester_ore_deed_adv, 
+"object/tangible/deed/harvester_deed/shared_harvester_ore_deed_adv.iff")
+
+object_tangible_deed_harvester_deed_shared_harvester_chem_deed_adv = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/harvester_deed/shared_harvester_chem_deed_adv.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_harvester_deed_shared_harvester_chem_deed_adv, 
+"object/tangible/deed/harvester_deed/shared_harvester_chem_deed_adv.iff")
+
+object_tangible_deed_harvester_deed_shared_harvester_liquid_vapor_deed_adv = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/harvester_deed/shared_harvester_liquid_vapor_deed_adv.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_harvester_deed_shared_harvester_liquid_vapor_deed_adv, 
+"object/tangible/deed/harvester_deed/shared_harvester_liquid_vapor_deed_adv.iff")
+
+object_tangible_deed_harvester_deed_shared_harvester_gas_deed_adv = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/harvester_deed/shared_harvester_gas_deed_adv.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_harvester_deed_shared_harvester_gas_deed_adv, 
+"object/tangible/deed/harvester_deed/shared_harvester_gas_deed_adv.iff")

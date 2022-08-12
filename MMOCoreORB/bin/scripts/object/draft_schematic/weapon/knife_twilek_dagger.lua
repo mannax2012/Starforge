@@ -51,7 +51,7 @@ object_draft_schematic_weapon_knife_twilek_dagger = object_draft_schematic_weapo
    complexity = 9, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 40, 
 

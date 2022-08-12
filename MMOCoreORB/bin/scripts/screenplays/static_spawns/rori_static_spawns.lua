@@ -273,5 +273,11 @@ function RoriStaticSpawnsScreenPlay:spawnMobiles()
 	spawnMobile("rori", "swamp_trooper", 360, 6528.2, 107.5, -4762.2, 75, 0)
 	spawnMobile("rori", "swamp_trooper", 360, 6537.0, 108.0, -4766.6, 0, 0)
 	spawnMobile("rori", "swamp_trooper", 360, 6534.2, 108.0, -4757.9, -155, 0)
+	
+	--Mid of map (0, 0)
+	--Test Test Test - REMOVE WHEN CONFIRMED
+	--The end of the spawn line should read 2835552 but changed to 0 for testing purposes.  Believe it is used
+	--to call a CRC.  Wondering if 0 works since it's not a custom npc.  60 second timer
+	spawnMobile("rori", "sith_shadow_pirate", 60, -1.8863, 90.6, -3.58423, 253, 0)
 
 end

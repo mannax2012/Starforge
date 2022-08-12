@@ -51,7 +51,7 @@ object_draft_schematic_instrument_instrument_flute_droopy = object_draft_schemat
    complexity = 18, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_generic_items.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "music", 
    xp = 100, 
 

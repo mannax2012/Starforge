@@ -164,12 +164,24 @@ void EntertainingSessionImplementation::healWounds(CreatureObject* creature, flo
 		creature->addShockWounds(-shockHeal, true, false);
 		amountHealed += shockHeal;
 	}
-	if (woundHeal > 0 && (creature->getWounds(CreatureAttribute::MIND) > 0
-		|| creature->getWounds(CreatureAttribute::FOCUS) > 0
-		|| creature->getWounds(CreatureAttribute::WILLPOWER) > 0)) {
+	if(woundHeal > 0 && (creature->getWounds(CreatureAttribute::MIND) > 0
+			|| creature->getWounds(CreatureAttribute::FOCUS) > 0
+			|| creature->getWounds(CreatureAttribute::WILLPOWER) > 0
+			|| creature->getWounds(CreatureAttribute::HEALTH) > 0
+			|| creature->getWounds(CreatureAttribute::STRENGTH) > 0
+			|| creature->getWounds(CreatureAttribute::CONSTITUTION) > 0
+			|| creature->getWounds(CreatureAttribute::ACTION) > 0
+			|| creature->getWounds(CreatureAttribute::STAMINA) > 0
+			|| creature->getWounds(CreatureAttribute::QUICKNESS) > 0)) {
 		creature->healWound(entertainer, CreatureAttribute::MIND, woundHeal, true, false);
 		creature->healWound(entertainer, CreatureAttribute::FOCUS, woundHeal, true, false);
 		creature->healWound(entertainer, CreatureAttribute::WILLPOWER, woundHeal, true, false);
+		creature->healWound(entertainer, CreatureAttribute::HEALTH, woundHeal, true, false);
+		creature->healWound(entertainer, CreatureAttribute::STRENGTH, woundHeal, true, false);
+		creature->healWound(entertainer, CreatureAttribute::CONSTITUTION, woundHeal, true, false);
+		creature->healWound(entertainer, CreatureAttribute::ACTION, woundHeal, true, false);
+		creature->healWound(entertainer, CreatureAttribute::STAMINA, woundHeal, true, false);
+		creature->healWound(entertainer, CreatureAttribute::QUICKNESS, woundHeal, true, false);
 
 		amountHealed += woundHeal;
 	}
@@ -702,8 +714,8 @@ void EntertainingSessionImplementation::addEntertainerBuffDuration(CreatureObjec
 
 	buffDuration += duration;
 
-	if (buffDuration > (120.0f + (10.0f / 60.0f))) // 2 hrs 10 seconds
-		buffDuration = (120.0f + (10.0f / 60.0f)); // 2hrs 10 seconds
+	if (buffDuration > (120.0f + (10.0f / 60.0f)) ) // 2 hrs 10 seconds
+		buffDuration = (210.0f); // 3 hours, 30 minutes
 
 	setEntertainerBuffDuration(creature, performanceType, buffDuration);
 }
@@ -859,20 +871,19 @@ void EntertainingSessionImplementation::activateEntertainerBuff(CreatureObject* 
 
 	try {
 		//Check if on Deny Service list
-		if (isInDenyServiceList(creature))
+		if(isInDenyServiceList(creature)) {
 			return;
+		}
 
 		ManagedReference<PlayerObject*> entPlayer = entertainer->getPlayerObject();
 		//Check if the patron is a valid buff target
 		//Whether it be passive(in the same group) or active (/setPerform target)
-		if ((!entertainer->isGrouped() || entertainer->getGroupID() != creature->getGroupID()) && entPlayer->getPerformanceBuffTarget() != creature->getObjectID())
-			return;
-
-		if (creature->isIncapacitated() || creature->isDead()) {
+		if ((!entertainer->isGrouped() || entertainer->getGroupID() != creature->getGroupID())
+				&& entPlayer->getPerformanceBuffTarget() != creature->getObjectID()) {
 			return;
 		}
 
-		if (!canGiveEntertainBuff())
+		if(!canGiveEntertainBuff())
 			return;
 
 		// Returns the Number of Minutes for the Buff Duration
@@ -884,7 +895,7 @@ void EntertainingSessionImplementation::activateEntertainerBuff(CreatureObject* 
 
 		//1 minute minimum listen/watch time
 		int timeElapsed = time(0) - getEntertainerBuffStartTime(creature, performanceType);
-		if (timeElapsed < 60) {
+		if(timeElapsed < 60) {
 			creature->sendSystemMessage("You must listen or watch a performer for at least 1 minute in order to gain the entertainer buffs.");
 			return;
 		}
@@ -895,51 +906,54 @@ void EntertainingSessionImplementation::activateEntertainerBuff(CreatureObject* 
 
 		float buffStrength = getEntertainerBuffStrength(creature, performanceType) / 100.0f;
 
-		if (buffStrength == 0)
+		if(buffStrength == 0)
 			return;
 
 		ManagedReference<PerformanceBuff*> oldBuff = nullptr;
-		switch (performanceType) {
-		case PerformanceType::MUSIC:
-		{
-			uint32 focusBuffCRC = STRING_HASHCODE("performance_enhance_music_focus");
-			uint32 willBuffCRC = STRING_HASHCODE("performance_enhance_music_willpower");
-			oldBuff = cast<PerformanceBuff*>(creature->getBuff(focusBuffCRC));
-			if (oldBuff != nullptr && oldBuff->getBuffStrength() > buffStrength)
-				return;
-			ManagedReference<PerformanceBuff*> focusBuff = new PerformanceBuff(creature, focusBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_FOCUS);
-			ManagedReference<PerformanceBuff*> willBuff = new PerformanceBuff(creature, willBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_WILLPOWER);
 
-			Locker locker(focusBuff);
-			creature->addBuff(focusBuff);
-			locker.release();
+		uint32 mindBuffCRC = STRING_HASHCODE("performance_enhance_dance_mind");
+		uint32 focusBuffCRC = STRING_HASHCODE("performance_enhance_music_focus");
+		uint32 willBuffCRC = STRING_HASHCODE("performance_enhance_music_willpower");
+		//uint32 rangedCRC = 0x33329A7B;
+		//uint32 meleeCRC = 0x548DE45B;
+	
+		oldBuff = cast<PerformanceBuff*>(creature->getBuff(mindBuffCRC));
 
-			Locker locker2(willBuff);
-			creature->addBuff(willBuff);
-			break;
-		}
-		case PerformanceType::DANCE:
-		{
-			uint32 mindBuffCRC = STRING_HASHCODE("performance_enhance_dance_mind");
-			oldBuff = cast<PerformanceBuff*>(creature->getBuff(mindBuffCRC));
-			if (oldBuff != nullptr && oldBuff->getBuffStrength() > buffStrength)
-				return;
-			ManagedReference<PerformanceBuff*> mindBuff = new PerformanceBuff(creature, mindBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::DANCE_MIND);
 
-			Locker locker(mindBuff);
-			creature->addBuff(mindBuff);
-			break;
-		}
-		}
+		if (oldBuff != nullptr && oldBuff->getBuffStrength() > buffStrength)
+			return;
+				
+		if (oldBuff != nullptr && (oldBuff->getBuffDuration() > buffDuration * 60) && (oldBuff->getBuffStrength() <= buffStrength))
+			return;
+			
+		ManagedReference<PerformanceBuff*> mindBuff = new PerformanceBuff(creature, mindBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::DANCE_MIND);							
+		ManagedReference<PerformanceBuff*> focusBuff = new PerformanceBuff(creature, focusBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_FOCUS);
+		ManagedReference<PerformanceBuff*> willBuff = new PerformanceBuff(creature, willBuffCRC, buffStrength, buffDuration * 60, PerformanceBuffType::MUSIC_WILLPOWER);
+		//ManagedReference<PerformanceBuff*> meleeAccBuff = new PerformanceBuff(creature, meleeCRC, buffStrength, buffDuration * 60, PerformanceBuffType::STAT_MELEE_ACC);
+		//ManagedReference<PerformanceBuff*> rangedAccBuff = new PerformanceBuff(creature, rangedCRC, buffStrength, buffDuration * 60, PerformanceBuffType::STAT_RANGED_ACC);
+	
+		Locker locker(mindBuff);
+		creature->addBuff(mindBuff);
+		locker.release();
+	
+		Locker locker2(focusBuff);
+		creature->addBuff(focusBuff);
+		locker.release();
 
+		Locker locker3(willBuff);
+		creature->addBuff(willBuff);
+
+		//Locker locker4(meleeAccBuff);
+		//creature->addBuff(meleeAccBuff);
+		//locker.release();
+
+		//Locker locker5(rangedAccBuff);
+		//creature->addBuff(rangedAccBuff);
+		
+	} catch(Exception& e) {
 
 	}
-	catch (Exception& e) {
-
-	}
-
 }
-
 void EntertainingSessionImplementation::updateEntertainerMissionStatus(bool entertaining, const int missionType) {
 	ManagedReference<CreatureObject*> entertainer = this->entertainer.get();
 

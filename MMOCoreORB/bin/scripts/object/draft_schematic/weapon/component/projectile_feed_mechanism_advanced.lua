@@ -51,7 +51,7 @@ object_draft_schematic_weapon_component_projectile_feed_mechanism_advanced = obj
    complexity = 10, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 35, 
 

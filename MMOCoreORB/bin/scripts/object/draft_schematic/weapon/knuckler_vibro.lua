@@ -51,7 +51,7 @@ object_draft_schematic_weapon_knuckler_vibro = object_draft_schematic_weapon_sha
    complexity = 25, 
    size = 2, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 65, 
 

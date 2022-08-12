@@ -51,7 +51,7 @@ object_draft_schematic_weapon_rifle_disrupter_dxr6 = object_draft_schematic_weap
    complexity = 25, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 200, 
 

@@ -51,7 +51,7 @@ object_draft_schematic_droid_component_struct_maint_module_3 = object_draft_sche
    complexity = 25, 
    size = 2, 
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
-
+   factoryCrateSize = 1000,
    xpType = "crafting_droid_general", 
    xp = 90, 
 

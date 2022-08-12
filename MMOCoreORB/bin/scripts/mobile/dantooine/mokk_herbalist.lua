@@ -4,7 +4,7 @@ mokk_herbalist = Creature:new {
 	randomNameTag = true,
 	socialGroup = "mokk_tribe",
 	faction = "mokk_tribe",
-	level = 26,
+	level = 126,
 	chanceHit = 0.36,
 	damageMin = 240,
 	damageMax = 250,
@@ -33,13 +33,9 @@ mokk_herbalist = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 3500000},
-				{group = "loot_kit_parts", chance = 3000000},
-				{group = "armor_attachments", chance = 500000},
-				{group = "clothing_attachments", chance = 500000},
-				{group = "wearables_common", chance = 1000000},
-				{group = "wearables_uncommon", chance = 1000000},
-				{group = "color_crystals", chance = 500000}
+				{group = "junk", chance = 5500000},
+				{group = "mokk_common", chance = 1500000},
+				{group = "loot_kit_parts", chance = 3000000}
 			}
 		}
 	},

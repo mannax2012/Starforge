@@ -51,7 +51,7 @@ object_draft_schematic_item_craftable_bug_habitat = object_draft_schematic_item_
    complexity = 14, 
    size = 1, 
    factoryCrateType = "object/factory/factory_crate_electronics.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 60, 
 

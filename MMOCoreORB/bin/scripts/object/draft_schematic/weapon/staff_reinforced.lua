@@ -51,7 +51,7 @@ object_draft_schematic_weapon_staff_reinforced = object_draft_schematic_weapon_s
    complexity = 5, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_general", 
    xp = 80, 
 

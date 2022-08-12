@@ -40,6 +40,18 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_tangible_component_structure_shared_advanced_harvesting_mechanism = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/structure/shared_advanced_harvesting_mechanism.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_component_structure_shared_advanced_harvesting_mechanism, 
+"object/tangible/component/structure/shared_advanced_harvesting_mechanism.iff")
+
+object_tangible_component_structure_shared_windmill_harvesting_mechanism = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/structure/shared_windmill_harvesting_mechanism.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_component_structure_shared_windmill_harvesting_mechanism, 
+"object/tangible/component/structure/shared_windmill_harvesting_mechanism.iff")
+
 
 object_tangible_component_structure_shared_capacitor_bank = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/component/structure/shared_capacitor_bank.iff"

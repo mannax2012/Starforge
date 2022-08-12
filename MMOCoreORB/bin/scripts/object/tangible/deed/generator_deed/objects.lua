@@ -276,3 +276,8 @@ object_tangible_deed_generator_deed_shared_generator_wind_deed = SharedTangibleO
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_generator_deed_shared_generator_wind_deed, "object/tangible/deed/generator_deed/shared_generator_wind_deed.iff")
+
+object_tangible_deed_generator_deed_shared_generator_windmill_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/generator_deed/shared_generator_windmill_deed.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_deed_generator_deed_shared_generator_windmill_deed, 
+"object/tangible/deed/generator_deed/shared_generator_windmill_deed.iff")

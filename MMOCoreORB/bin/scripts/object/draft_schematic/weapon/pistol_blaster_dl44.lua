@@ -51,7 +51,7 @@ object_draft_schematic_weapon_pistol_blaster_dl44 = object_draft_schematic_weapo
    complexity = 22, 
    size = 3, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 65, 
 

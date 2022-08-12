@@ -40,6 +40,17 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_draft_schematic_structure_component_shared_structure_windmill_harvesting_mechanism = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/structure/component/shared_structure_windmill_harvesting_mechanism.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_structure_component_shared_structure_windmill_harvesting_mechanism, 
+"object/draft_schematic/structure/component/shared_structure_windmill_harvesting_mechanism.iff")
+
+object_draft_schematic_structure_component_shared_structure_advanced_harvesting_mechanism = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/structure/component/shared_structure_advanced_harvesting_mechanism.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_structure_component_shared_structure_advanced_harvesting_mechanism, 
+"object/draft_schematic/structure/component/shared_structure_advanced_harvesting_mechanism.iff")
 
 object_draft_schematic_structure_component_shared_structural_module = SharedDraftSchematicObjectTemplate:new {
 	clientTemplateFileName = "object/draft_schematic/structure/component/shared_structural_module.iff"

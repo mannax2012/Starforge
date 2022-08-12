@@ -51,7 +51,7 @@ object_draft_schematic_weapon_lance_vibro_controller_fp = object_draft_schematic
    complexity = 25, 
    size = 5, 
    factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+   factoryCrateSize = 1000,
    xpType = "crafting_weapons_general", 
    xp = 100, 
 

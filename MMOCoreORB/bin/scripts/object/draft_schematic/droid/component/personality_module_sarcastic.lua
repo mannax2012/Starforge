@@ -51,7 +51,7 @@ object_draft_schematic_droid_component_personality_module_sarcastic = object_dra
    complexity = 16, 
    size = 2, 
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
-
+   factoryCrateSize = 1000,
    xpType = "crafting_droid_general", 
    xp = 20, 
 

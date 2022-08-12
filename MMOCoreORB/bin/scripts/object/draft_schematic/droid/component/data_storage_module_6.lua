@@ -51,7 +51,7 @@ object_draft_schematic_droid_component_data_storage_module_6 = object_draft_sche
    complexity = 28, 
    size = 8, 
 	factoryCrateType = "object/factory/factory_crate_electronics.iff",
-
+   factoryCrateSize = 1000,
    xpType = "crafting_droid_general", 
    xp = 110, 
 

@@ -54,7 +54,7 @@ object_draft_schematic_food_dish_bivoli_tempari = object_draft_schematic_food_sh
    
    xpType = "crafting_food_general", 
    xp = 280, 
-
+   factoryCrateSize = 1000,
    assemblySkill = "food_assembly", 
    experimentingSkill = "food_experimentation", 
    customizationSkill = "food_customization", 

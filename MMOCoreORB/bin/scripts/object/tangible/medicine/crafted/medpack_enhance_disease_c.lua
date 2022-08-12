@@ -47,7 +47,7 @@ object_tangible_medicine_crafted_medpack_enhance_disease_c = object_tangible_med
 	useCount = 10,
 	medicineUse = 100,
 	effectiveness = 80,
-	absorption = 10,
+	absorption = 15,
 	duration = 1800,
 	attribute = 10,
 
@@ -57,7 +57,7 @@ object_tangible_medicine_crafted_medpack_enhance_disease_c = object_tangible_med
 	experimentalGroupTitles = {"null", "null", "exp_effectiveness", "expAbsorption", "exp_charges", "expDuration", "null", "null"},
 	experimentalSubGroupTitles = {"null", "null", "power", "absorption", "charges", "duration", "skillmodmin", "hitpoints"},
 	experimentalMin = {0, 0, 17, 0, 5, 1200, 100, 1000},
-	experimentalMax = {0, 0, 160, 25, 25, 4800, 100, 1000},
+	experimentalMax = {0, 0, 160, 25, 25, 14200, 100, 1000},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 4},
 }

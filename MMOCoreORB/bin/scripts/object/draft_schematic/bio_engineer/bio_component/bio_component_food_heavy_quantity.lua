@@ -54,7 +54,7 @@ object_draft_schematic_bio_engineer_bio_component_bio_component_food_heavy_quant
 
    xpType = "crafting_bio_engineer_creature", 
    xp = 190, 
-
+   factoryCrateSize = 1000,
    assemblySkill = "bio_engineer_assembly", 
    experimentingSkill = "bio_engineer_experimentation", 
    customizationSkill = "bio_customization", 
