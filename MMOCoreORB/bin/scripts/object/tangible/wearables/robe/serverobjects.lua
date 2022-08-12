@@ -70,5 +70,11 @@ includeFile("tangible/wearables/robe/robe_s27.lua")
 includeFile("tangible/wearables/robe/robe_tusken_raider_s01.lua")
 includeFile("tangible/wearables/robe/robe_tusken_raider_s02.lua")
 
+--custom
 includeFile("tangible/wearables/robe/robe_jedi_light_master_s01.lua")
+includeFile("tangible/wearables/robe/robe_jedi_anakin.lua")
 includeFile("tangible/wearables/robe/robe_jedi_light_master_s02.lua")
+includeFile("tangible/wearables/robe/robe_s32.lua")
+includeFile("tangible/wearables/robe/robe_s32_h1.lua")
+includeFile("tangible/wearables/robe/robe_s33.lua")
+includeFile("tangible/wearables/robe/robe_s33_h1.lua")

@@ -40,6 +40,11 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_tangible_wearables_base_shared_base_jedicloak = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/base/shared_base_jedicloak.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_base_shared_base_jedicloak, "object/tangible/wearables/base/shared_base_jedicloak.iff")
+
 
 object_tangible_wearables_base_shared_base_cybernetic_forearm_l = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/base/shared_base_cybernetic_forearm_l.iff"
