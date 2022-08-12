@@ -42,6 +42,11 @@
 
 
 --new stuff
+object_tangible_wearables_robe_shared_robe_jedi_anakin = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_anakin.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_anakin, 
+"object/tangible/wearables/robe/shared_robe_jedi_anakin.iff")
+
 object_tangible_wearables_robe_shared_robe_jedi_light_master_s01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_light_master_s01.iff"}
 ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_master_s01, 
@@ -51,6 +56,73 @@ object_tangible_wearables_robe_shared_robe_jedi_light_master_s02 = SharedTangibl
 	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_light_master_s02.iff"}
 ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_master_s02, 
 "object/tangible/wearables/robe/shared_robe_light_master_s02.iff")
+
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_padawan_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_padawan_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_padawan_crafted, "object/tangible/wearables/robe/shared_robe_jedi_padawan_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_dark_s01_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_dark_s01_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_dark_s01_crafted, "object/tangible/wearables/robe/shared_robe_jedi_dark_s01_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_dark_s02_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_dark_s02_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_dark_s02_crafted, "object/tangible/wearables/robe/shared_robe_jedi_dark_s02_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_dark_s03_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_dark_s03_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_dark_s03_crafted, "object/tangible/wearables/robe/shared_robe_jedi_dark_s03_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_dark_s04_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_dark_s04_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_dark_s04_crafted, "object/tangible/wearables/robe/shared_robe_jedi_dark_s04_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_dark_s05_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_dark_s05_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_dark_s05_crafted, "object/tangible/wearables/robe/shared_robe_jedi_dark_s05_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_light_s01_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_light_s01_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_s01_crafted, "object/tangible/wearables/robe/shared_robe_jedi_light_s01_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_light_s02_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_light_s02_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_s02_crafted, "object/tangible/wearables/robe/shared_robe_jedi_light_s02_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_light_s03_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_light_s03_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_s03_crafted, "object/tangible/wearables/robe/shared_robe_jedi_light_s03_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_light_s04_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_light_s04_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_s04_crafted, "object/tangible/wearables/robe/shared_robe_jedi_light_s04_crafted.iff")
+--*********************************************************************************
+
+object_tangible_wearables_robe_shared_robe_jedi_light_s05_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_jedi_light_s05_crafted.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_jedi_light_s05_crafted, "object/tangible/wearables/robe/shared_robe_jedi_light_s05_crafted.iff")
 
 --mtg stuff
 object_tangible_wearables_robe_shared_aakuan_robe = SharedTangibleObjectTemplate:new {

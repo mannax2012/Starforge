@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version
 
 
-object_tangible_wearables_robe_robe_jedi_light_s02 = object_tangible_wearables_robe_shared_robe_jedi_light_s02:new {
+object_tangible_wearables_robe_robe_jedi_anakin = object_tangible_wearables_robe_shared_robe_jedi_anakin:new {
 	playerRaces = { 	"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",
 				"object/creature/player/talz_male.iff",
@@ -96,14 +96,14 @@ object_tangible_wearables_robe_robe_jedi_light_s02 = object_tangible_wearables_r
 	jediRobe = true,
 
 	skillMods = {
-		{"jedi_force_power_max", 250},
-		{"jedi_force_power_regen", 10}
+		{"jedi_force_power_max", 350},
+		{"jedi_force_power_regen", 15}
 	},
 
-	noTrade = 1,
+	noTrade = 0,
 
 	objectMenuComponent = "RobeObjectMenuComponent",
-	certificationsRequired = {"force_rank_light_rank_01"},
+	certificationsRequired = {"force_title_jedi_rank_02"},
 	attributeListComponent = "JediRobeAttributeListComponent",
 
 	numberExperimentalProperties = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -117,4 +117,4 @@ object_tangible_wearables_robe_robe_jedi_light_s02 = object_tangible_wearables_r
 	experimentalCombineType = {0, 0, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_jedi_light_s02, "object/tangible/wearables/robe/robe_jedi_light_s02.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_jedi_anakin, "object/tangible/wearables/robe/robe_jedi_anakin.iff")
