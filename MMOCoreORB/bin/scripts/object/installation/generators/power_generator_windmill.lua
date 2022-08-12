@@ -41,12 +41,16 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_installation_generators_power_generator_windmill = object_installation_generators_shared_power_generator_windmill:new {
+	lotSize = 1,
+	baseMaintenanceRate = 5,
+	-- SOLAR = 1; CHEMICAL = 2; FLORA = 3; GAS = 4; GEOTHERMAL = 5; MINERAL = 6; WATER = 7; WIND = 8; FUSION = 9;
+	installationType = 8,
+	basePowerRate = 0,
+	width = 3,
+	length = 3,
+	objectMenuComponent = "InstallationObjectMenuComponent",
+	abilityRequired = "place_wind_structure"
+}
 
---Children folder includes
-includeFile("installation/mining_gas/base/serverobjects.lua")
-
--- Server Objects
-includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")
+ObjectTemplates:addTemplate(object_installation_generators_power_generator_windmill, "object/installation/generators/power_generator_windmill.iff")

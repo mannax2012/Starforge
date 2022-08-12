@@ -60,3 +60,7 @@ includeFile("draft_schematic/structure/component/structure_storage_section.lua")
 includeFile("draft_schematic/structure/component/structure_turbo_fluidic_drilling_pumping_unit.lua")
 includeFile("draft_schematic/structure/component/wall_module.lua")
 includeFile("draft_schematic/structure/component/weapon_mount_heavy_stabilization_unit.lua")
+
+--custom
+includeFile("draft_schematic/structure/component/structure_advanced_harvesting_mechanism.lua")
+includeFile("draft_schematic/structure/component/structure_windmill_harvesting_mechanism.lua")

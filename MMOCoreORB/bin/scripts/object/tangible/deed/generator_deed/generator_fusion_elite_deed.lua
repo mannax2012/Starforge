@@ -41,12 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_deed_generator_deed_generator_fusion_deed = object_tangible_deed_generator_deed_shared_generator_fusion_deed:new {
+	templateType = STRUCTUREDEED,
+	placeStructureComponent = "PlaceStructureComponent",
+	generatedObjectTemplate = "object/installation/generators/power_generator_fusion_style_1.iff",
 
---Children folder includes
-includeFile("installation/mining_gas/base/serverobjects.lua")
 
--- Server Objects
-includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")
+
+	numberExperimentalProperties = {1, 1, 1, 2, 1},
+	experimentalProperties = {"XX", "XX", "XX", "MA", "UT", "XX"},
+	experimentalWeights = {1, 1, 1, 1, 2, 1},
+	experimentalGroupTitles = {"null", "null", "null", "expStorage", "null"},
+	experimentalSubGroupTitles = {"null", "null", "extractrate", "hoppersize", "hitpoints"},
+	experimentalMin = {0, 0, 6, 100000, 1000},
+	experimentalMax = {0, 0, 12, 150000, 1000},
+	experimentalPrecision = {0, 0, 0, 0, 0},
+	experimentalCombineType = {0, 0, 1, 1, 4},
+}
+
+ObjectTemplates:addTemplate(object_tangible_deed_generator_deed_generator_fusion_deed, "object/tangible/deed/generator_deed/generator_fusion_deed.iff")

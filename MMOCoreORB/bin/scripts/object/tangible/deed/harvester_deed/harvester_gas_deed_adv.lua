@@ -41,12 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_deed_harvester_deed_harvester_gas_deed_adv = object_tangible_deed_harvester_deed_shared_harvester_gas_deed_adv:new {
+	templateType = STRUCTUREDEED,
+	placeStructureComponent = "PlaceStructureComponent",
+	generatedObjectTemplate = "object/installation/mining_gas/mining_gas_harvester_adv.iff",
 
---Children folder includes
-includeFile("installation/mining_gas/base/serverobjects.lua")
+	noTrade = 1,
 
--- Server Objects
-includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")
+	numberExperimentalProperties = {1, 1, 3, 2, 1},
+	experimentalProperties = {"XX", "XX", "HR", "SR", "UT", "MA", "UT", "XX"},
+	experimentalWeights = {1, 1, 1, 1, 2, 1, 2, 1},
+	experimentalGroupTitles = {"null", "null", "expEffeciency", "expStorage", "null"},
+	experimentalSubGroupTitles = {"null", "null", "extractrate", "hoppersize", "hitpoints"},
+	experimentalMin = {0, 0, 25, 100000, 1000},
+	experimentalMax = {0, 0, 35, 150000, 1000},
+	experimentalPrecision = {0, 0, 0, 0, 0},
+	experimentalCombineType = {0, 0, 1, 1, 4},
+}
+
+ObjectTemplates:addTemplate(object_tangible_deed_harvester_deed_harvester_gas_deed_adv, "object/tangible/deed/harvester_deed/harvester_gas_deed_adv.iff")

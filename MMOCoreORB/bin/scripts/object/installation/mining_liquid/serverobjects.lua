@@ -46,6 +46,8 @@
 includeFile("installation/mining_liquid/base/serverobjects.lua")
 
 -- Server Objects
+includeFile("installation/mining_liquid/mining_chem_harvester_adv.lua")
+includeFile("installation/mining_liquid/mining_liquid_vapor_harvester_adv.lua")
 includeFile("installation/mining_liquid/mining_liquid_harvester_style_1.lua")
 includeFile("installation/mining_liquid/mining_liquid_harvester_style_2.lua")
 includeFile("installation/mining_liquid/mining_liquid_harvester_style_3.lua")

@@ -70,7 +70,7 @@ TEST_F(ConfigManagerTest, TreFiles) {
 	ASSERT_TRUE(treFilesToLoad.size() != 0);
 
 	// Make sure it's not sorted
-	ASSERT_TRUE(treFilesToLoad.get(0) == "starforge_live_02.tre"); // Top tre in config.lua goes here.
+	ASSERT_TRUE(treFilesToLoad.get(0) == "starforge_live_01.tre"); // Top tre in config.lua goes here.
 
 	std::cerr << "[>>>>>>>>>>] TreFiles = { '";
 

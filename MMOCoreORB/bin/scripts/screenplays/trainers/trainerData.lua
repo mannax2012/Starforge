@@ -716,6 +716,27 @@ trainerSkills = {
 		"crafting_weaponsmith_techniques_04"
 	},
 
+	trainer_mineralogist = {
+		"crafting_mineralogist_novice",
+		"crafting_mineralogist_master",
+		"crafting_mineralogist_structures_01",
+		"crafting_mineralogist_structures_02",
+		"crafting_mineralogist_structures_03",
+		"crafting_mineralogist_structures_04",
+		"crafting_mineralogist_construction_01",
+		"crafting_mineralogist_construction_02",
+		"crafting_mineralogist_construction_03",
+		"crafting_mineralogist_construction_04",
+		"crafting_mineralogist_sampling_01",
+		"crafting_mineralogist_sampling_02",
+		"crafting_mineralogist_sampling_03",
+		"crafting_mineralogist_sampling_04",
+		"crafting_mineralogist_placement_01",
+		"crafting_mineralogist_placement_02",
+		"crafting_mineralogist_placement_03",
+		"crafting_mineralogist_placement_04"
+	},
+
 	-- Jedi trainers
 
 	trainer_fs = {

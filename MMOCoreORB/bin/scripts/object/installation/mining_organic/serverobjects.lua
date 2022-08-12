@@ -48,5 +48,6 @@ includeFile("installation/mining_organic/base/serverobjects.lua")
 -- Server Objects
 includeFile("installation/mining_organic/mining_organic_creature_farm.lua")
 includeFile("installation/mining_organic/mining_organic_flora_farm.lua")
+includeFile("installation/mining_organic/mining_flora_harvester_adv.lua")
 includeFile("installation/mining_organic/mining_organic_flora_farm_heavy.lua")
 includeFile("installation/mining_organic/mining_organic_flora_farm_medium.lua")
