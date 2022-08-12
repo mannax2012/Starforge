@@ -276,3 +276,8 @@ object_installation_generators_shared_power_generator_wind_style_1 = SharedInsta
 }
 
 ObjectTemplates:addClientTemplate(object_installation_generators_shared_power_generator_wind_style_1, "object/installation/generators/shared_power_generator_wind_style_1.iff")
+
+object_installation_generators_shared_power_generator_windmill = SharedInstallationObjectTemplate:new {
+clientTemplateFileName = "object/installation/generators/shared_power_generator_windmill.iff"}
+ObjectTemplates:addClientTemplate(object_installation_generators_shared_power_generator_windmill, 
+"object/installation/generators/shared_power_generator_windmill.iff")

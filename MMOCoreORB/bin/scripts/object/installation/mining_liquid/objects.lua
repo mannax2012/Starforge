@@ -40,6 +40,15 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_installation_mining_liquid_shared_mining_liquid_vapor_harvester_adv = SharedInstallationObjectTemplate:new {
+	clientTemplateFileName = "object/installation/mining_liquid/shared_mining_liquid_vapor_harvester_adv.iff"}
+ObjectTemplates:addClientTemplate(object_installation_mining_liquid_shared_mining_liquid_vapor_harvester_adv, 
+"object/installation/mining_liquid/shared_mining_liquid_vapor_harvester_adv.iff")
+
+object_installation_mining_liquid_shared_mining_chem_harvester_adv = SharedInstallationObjectTemplate:new {
+	clientTemplateFileName = "object/installation/mining_liquid/shared_mining_chem_harvester_adv.iff"}
+ObjectTemplates:addClientTemplate(object_installation_mining_liquid_shared_mining_chem_harvester_adv, 
+"object/installation/mining_liquid/shared_mining_chem_harvester_adv.iff")
 
 object_installation_mining_liquid_shared_mining_liquid_harvester_style_1 = SharedInstallationObjectTemplate:new {
 	clientTemplateFileName = "object/installation/mining_liquid/shared_mining_liquid_harvester_style_1.iff"

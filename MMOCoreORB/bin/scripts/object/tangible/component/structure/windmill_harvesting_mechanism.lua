@@ -41,12 +41,18 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_component_structure_windmill_harvesting_mechanism = object_tangible_component_structure_shared_windmill_harvesting_mechanism:new {
 
---Children folder includes
-includeFile("installation/mining_gas/base/serverobjects.lua")
 
--- Server Objects
-includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")
+	numberExperimentalProperties = {1, 1, 1, 3},
+	experimentalProperties = {"XX", "XX", "XX", "HR", "SR", "UT"},
+	experimentalWeights = {1, 1, 1, 1, 1, 2},
+	experimentalGroupTitles = {"null", "null", "null", "expEffeciency"},
+	experimentalSubGroupTitles = {"null", "null", "hitpoints", "extractrate"},
+	experimentalMin = {0, 0, 1000, 25},
+	experimentalMax = {0, 0, 5000, 45},
+	experimentalPrecision = {0, 0, 0, 0},
+	experimentalCombineType = {0, 0, 4, 1},
+}
+
+ObjectTemplates:addTemplate(object_tangible_component_structure_windmill_harvesting_mechanism, "object/tangible/component/structure/windmill_harvesting_mechanism.iff")

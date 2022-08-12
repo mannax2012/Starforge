@@ -41,12 +41,38 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_draft_schematic_structure_component_structure_advanced_harvesting_mechanism = object_draft_schematic_structure_component_shared_structure_advanced_harvesting_mechanism:new {
 
---Children folder includes
-includeFile("installation/mining_gas/base/serverobjects.lua")
+	templateType = DRAFTSCHEMATIC,
 
--- Server Objects
-includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")
+	customObjectName = "Advanced Harvesting Mechanism",
+
+	craftingToolTab = 1024, -- (See DraftSchematicObjectTemplate.h)
+	complexity = 16,
+	size = 8,
+	factoryCrateSize = 1000,
+	factoryCrateType = "object/factory/factory_crate_installation.iff",
+   
+	xpType = "crafting_structure_general",
+	xp = 1340,
+
+	assemblySkill = "structure_assembly",
+	experimentingSkill = "structure_experimentation",
+	customizationSkill = "structure_customization",
+
+	customizationOptions = {},
+	customizationStringNames = {},
+	customizationDefaults = {},
+
+	ingredientTemplateNames = {"craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n"},
+	ingredientTitleNames = {"manipulator_unit", "bio_controller", "fluid_hoses", "pump_unit", "sealant_and_shock_absorbing_buffers"},
+	ingredientSlotType = {0, 0, 0, 0, 0},
+	resourceTypes = {"steel", "steel", "chemical", "metal", "chemical"},
+	resourceQuantities = {100, 150, 250, 50, 120},
+	contribution = {100, 100, 100, 100, 100},
+
+	targetTemplate = "object/tangible/component/structure/advanced_harvesting_mechanism.iff",
+
+	additionalTemplates = {}
+}
+ObjectTemplates:addTemplate(object_draft_schematic_structure_component_structure_advanced_harvesting_mechanism, "object/draft_schematic/structure/component/structure_advanced_harvesting_mechanism.iff")

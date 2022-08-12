@@ -41,12 +41,38 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_draft_schematic_structure_installation_generator_windmill = object_draft_schematic_structure_shared_installation_generator_windmill:new {
 
---Children folder includes
-includeFile("installation/mining_gas/base/serverobjects.lua")
+	templateType = DRAFTSCHEMATIC,
 
--- Server Objects
-includeFile("installation/mining_gas/mining_gas_harvester_adv.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_1.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_2.lua")
-includeFile("installation/mining_gas/mining_gas_harvester_style_3.lua")
+	customObjectName = "Deed for: Windmill Power Generator",
+
+	craftingToolTab = 1024, -- (See DraftSchematicObjectTemplate.h)
+	complexity = 13,
+	size = 10,
+	factoryCrateSize = 1,
+	factoryCrateType = "object/factory/factory_crate_installation.iff",
+   
+	xpType = "crafting_general",
+	xp = 425,
+
+	assemblySkill = "general_assembly",
+	experimentingSkill = "general_experimentation",
+	customizationSkill = "clothing_customization",
+
+	customizationOptions = {},
+	customizationStringNames = {},
+	customizationDefaults = {},
+
+	ingredientTemplateNames = {"craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n", "craft_structure_ingredients_n"},
+	ingredientTitleNames = {"load_bearing_frame", "body_shell_and_casing", "structure_foundation", "generator", "capacitance_tank", "resource_handling_system"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 2, 1},
+	resourceTypes = {"metal", "steel", "ore", "object/tangible/component/structure/shared_generator_turbine.iff", "object/tangible/component/structure/shared_structure_small_storage_section.iff", "object/tangible/component/structure/shared_windmill_harvesting_mechanism.iff"},
+	resourceQuantities = {145, 245, 140, 5, 3, 1},
+	contribution = {100, 100, 100, 100, 100, 100},
+
+	targetTemplate = "object/tangible/deed/generator_deed/generator_windmill_deed.iff",
+
+	additionalTemplates = {}
+}
+ObjectTemplates:addTemplate(object_draft_schematic_structure_installation_generator_windmill, "object/draft_schematic/structure/installation_generator_windmill.iff")

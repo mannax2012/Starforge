@@ -75,3 +75,7 @@ includeFile("tangible/component/structure/unit_computer.lua")
 includeFile("tangible/component/structure/wall_module.lua")
 includeFile("tangible/component/structure/weapon_high_power_module.lua")
 includeFile("tangible/component/structure/weapon_mount_heavy_stabilization_unit.lua")
+
+--custom
+includeFile("tangible/component/structure/windmill_harvesting_mechanism.lua")
+includeFile("tangible/component/structure/advanced_harvesting_mechanism.lua")

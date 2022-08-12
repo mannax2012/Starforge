@@ -276,3 +276,8 @@ object_installation_mining_organic_shared_mining_organic_flora_farm_medium = Sha
 }
 
 ObjectTemplates:addClientTemplate(object_installation_mining_organic_shared_mining_organic_flora_farm_medium, "object/installation/mining_organic/shared_mining_organic_flora_farm_medium.iff")
+
+object_installation_mining_organic_shared_mining_flora_harvester_adv = SharedInstallationObjectTemplate:new {
+	clientTemplateFileName = "object/installation/mining_organic/shared_mining_flora_harvester_adv.iff"}
+ObjectTemplates:addClientTemplate(object_installation_mining_organic_shared_mining_flora_harvester_adv, 
+"object/installation/mining_organic/shared_mining_flora_harvester_adv.iff")

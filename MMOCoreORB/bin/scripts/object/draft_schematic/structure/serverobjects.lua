@@ -46,6 +46,14 @@
 includeFile("draft_schematic/structure/city/serverobjects.lua")
 includeFile("draft_schematic/structure/component/serverobjects.lua")
 
+--custom stuff
+includeFile("draft_schematic/structure/installation_mining_flora_harvester_adv.lua")
+includeFile("draft_schematic/structure/installation_mining_ore_harvester_adv.lua")
+includeFile("draft_schematic/structure/installation_mining_gas_harvester_adv.lua")
+includeFile("draft_schematic/structure/installation_mining_chem_harvester_adv.lua")
+includeFile("draft_schematic/structure/installation_mining_liquid_vapor_harvester_adv.lua")
+includeFile("draft_schematic/structure/installation_generator_windmill.lua")
+
 -- Server Objects
 includeFile("draft_schematic/structure/corellia_house_guild_hall.lua")
 includeFile("draft_schematic/structure/corellia_house_player_large.lua")

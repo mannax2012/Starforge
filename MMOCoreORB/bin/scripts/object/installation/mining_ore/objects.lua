@@ -40,6 +40,10 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+object_installation_mining_ore_shared_mining_ore_harvester_adv = SharedInstallationObjectTemplate:new {
+	clientTemplateFileName = "object/installation/mining_ore/shared_mining_ore_harvester_adv.iff"}
+ObjectTemplates:addClientTemplate(object_installation_mining_ore_shared_mining_ore_harvester_adv, 
+"object/installation/mining_ore/shared_mining_ore_harvester_adv.iff")
 
 object_installation_mining_ore_shared_mining_ore_harvester_heavy = SharedInstallationObjectTemplate:new {
 	clientTemplateFileName = "object/installation/mining_ore/shared_mining_ore_harvester_heavy.iff"
