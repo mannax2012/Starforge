@@ -48,17 +48,17 @@ object_draft_schematic_structure_installation_generator_windmill = object_draft_
 	customObjectName = "Deed for: Windmill Power Generator",
 
 	craftingToolTab = 1024, -- (See DraftSchematicObjectTemplate.h)
-	complexity = 13,
+	complexity = 30,
 	size = 10,
 	factoryCrateSize = 1,
 	factoryCrateType = "object/factory/factory_crate_installation.iff",
    
-	xpType = "crafting_general",
-	xp = 425,
+	xpType = "crafting_structure_general",
+	xp = 3800,
 
-	assemblySkill = "general_assembly",
-	experimentingSkill = "general_experimentation",
-	customizationSkill = "clothing_customization",
+	assemblySkill = "structure_assembly",
+	experimentingSkill = "structure_experimentation",
+	customizationSkill = "structure_customization",
 
 	customizationOptions = {},
 	customizationStringNames = {},
