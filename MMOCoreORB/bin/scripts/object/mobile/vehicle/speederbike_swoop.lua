@@ -43,7 +43,7 @@
 
 object_mobile_vehicle_speederbike_swoop = object_mobile_vehicle_shared_speederbike_swoop:new {
 	templateType = VEHICLE,
-	decayRate = 50, -- Damage tick per decay cycle
+	decayRate = 10, -- Damage tick per decay cycle
 	decayCycle = 600 -- Time in seconds per cycle
 }
 

@@ -116,46 +116,52 @@ public:
 		case 18: trainerTemplatePath = "trainer_medic";
 				break;
 
-		case 19: trainerTemplatePath = "trainer_merchant";
+		case 19: trainerTemplatePath = "trainer_mechanic";
 				break;
 
-		case 20: trainerTemplatePath = "trainer_musician";
+		case 20: trainerTemplatePath = "trainer_merchant";
 				break;
 
-		case 21: trainerTemplatePath = "trainer_pistol";
+		case 21: trainerTemplatePath = "trainer_mineralogist";
 				break;
 
-		case 22: trainerTemplatePath = "trainer_polearm";
+		case 22: trainerTemplatePath = "trainer_musician";
 				break;
 
-		case 23: trainerTemplatePath = "trainer_politician";
+		case 23: trainerTemplatePath = "trainer_pistol";
 				break;
 
-		case 24: trainerTemplatePath = "trainer_ranger";
+		case 24: trainerTemplatePath = "trainer_polearm";
 				break;
 
-		case 25: trainerTemplatePath = "trainer_rifleman";
+		case 25: trainerTemplatePath = "trainer_politician";
 				break;
 
-		case 26: trainerTemplatePath = "trainer_scout";
+		case 26: trainerTemplatePath = "trainer_ranger";
 				break;
 
-		case 27: trainerTemplatePath = "trainer_smuggler";
+		case 27: trainerTemplatePath = "trainer_rifleman";
 				break;
 
-		case 28: trainerTemplatePath = "trainer_squadleader";
+		case 28: trainerTemplatePath = "trainer_scout";
 				break;
 
-		case 29: trainerTemplatePath = "trainer_2hsword";
+		case 29: trainerTemplatePath = "trainer_smuggler";
 				break;
 
-		case 30: trainerTemplatePath = "trainer_tailor";
+		case 30: trainerTemplatePath = "trainer_squadleader";
 				break;
 
-		case 31: trainerTemplatePath = "trainer_unarmed";
+		case 31: trainerTemplatePath = "trainer_2hsword";
 				break;
 
-		case 32: trainerTemplatePath = "trainer_weaponsmith";
+		case 32: trainerTemplatePath = "trainer_tailor";
+				break;
+
+		case 33: trainerTemplatePath = "trainer_unarmed";
+				break;
+
+		case 34: trainerTemplatePath = "trainer_weaponsmith";
 
 		}
 

@@ -45,31 +45,31 @@ object_draft_schematic_vehicle_civilian_speeder_bike = object_draft_schematic_ve
 
 	templateType = DRAFTSCHEMATIC,
 
-	customObjectName = "Speederbike",
+	customObjectName = "74-Z Speederbike",
 
 	craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
-	complexity = 20, 
+	complexity = 20,
 	size = 1,
-	factoryCrateSize = 1000,
+	factoryCrateSize = 50,
 	factoryCrateType = "object/factory/factory_crate_installation.iff",
    
-	xpType = "crafting_general", 
+	xpType = "crafting_mechanic", 
 	xp = 1600, 
 
-	assemblySkill = "general_assembly", 
-	experimentingSkill = "general_experimentation", 
-	customizationSkill = "clothing_customization", 
+	assemblySkill = "vehicle_assembly", 
+	experimentingSkill = "vehicle_experimentation", 
+	customizationSkill = "", 
 
 	customizationOptions = {},
 	customizationStringNames = {},
 	customizationDefaults = {},
 
-	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
-	ingredientTitleNames = {"vehicle_body", "structural_frame"},
-	ingredientSlotType = {0, 0},
-	resourceTypes = {"metal_nonferrous", "metal_ferrous"},
-	resourceQuantities = {1200, 4800},
-	contribution = {100, 100},
+	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+	ingredientTitleNames = {"vehicle_body", "structural_frame", "chassis_lubrication", "power_supply", "engine_unit", "vehicle_enhancement_1"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 3},
+	resourceTypes = {"aluminum", "steel", "petrochem_inert", "object/tangible/component/item/shared_electronic_power_conditioner.iff", "object/tangible/component/item/shared_electronic_energy_distributor.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff"},
+	resourceQuantities = {1200, 2400, 260, 2, 2, 1},
+	contribution = {100, 100, 100, 100, 100, 100},
 
 
 	targetTemplate = "object/tangible/deed/vehicle_deed/speederbike_deed.iff",

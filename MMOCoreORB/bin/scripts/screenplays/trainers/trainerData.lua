@@ -737,6 +737,26 @@ trainerSkills = {
 		"crafting_mineralogist_placement_04"
 	},
 
+	trainer_mechanic = {
+		"crafting_mechanic_novice",
+		"crafting_mechanic_master",
+		"crafting_mechanic_landspeeder_01",
+		"crafting_mechanic_landspeeder_02",
+		"crafting_mechanic_landspeeder_03",
+		"crafting_mechanic_landspeeder_04",
+		"crafting_mechanic_speederbike_01",
+		"crafting_mechanic_speederbike_02",
+		"crafting_mechanic_speederbike_03",
+		"crafting_mechanic_speederbike_04",
+		"crafting_mechanic_modules_01",
+		"crafting_mechanic_modules_02",
+		"crafting_mechanic_modules_03",
+		"crafting_mechanic_modules_04",
+		"crafting_mechanic_techniques_01",
+		"crafting_mechanic_techniques_02",
+		"crafting_mechanic_techniques_03",
+		"crafting_mechanic_techniques_04"
+	},
 	-- Jedi trainers
 
 	trainer_fs = {

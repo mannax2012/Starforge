@@ -28,6 +28,55 @@ void VehicleDeedImplementation::fillAttributeList(AttributeListMessage* alm, Cre
 	DeedImplementation::fillAttributeList(alm, object);
 
 	alm->insertAttribute("hit_points", hitPoints);
+	alm->insertAttribute("vehicle_speed", vehicle_speed);
+	alm->insertAttribute("vehicle_acceleration", vehicle_acceleration);
+	alm->insertAttribute("vehicle_handling", vehicle_handling);
+	
+	if (armorRating == 0)
+		alm->insertAttribute("armorrating","@obj_attr_n:armor_pierce_none");
+	else if (armorRating == 1)
+		alm->insertAttribute("armorrating","@obj_attr_n:armor_pierce_light");
+	else if (armorRating == 2)
+		alm->insertAttribute("armorrating","@obj_attr_n:armor_pierce_medium");
+	else if (armorRating == 3)
+		alm->insertAttribute("armorrating","@obj_attr_n:armor_pierce_heavy");
+
+	// Add resists
+	StringBuffer kin;
+	kin << Math::getPrecision(kinResist,1) << "%";
+	alm->insertAttribute("cat_armor_special_protection.armor_eff_kinetic", kin.toString());
+
+	StringBuffer ene;
+	ene << Math::getPrecision(energyResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_energy", ene.toString());
+
+	StringBuffer bla;
+	bla << Math::getPrecision(blastResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_blast", bla.toString());
+
+	StringBuffer stu;
+	stu << Math::getPrecision(stunResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_stun", stu.toString());
+
+	StringBuffer lig;
+	lig << Math::getPrecision(saberResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_restraint", lig.toString());
+
+	StringBuffer hea;
+	hea << Math::getPrecision(heatResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_heat", hea.toString());
+
+	StringBuffer col;
+	col << Math::getPrecision(coldResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_cold", col.toString());
+
+	StringBuffer aci;
+	aci << Math::getPrecision(acidResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_acid", aci.toString());
+
+	StringBuffer ele;
+	ele << Math::getPrecision(elecResist,1) << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_electrical", ele.toString());
 }
 
 void VehicleDeedImplementation::initializeTransientMembers() {
@@ -43,7 +92,88 @@ void VehicleDeedImplementation::updateCraftingValues(CraftingValues* values, boo
 	 * hitpoints			varies, integrity of vehicle
 	 */
 
+	float vehResCap = 80;
+	float hpMin = 500;
+	float speedMin = 7.5;
+	float speedMax = 40;
+	float accelMin = 5;
+	float accelMax = 25;
+	float turnMin = 45;
+	float turnMax = 180;
+
 	hitPoints = (int) values->getCurrentValue("hit_points");
+
+	if (hitPoints < hpMin)
+		hitPoints = hpMin;
+
+	vehicle_speed = (float) round((values->getCurrentValue("vehicle_speed") * 100.0)) / 100.0;
+
+	if (vehicle_speed < speedMin)
+		vehicle_speed = speedMin;
+
+	if (vehicle_speed > speedMax)
+		vehicle_speed = speedMax;
+
+	vehicle_acceleration = (float) round((values->getCurrentValue("vehicle_acceleration") * 100.0)) / 100.0;
+
+	if (vehicle_acceleration < accelMin)
+		vehicle_acceleration = accelMin;
+
+	if (vehicle_acceleration > accelMax)
+		vehicle_acceleration = accelMax;
+
+	vehicle_handling = (float) round((values->getCurrentValue("vehicle_handling") * 10.0)) / 10.0;
+
+	if (vehicle_handling < turnMin)
+		vehicle_handling = turnMin;
+
+	if (vehicle_handling > turnMax)
+		vehicle_handling = turnMax;
+
+	if ((kinResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		kinResist = vehResCap;
+	else
+		kinResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((energyResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		energyResist = vehResCap;
+	else
+		energyResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((blastResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		blastResist = vehResCap;
+	else
+		blastResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((coldResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		coldResist = vehResCap;
+	else
+		coldResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((heatResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		heatResist = vehResCap;
+	else
+		heatResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((elecResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		elecResist = vehResCap;
+	else
+		elecResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((acidResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		acidResist = vehResCap;
+	else
+		acidResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((stunResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		stunResist = vehResCap;
+	else
+		stunResist += (int) values->getCurrentValue("vehicle_resists");
+
+	if ((saberResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+		saberResist = vehResCap;
+	else
+		saberResist += (int) values->getCurrentValue("vehicle_resists");
 }
 
 void VehicleDeedImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
@@ -107,10 +237,22 @@ int VehicleDeedImplementation::handleObjectMenuSelect(CreatureObject* player, by
 		}
 
 		Locker vlocker(vehicle, player);
-
 		vehicle->createChildObjects();
 		vehicle->setMaxCondition(hitPoints);
 		vehicle->setConditionDamage(0);
+		vehicle->setRunSpeed(vehicle_speed);
+		vehicle->setSpeedMultiplierMod(vehicle_speed / 10); //Divide by 10 to account for base vehicle speed
+		vehicle->setTurnScale(vehicle_handling / 75, true); //This is a multiplier. Divide by 75 to account for base vehicle handling
+		vehicle->setAccelerationMultiplierMod(vehicle_acceleration / 10, true); //Divide by 10 to account for base vehicle acceleration
+		vehicle->setKinetic(kinResist);
+		vehicle->setEnergy(energyResist);
+		vehicle->setBlast(blastResist);
+		vehicle->setStun(stunResist);
+		vehicle->setLightSaber(saberResist);
+		vehicle->setHeat(heatResist);
+		vehicle->setCold(coldResist);
+		vehicle->setAcid(acidResist);
+		vehicle->setElectricity(elecResist);
 		vehicleControlDevice->setControlledObject(vehicle);
 
 		if (datapad->transferObject(vehicleControlDevice, -1)) {

@@ -2637,3 +2637,164 @@ object_draft_schematic_vehicle_component_shared_weapon_link = SharedDraftSchemat
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_weapon_link, "object/draft_schematic/vehicle/component/shared_weapon_link.iff")
+
+object_draft_schematic_vehicle_component_shared_armor_module = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_armor_module.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_armor_module, "object/draft_schematic/vehicle/component/shared_armor_module.iff")
+
+object_draft_schematic_vehicle_component_shared_armor_module_advanced = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_armor_module_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_armor_module_advanced, "object/draft_schematic/vehicle/component/shared_armor_module_advanced.iff")
+
+object_draft_schematic_vehicle_component_shared_bonding_agent = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_bonding_agent.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_bonding_agent, "object/draft_schematic/vehicle/component/shared_bonding_agent.iff")
+
+object_draft_schematic_vehicle_component_shared_energy_amplifier = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_energy_amplifier.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_energy_amplifier, "object/draft_schematic/vehicle/component/shared_energy_amplifier.iff")
+
+object_draft_schematic_vehicle_component_shared_enhanced_chipset = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_enhanced_chipset.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_enhanced_chipset, "object/draft_schematic/vehicle/component/shared_enhanced_chipset.iff")
+
+object_draft_schematic_vehicle_component_shared_experimental_circuits = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_experimental_circuits.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_experimental_circuits, "object/draft_schematic/vehicle/component/shared_experimental_circuits.iff")
+
+object_draft_schematic_vehicle_component_shared_flexible_plating = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_flexible_plating.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_flexible_plating, "object/draft_schematic/vehicle/component/shared_flexible_plating.iff")
+
+object_draft_schematic_vehicle_component_shared_fuel_capacitor = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_fuel_capacitor.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_fuel_capacitor, "object/draft_schematic/vehicle/component/shared_fuel_capacitor.iff")
+
+object_draft_schematic_vehicle_component_shared_fuel_dispersion_mechanism = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_fuel_dispersion_mechanism.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_fuel_dispersion_mechanism, "object/draft_schematic/vehicle/component/shared_fuel_dispersion_mechanism.iff")
+
+object_draft_schematic_vehicle_component_shared_fuel_sublimator = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_fuel_sublimator.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_fuel_sublimator, "object/draft_schematic/vehicle/component/shared_fuel_sublimator.iff")
+
+object_draft_schematic_vehicle_component_shared_gyroscopic_stabilizer = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_gyroscopic_stabilizer.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_gyroscopic_stabilizer, "object/draft_schematic/vehicle/component/shared_gyroscopic_stabilizer.iff")
+
+object_draft_schematic_vehicle_component_shared_gyroscopic_stabilizer_advanced = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_gyroscopic_stabilizer_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_gyroscopic_stabilizer_advanced, "object/draft_schematic/vehicle/component/shared_gyroscopic_stabilizer_advanced.iff")
+
+object_draft_schematic_vehicle_component_shared_hydraulic_actuator = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_hydraulic_actuator.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_hydraulic_actuator, "object/draft_schematic/vehicle/component/shared_hydraulic_actuator.iff")
+
+object_draft_schematic_vehicle_component_shared_hyper_accelerometer = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_hyper_accelerometer.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_hyper_accelerometer, "object/draft_schematic/vehicle/component/shared_hyper_accelerometer.iff")
+
+object_draft_schematic_vehicle_component_shared_injector_assembly = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_injector_assembly.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_injector_assembly, "object/draft_schematic/vehicle/component/shared_injector_assembly.iff")
+
+object_draft_schematic_vehicle_component_shared_injector_assembly_advanced = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_injector_assembly_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_injector_assembly_advanced, "object/draft_schematic/vehicle/component/shared_injector_assembly_advanced.iff")
+
+object_draft_schematic_vehicle_component_shared_magnetometer = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_magnetometer.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_magnetometer, "object/draft_schematic/vehicle/component/shared_magnetometer.iff")
+
+object_draft_schematic_vehicle_component_shared_power_converter_advanced = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_power_converter_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_power_converter_advanced, "object/draft_schematic/vehicle/component/shared_power_converter_advanced.iff")
+
+object_draft_schematic_vehicle_component_shared_power_converter = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_power_converter.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_power_converter, "object/draft_schematic/vehicle/component/shared_power_converter.iff")
+
+object_draft_schematic_vehicle_component_shared_power_module = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_power_module.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_power_module, "object/draft_schematic/vehicle/component/shared_power_module.iff")
+
+object_draft_schematic_vehicle_component_shared_power_regulator = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_power_regulator.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_power_regulator, "object/draft_schematic/vehicle/component/shared_power_regulator.iff")
+
+object_draft_schematic_vehicle_component_shared_stable_circuits = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_stable_circuits.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_stable_circuits, "object/draft_schematic/vehicle/component/shared_stable_circuits.iff")
+
+object_draft_schematic_vehicle_component_shared_tough_plating = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/component/shared_tough_plating.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_component_shared_tough_plating, "object/draft_schematic/vehicle/component/shared_tough_plating.iff")

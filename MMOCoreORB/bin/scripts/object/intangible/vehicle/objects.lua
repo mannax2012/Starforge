@@ -432,3 +432,59 @@ object_intangible_vehicle_shared_vehicle_pcd_base = SharedIntangibleObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_vehicle_pcd_base, "object/intangible/vehicle/shared_vehicle_pcd_base.iff")
+
+object_intangible_vehicle_shared_air2_swoop_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_air2_swoop_speeder_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_air2_swoop_speeder_pcd, "object/intangible/vehicle/shared_air2_swoop_speeder_pcd.iff")
+
+object_intangible_vehicle_shared_barc_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_barc_speeder_pcd, "object/intangible/vehicle/shared_barc_speeder_pcd.iff")
+
+object_intangible_vehicle_shared_flare_s_swoop_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_flare_s_swoop_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_flare_s_swoop_pcd, "object/intangible/vehicle/shared_flare_s_swoop_pcd.iff")
+
+object_intangible_vehicle_shared_sith_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_sith_speeder_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_sith_speeder_pcd, "object/intangible/vehicle/shared_sith_speeder_pcd.iff")
+
+object_intangible_vehicle_shared_a1_deluxe_floater_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_a1_deluxe_floater_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_a1_deluxe_floater_pcd, "object/intangible/vehicle/shared_a1_deluxe_floater_pcd.iff")
+
+object_intangible_vehicle_shared_landspeeder_ab1_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_ab1_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_ab1_pcd, "object/intangible/vehicle/shared_landspeeder_ab1_pcd.iff")
+
+object_intangible_vehicle_shared_landspeeder_xp38_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_xp38_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_xp38_pcd, "object/intangible/vehicle/shared_landspeeder_xp38_pcd.iff")
+
+object_intangible_vehicle_shared_landspeeder_v35_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_v35_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_v35_pcd, "object/intangible/vehicle/shared_landspeeder_v35_pcd.iff")
