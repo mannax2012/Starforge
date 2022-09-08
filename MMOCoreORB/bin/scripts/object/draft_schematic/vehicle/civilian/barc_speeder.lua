@@ -58,7 +58,7 @@ object_draft_schematic_vehicle_civilian_barc_speeder = object_draft_schematic_ve
 
 	assemblySkill = "vehicle_assembly",
 	experimentingSkill = "vehicle_experimentation",
-	customizationSkill = "",
+	customizationSkill = "clothing_customization",
 
 	customizationOptions = {},
 	customizationStringNames = {},
@@ -71,7 +71,7 @@ object_draft_schematic_vehicle_civilian_barc_speeder = object_draft_schematic_ve
 	resourceQuantities = {2000, 4000, 450, 5, 5, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100, 100, 100},
 
-	targetTemplate = "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff",
+	targetTemplate = "object/tangible/deed/vehicle_deed/barc_speeder_crafted_deed.iff",
 
 	additionalTemplates = {}
 }

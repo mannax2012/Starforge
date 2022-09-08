@@ -61,10 +61,11 @@ rebelRewardData = {
 	},
 
 	furnitureList = {
-		"tech_armoire", "tech_bookcase", "frn_cabinet", "tech_chair", "tech_chest", "frn_coffee_table", "frn_couch", "frn_end_table"
+		"speeder_barc","tech_armoire", "tech_bookcase", "frn_cabinet", "tech_chair", "tech_chest", "frn_coffee_table", "frn_couch", "frn_end_table"
 	},
 
 	furniture = {
+		speeder_barc  = { type=factionRewardType.uniform, display="@item_n:barc_imperial_schematic", item="object/tangible/loot/loot_schematic/speeder_barc_imperial_loot_schematic.iff", cost=2500 },
 		tech_armoire = { type=factionRewardType.container, display="@container_name:tech_armoire", item="object/tangible/furniture/technical/armoire_s01.iff", cost=1400},
 		tech_bookcase = { type=factionRewardType.container, display="@container_name:tech_bookcase", item="object/tangible/furniture/technical/bookcase_s01.iff", cost=1400},
 		frn_cabinet = { type=factionRewardType.furniture, display="@frn_n:frn_cabinet", item="object/tangible/furniture/technical/cabinet_s01.iff", cost=200},
@@ -170,11 +171,12 @@ imperialRewardData = {
 	},
 
 	furnitureList = {
-		"data_terminal_s1", "data_terminal_s2", "data_terminal_s3", "data_terminal_s4", "frn_table", "tech_armoire", "tech_bookcase", "frn_cabinet", "tech_chair",
+		"speeder_barc","data_terminal_s1", "data_terminal_s2", "data_terminal_s3", "data_terminal_s4", "frn_table", "tech_armoire", "tech_bookcase", "frn_cabinet", "tech_chair",
 		"tech_chest", "frn_coffee_table", "frn_couch", "frn_end_table"
 	},
 
 	furniture = {
+		speeder_barc  = { type=factionRewardType.uniform, display="@item_n:barc_imperial_schematic", item="object/tangible/loot/loot_schematic/speeder_barc_imperial_loot_schematic.iff", cost=2500 },
 		data_terminal_s1 = { type=factionRewardType.terminal, display="@frn_n:frn_data_terminal", item="object/tangible/furniture/imperial/data_terminal_s1.iff",cost=560},
 		data_terminal_s2 = { type=factionRewardType.terminal, display="@frn_n:frn_data_terminal", item="object/tangible/furniture/imperial/data_terminal_s2.iff",cost=700},
 		data_terminal_s3 = { type=factionRewardType.terminal, display="@frn_n:frn_data_terminal", item="object/tangible/furniture/imperial/data_terminal_s3.iff",cost=840},
@@ -215,4 +217,12 @@ imperialRewardData = {
 		swamp_trooper = { type=factionRewardType.hireling, display="@mob/creature_names:swamp_trooper", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="swamp_trooper", cost=420},
 		at_st = { type=factionRewardType.hireling, display="@mob/creature_names:at_st", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="at_st", cost=9450},
 	},
+
+	--[[vehicleList = {
+		"assault_trooper"
+	},
+
+	vehicles = {
+		assault_trooper = { type=factionRewardType.hireling, display="@mob/creature_names:assault_trooper", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="assault_trooper", cost=420},
+	},]]--
 }

@@ -58,7 +58,7 @@ object_draft_schematic_vehicle_civilian_sith_speeder = object_draft_schematic_ve
 
 	assemblySkill = "vehicle_assembly",
 	experimentingSkill = "vehicle_experimentation",
-	customizationSkill = "",
+	customizationSkill = "clothing_customization",
 
 	customizationOptions = {},
 	customizationStringNames = {},

@@ -41,9 +41,20 @@
 --which carries forward this exception.
 
 
+object_tangible_loot_loot_schematic_shared_speeder_barc_imperial_loot_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_speeder_barc_imperial_loot_schematic.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_speeder_barc_imperial_loot_schematic, 
+"object/tangible/loot/loot_schematic/shared_speeder_barc_imperial_loot_schematic.iff")
+
+object_tangible_loot_loot_schematic_shared_speeder_barc_rebel_loot_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_speeder_barc_rebel_loot_schematic.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_speeder_barc_rebel_loot_schematic, 
+"object/tangible/loot/loot_schematic/shared_speeder_barc_rebel_loot_schematic.iff")
+
 object_tangible_loot_loot_schematic_shared_droid_hk47_loot_schematic = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_droid_hk47_loot_schematic.iff"}
-ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_droid_hk47_loot_schematic, "object/tangible/loot/loot_schematic/shared_droid_hk47_loot_schematic.iff")
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_droid_hk47_loot_schematic, 
+"object/tangible/loot/loot_schematic/shared_droid_hk47_loot_schematic.iff")
 
 object_tangible_loot_loot_schematic_shared_agitator_motor_schematic = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_agitator_motor_schematic.iff"

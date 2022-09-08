@@ -41,31 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_deed_vehicle_deed_podracer_anakin_crafted_deed = object_tangible_deed_vehicle_deed_shared_podracer_anakin_crafted_deed:new {
 
---Children folder includes
+	templateType = VEHICLEDEED,
 
--- Server Objects
-includeFile("tangible/deed/vehicle_deed/jetpack_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_av21_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x31_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x34_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_flash_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_imperial_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_rebel_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/podracer_balta_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/podracer_anakin_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_swoop_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicle_deed_base.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_bike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_deed.lua")
+	controlDeviceObjectTemplate = "object/intangible/vehicle/podracer_anakin_pcd.iff",
+	generatedObjectTemplate = "object/mobile/vehicle/podracer_anakin.iff",
 
-includeFile("tangible/deed/vehicle_deed/air2_swoop_speeder_deed.lua")
-includeFile("tangible/deed/vehicle_deed/flare_s_swoop_deed.lua")
-includeFile("tangible/deed/vehicle_deed/sith_speeder_deed.lua")
-includeFile("tangible/deed/vehicle_deed/a1_deluxe_floater_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_ab1_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speeder_stap_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_xp38_crafted_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_v35_crafted_deed.lua")
+	numberExperimentalProperties = {1, 1, 3, 1, 3, 3, 3},
+	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "XX", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_durability", "null", "exp_speed", "exp_handling", "exp_acceleration"},
+	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_resists", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
+	experimentalMin = {0, 0, 750, 0, 12.5, 75, 12.5},
+	experimentalMax = {0, 0, 2000, 0, 20, 80, 15},
+	experimentalPrecision = {0, 0, 0, 0, 2, 1, 2},
+	experimentalCombineType = {0, 0, 1, 0, 1, 1, 1, 1},
+}
+
+ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_podracer_anakin_crafted_deed, "object/tangible/deed/vehicle_deed/podracer_anakin_crafted_deed.iff")

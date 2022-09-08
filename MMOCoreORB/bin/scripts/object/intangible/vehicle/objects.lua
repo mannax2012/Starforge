@@ -488,3 +488,17 @@ object_intangible_vehicle_shared_landspeeder_v35_pcd = SharedIntangibleObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_v35_pcd, "object/intangible/vehicle/shared_landspeeder_v35_pcd.iff")
+
+object_intangible_vehicle_shared_speeder_stap_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_speeder_stap_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_speeder_stap_pcd, "object/intangible/vehicle/shared_speeder_stap_pcd.iff")
+
+object_intangible_vehicle_shared_podracer_balta_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_podracer_balta_pcd.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_podracer_balta_pcd, "object/intangible/vehicle/shared_podracer_balta_pcd.iff")

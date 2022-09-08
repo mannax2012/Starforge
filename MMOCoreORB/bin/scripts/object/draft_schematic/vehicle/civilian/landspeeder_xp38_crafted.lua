@@ -71,7 +71,7 @@ object_draft_schematic_vehicle_civilian_landspeeder_xp38_crafted = object_draft_
 	resourceQuantities = {1550, 4650, 375, 5, 5, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100, 100, 100},
 
-	targetTemplate = "object/tangible/deed/vehicle_deed/landspeeder_xp38_deed.iff",
+	targetTemplate = "object/tangible/deed/vehicle_deed/landspeeder_xp38_crafted_deed.iff",
 
 	additionalTemplates = {}
 }

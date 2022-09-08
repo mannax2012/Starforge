@@ -41,17 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_component_vehicle_flexible_plating = object_tangible_component_vehicle_shared_flexible_plating:new {
-	
-	numberExperimentalProperties = {1, 1, 3, 3, 3, 3},
-	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
-	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	experimentalGroupTitles = {"null", "null", "exp_durability", "exp_speed", "exp_handling", "exp_acceleration"},
-	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
-	experimentalMin = {0, 0, 25, -1, 0, 0},
-	experimentalMax = {0, 0, 75, 0, 2.5, 0.66},
-	experimentalPrecision = {0, 0, 0, 2, 1, 2},
-	experimentalCombineType = {0, 0, 1, 1, 1, 1},
+object_tangible_deed_vehicle_deed_landspeeder_ab1_crafted_deed = object_tangible_deed_vehicle_deed_shared_landspeeder_ab1_crafted_deed:new {
+
+	templateType = VEHICLEDEED,
+
+	controlDeviceObjectTemplate = "object/intangible/vehicle/landspeeder_ab1_pcd.iff",
+	generatedObjectTemplate = "object/mobile/vehicle/landspeeder_ab1.iff",
+
+	numberExperimentalProperties = {1, 1, 3, 1, 3, 3, 3},
+	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "XX", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_durability", "null", "exp_speed", "exp_handling", "exp_acceleration"},
+	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_resists", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
+	experimentalMin = {0, 0, 1000, 0, 10, 80, 10},
+	experimentalMax = {0, 0, 2500, 0, 17.5, 85, 12.5},
+	experimentalPrecision = {0, 0, 0, 0, 2, 1, 2},
+	experimentalCombineType = {0, 0, 1, 0, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_tangible_component_vehicle_flexible_plating, "object/tangible/component/vehicle/flexible_plating.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_landspeeder_ab1_crafted_deed, "object/tangible/deed/vehicle_deed/landspeeder_ab1_crafted_deed.iff")

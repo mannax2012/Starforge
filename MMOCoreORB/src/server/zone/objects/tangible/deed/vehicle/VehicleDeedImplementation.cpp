@@ -130,47 +130,52 @@ void VehicleDeedImplementation::updateCraftingValues(CraftingValues* values, boo
 	if (vehicle_handling > turnMax)
 		vehicle_handling = turnMax;
 
-	if ((kinResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	float vehicle_resists = (float) round(values->getCurrentValue("vehicle_resists"));
+
+	if (vehicle_resists < 0)
+		vehicle_resists = 0;
+
+	if ((kinResist + (int) vehicle_resists) > vehResCap)
 		kinResist = vehResCap;
 	else
 		kinResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((energyResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((energyResist + (int) vehicle_resists) > vehResCap)
 		energyResist = vehResCap;
 	else
 		energyResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((blastResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((blastResist + (int) vehicle_resists) > vehResCap)
 		blastResist = vehResCap;
 	else
 		blastResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((coldResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((coldResist + (int) vehicle_resists) > vehResCap)
 		coldResist = vehResCap;
 	else
 		coldResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((heatResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((heatResist + (int) vehicle_resists) > vehResCap)
 		heatResist = vehResCap;
 	else
 		heatResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((elecResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((elecResist + (int) vehicle_resists) > vehResCap)
 		elecResist = vehResCap;
 	else
 		elecResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((acidResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((acidResist + (int) vehicle_resists) > vehResCap)
 		acidResist = vehResCap;
 	else
 		acidResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((stunResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((stunResist + (int) vehicle_resists) > vehResCap)
 		stunResist = vehResCap;
 	else
 		stunResist += (int) values->getCurrentValue("vehicle_resists");
 
-	if ((saberResist + (int) values->getCurrentValue("vehicle_resists")) > vehResCap)
+	if ((saberResist + (int) vehicle_resists) > vehResCap)
 		saberResist = vehResCap;
 	else
 		saberResist += (int) values->getCurrentValue("vehicle_resists");

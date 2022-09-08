@@ -41,12 +41,12 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_vehicle_deed_barc_speeder_imperial_deed = object_tangible_deed_vehicle_deed_shared_barc_speeder_imperial_deed:new {
+object_tangible_deed_vehicle_deed_barc_speeder_rebel_crafted_deed = object_tangible_deed_vehicle_deed_shared_barc_speeder_rebel_crafted_deed:new {
 
 	templateType = VEHICLEDEED,
 
-	controlDeviceObjectTemplate = "object/intangible/vehicle/barc_speeder_imperial_pcd.iff",
-	generatedObjectTemplate = "object/mobile/vehicle/barc_speeder_imperial.iff",
+	controlDeviceObjectTemplate = "object/intangible/vehicle/barc_speeder_rebel_pcd.iff",
+	generatedObjectTemplate = "object/mobile/vehicle/barc_speeder_rebel.iff",
 
 	numberExperimentalProperties = {1, 1, 3, 1, 3, 3, 3},
 	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "XX", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
@@ -59,4 +59,4 @@ object_tangible_deed_vehicle_deed_barc_speeder_imperial_deed = object_tangible_d
 	experimentalCombineType = {0, 0, 1, 0, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_barc_speeder_imperial_deed, "object/tangible/deed/vehicle_deed/barc_speeder_imperial_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_barc_speeder_rebel_crafted_deed, "object/tangible/deed/vehicle_deed/barc_speeder_rebel_crafted_deed.iff")

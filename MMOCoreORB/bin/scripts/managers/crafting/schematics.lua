@@ -42,13 +42,20 @@
 
 
 schematics = {
+	{path="object/draft_schematic/vehicle/civilian/barc_imperial_speeder.iff"},
+	{path="object/draft_schematic/vehicle/civilian/barc_rebel_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/landspeeder_x31.iff"},
 	{path="object/draft_schematic/vehicle/civilian/speederbike_flash.iff"},
 	{path="object/draft_schematic/vehicle/civilian/air2_swoop_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/flare_s_swoop.iff"},
+	{path="object/draft_schematic/vehicle/civilian/speeder_stap_crafted.iff"},
+	{path="object/draft_schematic/vehicle/civilian/barc_speeder.iff"},
+	{path="object/draft_schematic/vehicle/civilian/barc_rebel_speeder.iff"},
+	{path="object/draft_schematic/vehicle/civilian/barc_imperial_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/sith_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/a1_deluxe_floater.iff"},
 	{path="object/draft_schematic/vehicle/civilian/podracer_anakin.iff"},
+	{path="object/draft_schematic/vehicle/civilian/podracer_balta.iff"},
 	{path="object/draft_schematic/vehicle/civilian/landspeeder_ab1_crafted.iff"},
 	{path="object/draft_schematic/vehicle/civilian/landspeeder_xp38_crafted.iff"},
 	{path="object/draft_schematic/vehicle/civilian/landspeeder_v35_crafted.iff"},

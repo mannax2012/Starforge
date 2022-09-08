@@ -650,7 +650,29 @@ object_draft_schematic_vehicle_civilian_shared_landspeeder_v35_crafted = SharedD
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_landspeeder_v35_crafted, "object/draft_schematic/vehicle/civilian/shared_landspeeder_v35_crafted.iff")
 
+object_draft_schematic_vehicle_civilian_shared_podracer_balta = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_podracer_balta.iff"
+}ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_podracer_balta, 
+"object/draft_schematic/vehicle/civilian/shared_podracer_balta.iff")
+
 object_draft_schematic_vehicle_civilian_shared_podracer_anakin = SharedDraftSchematicObjectTemplate:new {
 	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_podracer_anakin.iff"
 }ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_podracer_anakin, 
 "object/draft_schematic/vehicle/civilian/shared_podracer_anakin.iff")
+
+object_draft_schematic_vehicle_civilian_shared_barc_imperial_speeder = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_barc_imperial_speeder.iff"}
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_barc_imperial_speeder, 
+"object/draft_schematic/vehicle/civilian/shared_barc_imperial_speeder.iff")
+
+
+object_draft_schematic_vehicle_civilian_shared_barc_rebel_speeder = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_barc_rebel_speeder.iff"}
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_barc_rebel_speeder, 
+"object/draft_schematic/vehicle/civilian/shared_barc_rebel_speeder.iff")
+
+
+object_draft_schematic_vehicle_civilian_shared_speeder_stap_crafted = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_speeder_stap_crafted.iff"}
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_speeder_stap_crafted, 
+"object/draft_schematic/vehicle/civilian/shared_speeder_stap_crafted.iff")

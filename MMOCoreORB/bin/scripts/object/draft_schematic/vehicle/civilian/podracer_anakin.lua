@@ -71,7 +71,7 @@ object_draft_schematic_vehicle_civilian_podracer_anakin = object_draft_schematic
 	resourceQuantities = {2000, 4000, 450, 5, 5, 1, 1, 1},
 	contribution = {100, 100, 100, 100, 100, 100, 100, 100},
 
-	targetTemplate = "object/tangible/deed/vehicle_deed/podracer_anakin_deed.iff",
+	targetTemplate = "object/tangible/deed/vehicle_deed/podracer_anakin_crafted_deed.iff",
 
 	additionalTemplates = {}
 }

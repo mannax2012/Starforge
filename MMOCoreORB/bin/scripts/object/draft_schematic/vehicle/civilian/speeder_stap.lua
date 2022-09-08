@@ -41,22 +41,39 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_vehicle_deed_barc_speeder_deed = object_tangible_deed_vehicle_deed_shared_barc_speeder_deed:new {
+object_draft_schematic_vehicle_civilian_speeder_stap = object_draft_schematic_vehicle_civilian_shared_speeder_stap:new {
 
-	templateType = VEHICLEDEED,
+	templateType = DRAFTSCHEMATIC,
 
-	controlDeviceObjectTemplate = "object/intangible/vehicle/barc_speeder_pcd.iff",
-	generatedObjectTemplate = "object/mobile/vehicle/barc_speeder.iff",
+	customObjectName = "STAP",
 
-	numberExperimentalProperties = {1, 1, 3, 1, 3, 3, 3},
-	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "XX", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
-	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	experimentalGroupTitles = {"null", "null", "exp_durability", "null", "exp_speed", "exp_handling", "exp_acceleration"},
-	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_resists", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
-	experimentalMin = {0, 0, 750, 0, 12.5, 75, 12.5},
-	experimentalMax = {0, 0, 2000, 0, 20, 80, 15},
-	experimentalPrecision = {0, 0, 0, 0, 2, 1, 2},
-	experimentalCombineType = {0, 0, 1, 0, 1, 1, 1, 1},
+	craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
+	complexity = 20,
+	size = 1,
+	factoryCrateSize = 50,
+	factoryCrateType = "object/factory/factory_crate_installation.iff",
+   
+	xpType = "crafting_mechanic", 
+	xp = 1600, 
+
+	assemblySkill = "vehicle_assembly", 
+	experimentingSkill = "vehicle_experimentation", 
+	customizationSkill = "", 
+
+	customizationOptions = {},
+	customizationStringNames = {},
+	customizationDefaults = {},
+
+	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+	ingredientTitleNames = {"vehicle_body", "structural_frame", "chassis_lubrication", "power_supply", "engine_unit", "vehicle_enhancement_1"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 3},
+	resourceTypes = {"aluminum", "steel", "petrochem_inert", "object/tangible/component/item/shared_electronic_power_conditioner.iff", "object/tangible/component/item/shared_electronic_energy_distributor.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff"},
+	resourceQuantities = {1200, 2400, 260, 2, 2, 1},
+	contribution = {100, 100, 100, 100, 100, 100},
+
+
+	targetTemplate = "object/tangible/deed/vehicle_deed/speeder_stap_deed.iff",
+
+	additionalTemplates = {}
 }
-
-ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_barc_speeder_deed, "object/tangible/deed/vehicle_deed/barc_speeder_deed.iff")
+ObjectTemplates:addTemplate(object_draft_schematic_vehicle_civilian_speeder_stap, "object/draft_schematic/vehicle/civilian/speeder_stap.iff")

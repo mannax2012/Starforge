@@ -41,17 +41,38 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_component_vehicle_flexible_plating = object_tangible_component_vehicle_shared_flexible_plating:new {
-	
-	numberExperimentalProperties = {1, 1, 3, 3, 3, 3},
-	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
-	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	experimentalGroupTitles = {"null", "null", "exp_durability", "exp_speed", "exp_handling", "exp_acceleration"},
-	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
-	experimentalMin = {0, 0, 25, -1, 0, 0},
-	experimentalMax = {0, 0, 75, 0, 2.5, 0.66},
-	experimentalPrecision = {0, 0, 0, 2, 1, 2},
-	experimentalCombineType = {0, 0, 1, 1, 1, 1},
-}
+object_draft_schematic_vehicle_civilian_podracer_balta = object_draft_schematic_vehicle_civilian_shared_podracer_balta:new {
 
-ObjectTemplates:addTemplate(object_tangible_component_vehicle_flexible_plating, "object/tangible/component/vehicle/flexible_plating.iff")
+	templateType = DRAFTSCHEMATIC,
+
+	customObjectName = "BARC Speeder",
+
+	craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
+	complexity = 25,
+	size = 1,
+	factoryCrateSize = 50,
+	factoryCrateType = "object/factory/factory_crate_installation.iff",
+   
+	xpType = "crafting_mechanic",
+	xp = 1800,
+
+	assemblySkill = "vehicle_assembly",
+	experimentingSkill = "vehicle_experimentation",
+	customizationSkill = "",
+
+	customizationOptions = {},
+	customizationStringNames = {},
+	customizationDefaults = {},
+
+	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+	ingredientTitleNames = {"vehicle_body", "structural_frame", "chassis_lubrication", "power_supply", "engine_unit", "vehicle_enhancement_1", "vehicle_enhancement_2", "vehicle_enhancement_3"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 3, 3, 3},
+	resourceTypes = {"aluminum", "steel", "petrochem_inert", "object/tangible/component/item/shared_electronic_power_conditioner.iff", "object/tangible/component/item/shared_electronic_energy_distributor.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff"},
+	resourceQuantities = {2000, 4000, 450, 5, 5, 1, 1, 1},
+	contribution = {100, 100, 100, 100, 100, 100, 100, 100},
+
+	targetTemplate = "object/tangible/deed/vehicle_deed/podracer_balta_crafted_deed.iff",
+
+	additionalTemplates = {}
+}
+ObjectTemplates:addTemplate(object_draft_schematic_vehicle_civilian_podracer_balta, "object/draft_schematic/vehicle/civilian/podracer_balta.iff")

@@ -41,22 +41,13 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_vehicle_deed_podracer_anakin_deed = object_tangible_deed_vehicle_deed_shared_podracer_anakin_deed:new {
-
-	templateType = VEHICLEDEED,
-
-	controlDeviceObjectTemplate = "object/intangible/vehicle/podracer_anakin_pcd.iff",
-	generatedObjectTemplate = "object/mobile/vehicle/podracer_anakin.iff",
-
-	numberExperimentalProperties = {1, 1, 1},
-	experimentalProperties = {"XX", "XX", "SR"},
-	experimentalWeights = {1, 1, 1},
-	experimentalGroupTitles = {"null", "null", "exp_durability"},
-	experimentalSubGroupTitles = {"null", "null", "hit_points"},
-	experimentalMin = {0, 0, 1000},
-	experimentalMax = {0, 0, 2500},
-	experimentalPrecision = {0, 0, 0},
-	experimentalCombineType = {0, 0, 1},
+object_tangible_loot_loot_schematic_speeder_barc_rebel_loot_schematic = object_tangible_loot_loot_schematic_shared_speeder_barc_rebel_loot_schematic:new {
+	templateType = LOOTSCHEMATIC,
+	objectMenuComponent = "LootSchematicMenuComponent",
+	attributeListComponent = "LootSchematicAttributeListComponent",
+	requiredSkill = "crafting_mechanic_master",
+	targetDraftSchematic = "object/draft_schematic/vehicle/civilian/barc_rebel_speeder.iff",
+	targetUseCount = 1
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_podracer_anakin_deed, "object/tangible/deed/vehicle_deed/podracer_anakin_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_loot_loot_schematic_speeder_barc_rebel_loot_schematic, "object/tangible/loot/loot_schematic/speeder_barc_rebel_loot_schematic.iff")

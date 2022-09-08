@@ -988,3 +988,13 @@ object_mobile_vehicle_shared_sith_speeder = SharedCreatureObjectTemplate:new {
     clientTemplateFileName = "object/mobile/vehicle/shared_sith_speeder.iff"
 }
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_sith_speeder, "object/mobile/vehicle/shared_sith_speeder.iff")
+
+object_mobile_vehicle_shared_speeder_stap = SharedCreatureObjectTemplate:new {
+    clientTemplateFileName = "object/mobile/vehicle/shared_speeder_stap.iff"
+}
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_speeder_stap, "object/mobile/vehicle/shared_speeder_stap.iff")
+
+object_mobile_vehicle_shared_podracer_balta = SharedCreatureObjectTemplate:new {
+    clientTemplateFileName = "object/mobile/vehicle/shared_podracer_balta.iff"
+}
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_podracer_balta, "object/mobile/vehicle/shared_podracer_balta.iff")
