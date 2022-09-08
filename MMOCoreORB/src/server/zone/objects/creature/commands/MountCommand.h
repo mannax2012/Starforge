@@ -158,6 +158,10 @@ public:
 				newSpeed = petManager->getMountedRunSpeed(vehicle);
 			}
 		}
+		
+		// Update vehicle speed modifier. Should only apply to vehicles.
+		if (vehicle->isVehicleObject() && vehicle->getSpeedMultiplierMod() != 0)
+				creature->setSpeedMultiplierMod(vehicle->getSpeedMultiplierMod());
 
 		// add speed multiplier mod for existing buffs
 		if(vehicle->getSpeedMultiplierMod() != 0)
@@ -174,9 +178,9 @@ public:
 			newTurn += creature->getSkillMod("force_vehicle_control");
 		}
 
-		creature->setRunSpeed(newSpeed);
-		creature->setTurnScale(newTurn, true);
-		creature->setAccelerationMultiplierMod(newAccel, true);
+		creature->setRunSpeed(newSpeed); //Doesn't seem to do anything, left in for posterity
+		creature->setTurnScale(newTurn, true); //Doesn't seem to do anything, left in for posterity
+		creature->setAccelerationMultiplierMod(newAccel, true); //Doesn't seem to do anything, left in for posterity
 		creature->addMountedCombatSlow();
 
 		return SUCCESS;

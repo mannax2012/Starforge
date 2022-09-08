@@ -98,7 +98,8 @@ lootableArmorAttachmentStatMods = {
 	"knockdown_defense",
 	"melee_defense",
 	"onehandmelee_accuracy",
-	-- "onehandmelee_damage",
+	"vehicle_experimentation",
+	"vehicle_assembly",
 	"onehandmelee_speed",
 	"pistol_accuracy",
 	-- "pistol_aim",
@@ -140,6 +141,8 @@ lootableArmorAttachmentStatMods = {
 }
 
 lootableClothingAttachmentStatMods = {
+	"vehicle_experimentation",
+	"vehicle_assembly",
 	-- "aim",
 	-- "alert",
 	"armor_assembly",
@@ -277,8 +280,8 @@ lootableClothingAttachmentStatMods = {
 	"forcelightning_speed",
 	"forceweaken_accuracy",
 	"forceweaken_speed",
-	"mindblast_accuracy",
-	"mindblast_speed",
+	--"mindblast_accuracy",
+	--"mindblast_speed",
 	"forceintimidate_accuracy",
 	"forceintimidate_speed",
 	"forcethrow_accuracy",
@@ -291,6 +294,8 @@ lootableClothingAttachmentStatMods = {
 }
 
 lootableArmorStatMods = {
+	"vehicle_experimentation",
+	"vehicle_assembly",
 	-- "aim",
 	-- "alert",
 	"armor_assembly",
@@ -402,6 +407,8 @@ lootableArmorStatMods = {
 }
 
 lootableClothingStatMods = {
+	"vehicle_experimentation",
+	"vehicle_assembly",
 	-- "aim",
 	-- "alert",
 	"armor_assembly",

@@ -3724,3 +3724,206 @@ object_tangible_component_vehicle_shared_weapon_link = SharedTangibleObjectTempl
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_weapon_link, "object/tangible/component/vehicle/shared_weapon_link.iff")
+
+object_tangible_component_vehicle_shared_base_vehicle_enhancement = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_base_vehicle_enhancement, "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff")
+
+object_tangible_component_vehicle_shared_base_vehicle_module = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_base_vehicle_module.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_base_vehicle_module, "object/tangible/component/vehicle/shared_base_vehicle_module.iff")
+
+object_tangible_component_vehicle_shared_base_vehicle_module_chassis = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_base_vehicle_module_chassis.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_base_vehicle_module_chassis, "object/tangible/component/vehicle/shared_base_vehicle_module_chassis.iff")
+
+object_tangible_component_vehicle_shared_base_vehicle_module_engine = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_base_vehicle_module_engine.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_base_vehicle_module_engine, "object/tangible/component/vehicle/shared_base_vehicle_module_engine.iff")
+
+object_tangible_component_vehicle_shared_base_vehicle_module_repulsor = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_base_vehicle_module_repulsor.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_base_vehicle_module_repulsor, "object/tangible/component/vehicle/shared_base_vehicle_module_repulsor.iff")
+
+object_tangible_component_vehicle_shared_base_vehicle_module_power = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_base_vehicle_module_power.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_base_vehicle_module_power, "object/tangible/component/vehicle/shared_base_vehicle_module_power.iff")
+
+object_tangible_component_vehicle_shared_armor_module = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_armor_module.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_armor_module, "object/tangible/component/vehicle/shared_armor_module.iff")
+
+object_tangible_component_vehicle_shared_armor_module_advanced = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_armor_module_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_armor_module_advanced, "object/tangible/component/vehicle/shared_armor_module_advanced.iff")
+
+object_tangible_component_vehicle_shared_bonding_agent = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_bonding_agent.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_bonding_agent, "object/tangible/component/vehicle/shared_bonding_agent.iff")
+
+object_tangible_component_vehicle_shared_energy_amplifier = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_energy_amplifier.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_energy_amplifier, "object/tangible/component/vehicle/shared_energy_amplifier.iff")
+
+object_tangible_component_vehicle_shared_enhanced_chipset = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_enhanced_chipset.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_enhanced_chipset, "object/tangible/component/vehicle/shared_enhanced_chipset.iff")
+
+object_tangible_component_vehicle_shared_experimental_circuits = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_experimental_circuits.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_experimental_circuits, "object/tangible/component/vehicle/shared_experimental_circuits.iff")
+
+object_tangible_component_vehicle_shared_flexible_plating = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_flexible_plating.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_flexible_plating, "object/tangible/component/vehicle/shared_flexible_plating.iff")
+
+object_tangible_component_vehicle_shared_fuel_capacitor = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_fuel_capacitor.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_fuel_capacitor, "object/tangible/component/vehicle/shared_fuel_capacitor.iff")
+
+object_tangible_component_vehicle_shared_fuel_dispersion_mechanism = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_fuel_dispersion_mechanism.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_fuel_dispersion_mechanism, "object/tangible/component/vehicle/shared_fuel_dispersion_mechanism.iff")
+
+object_tangible_component_vehicle_shared_fuel_sublimator = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_fuel_sublimator.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_fuel_sublimator, "object/tangible/component/vehicle/shared_fuel_sublimator.iff")
+
+object_tangible_component_vehicle_shared_gyroscopic_stabilizer = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_gyroscopic_stabilizer.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_gyroscopic_stabilizer, "object/tangible/component/vehicle/shared_gyroscopic_stabilizer.iff")
+
+object_tangible_component_vehicle_shared_gyroscopic_stabilizer_advanced = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_gyroscopic_stabilizer_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_gyroscopic_stabilizer_advanced, "object/tangible/component/vehicle/shared_gyroscopic_stabilizer_advanced.iff")
+
+object_tangible_component_vehicle_shared_hydraulic_actuator = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_hydraulic_actuator.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_hydraulic_actuator, "object/tangible/component/vehicle/shared_hydraulic_actuator.iff")
+
+object_tangible_component_vehicle_shared_hyper_accelerometer = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_hyper_accelerometer.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_hyper_accelerometer, "object/tangible/component/vehicle/shared_hyper_accelerometer.iff")
+
+object_tangible_component_vehicle_shared_injector_assembly = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_injector_assembly.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_injector_assembly, "object/tangible/component/vehicle/shared_injector_assembly.iff")
+
+object_tangible_component_vehicle_shared_injector_assembly_advanced = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_injector_assembly_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_injector_assembly_advanced, "object/tangible/component/vehicle/shared_injector_assembly_advanced.iff")
+
+object_tangible_component_vehicle_shared_magnetometer = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_magnetometer.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_magnetometer, "object/tangible/component/vehicle/shared_magnetometer.iff")
+
+object_tangible_component_vehicle_shared_power_converter = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_power_converter.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_power_converter, "object/tangible/component/vehicle/shared_power_converter.iff")
+
+object_tangible_component_vehicle_shared_power_converter_advanced = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_power_converter_advanced.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_power_converter_advanced, "object/tangible/component/vehicle/shared_power_converter_advanced.iff")
+
+object_tangible_component_vehicle_shared_power_module = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_power_module.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_power_module, "object/tangible/component/vehicle/shared_power_module.iff")
+
+object_tangible_component_vehicle_shared_power_regulator = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_power_regulator.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_power_regulator, "object/tangible/component/vehicle/shared_power_regulator.iff")
+
+object_tangible_component_vehicle_shared_stable_circuits = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_stable_circuits.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_stable_circuits, "object/tangible/component/vehicle/shared_stable_circuits.iff")
+
+object_tangible_component_vehicle_shared_tough_plating = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/component/vehicle/shared_tough_plating.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_component_vehicle_shared_tough_plating, "object/tangible/component/vehicle/shared_tough_plating.iff")
+

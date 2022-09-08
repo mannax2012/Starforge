@@ -45,31 +45,31 @@ object_draft_schematic_vehicle_civilian_landspeeder_x34 = object_draft_schematic
 
 	templateType = DRAFTSCHEMATIC,
 
-	customObjectName = "X34 Landspeeder",
+	customObjectName = "X-34 Landspeeder",
 
 	craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
 	complexity = 25,
 	size = 1,
-	factoryCrateSize = 1000,
+	factoryCrateSize = 50,
 	factoryCrateType = "object/factory/factory_crate_installation.iff",
    
-	xpType = "crafting_general",
+	xpType = "crafting_mechanic",
 	xp = 1800,
 
-	assemblySkill = "general_assembly",
-	experimentingSkill = "general_experimentation",
-	customizationSkill = "clothing_customization",
+	assemblySkill = "vehicle_assembly",
+	experimentingSkill = "vehicle_experimentation",
+	customizationSkill = "",
 
 	customizationOptions = {},
 	customizationStringNames = {},
 	customizationDefaults = {},
 
-	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
-	ingredientTitleNames = {"vehicle_body", "structural_frame"},
-	ingredientSlotType = {0, 0},
-	resourceTypes = {"metal_nonferrous", "metal_ferrous"},
-	resourceQuantities = {1125, 3125},
-	contribution = {100, 100},
+	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+	ingredientTitleNames = {"vehicle_body", "structural_frame", "chassis_lubrication", "power_supply", "engine_unit", "vehicle_enhancement_1", "vehicle_enhancement_2"},
+	ingredientSlotType = {0, 0, 0, 1, 1, 3, 3},
+	resourceTypes = {"aluminum", "steel", "petrochem_inert", "object/tangible/component/item/shared_electronic_power_conditioner.iff", "object/tangible/component/item/shared_electronic_energy_distributor.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff", "object/tangible/component/vehicle/shared_base_vehicle_enhancement.iff"},
+	resourceQuantities = {1250, 3750, 310, 3, 3, 1, 1},
+	contribution = {100, 100, 100, 100, 100, 100, 100},
 
 	targetTemplate = "object/tangible/deed/vehicle_deed/landspeeder_x34_deed.iff",
 
