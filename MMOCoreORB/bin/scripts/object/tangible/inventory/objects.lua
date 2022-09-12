@@ -749,6 +749,11 @@ object_tangible_inventory_shared_lightsaber_inventory_4 = SharedTangibleObjectTe
 
 ObjectTemplates:addClientTemplate(object_tangible_inventory_shared_lightsaber_inventory_4, "object/tangible/inventory/shared_lightsaber_inventory_4.iff")
 
+object_tangible_inventory_shared_lightsaber_inventory_5 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/inventory/shared_lightsaber_inventory_5.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_inventory_shared_lightsaber_inventory_5, 
+"object/tangible/inventory/shared_lightsaber_inventory_5.iff")
+
 object_tangible_inventory_shared_lightsaber_inventory_base = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/inventory/shared_lightsaber_inventory_base.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups

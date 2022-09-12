@@ -115,3 +115,4 @@ includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_
 includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_gen2.lua")
 includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_gen3.lua")
 includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_gen4.lua")
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_damaged_gen5.lua")
