@@ -1,5 +1,9 @@
 
-Full Credit to SWGEmu and MtG Communities for current content and build.
+Full Credit to SWGEmu and MtG Communities for current content and build. I claim nothing as my own original work only as variants or adaptations of other's work.
+Special Thanks to:
+TinyPebble for the Mechanic Profession.
+Flurry Repo for tips and examples.
+Miki for emotional support.
 
 [Full Guide and info for installing the server.](https://github.com/ModTheGalaxy/mtgserver/wiki)
 

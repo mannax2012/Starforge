@@ -42,40 +42,8 @@
 
 
 object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1 = object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_polearm_s1:new {
-	playerRaces = { 	"object/creature/player/smc_female.iff",
-				"object/creature/player/smc_male.iff",
-				"object/creature/player/talz_male.iff",
-				"object/creature/player/talz_female.iff",
-				"object/creature/player/togruta_female.iff",
-				"object/creature/player/togruta_male.iff",
-				"object/creature/player/weequay_male.iff",
-				"object/creature/player/weequay_female.iff",
-				"object/creature/player/nautolan_male.iff",
-				"object/creature/player/nautolan_female.iff",
-				"object/creature/player/nightsister_female.iff",
-				"object/creature/player/nightsister_male.iff",
-				"object/creature/player/nikto_male.iff",
-				"object/creature/player/nikto_female.iff",
-				"object/creature/player/quarren_male.iff",
-				"object/creature/player/quarren_female.iff",
-				"object/creature/player/ishi_tib_male.iff",
-				"object/creature/player/ishi_tib_female.iff",
-				"object/creature/player/hutt_female.iff",
-				"object/creature/player/hutt_male.iff",
-				"object/creature/player/gran_male.iff",
-				"object/creature/player/gran_female.iff",
-				"object/creature/player/gotal_male.iff",
-				"object/creature/player/gotal_female.iff",
-				"object/creature/player/aqualish_female.iff",
-				"object/creature/player/aqualish_male.iff",
-				"object/creature/player/bith_female.iff",
-				"object/creature/player/bith_male.iff",
-				"object/creature/player/chiss_female.iff",
-				"object/creature/player/chiss_male.iff",
-				"object/creature/player/devaronian_male.iff",
-				"object/creature/player/devaronian_female.iff",
+	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
-				"object/creature/player/bothan_male.iff",
 				"object/creature/player/human_male.iff",
 				"object/creature/player/human_female.iff",
 				"object/creature/player/ithorian_male.iff",
@@ -92,8 +60,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1 = object_w
 				"object/creature/player/twilek_female.iff",
 				"object/creature/player/wookiee_male.iff",
 				"object/creature/player/wookiee_female.iff",
-				"object/creature/player/zabrak_male.iff",
-				"object/creature/player/zabrak_female.iff" },
+			"object/creature/player/zabrak_male.iff","object/creature/player/chiss_male.iff",
+			"object/creature/player/zabrak_female.iff","object/creature/player/chiss_female.iff"},
 
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK, 
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
@@ -113,7 +81,7 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1 = object_w
 	-- See http://www.ocdsoft.com/files/certifications.xls
 	certificationsRequired = { "cert_polearmlightsaber" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
-	creatureAccuracyModifiers = { "polearmlightsaber_accuracy" },
+	creatureAccuracyModifiers = { "lightsaber_accuracy" },
 
 	-- See http://www.ocdsoft.com/files/defense.xls
 	defenderDefenseModifiers = { "melee_defense" },
@@ -122,7 +90,7 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1 = object_w
 	defenderSecondaryDefenseModifiers = { "saber_block" },
 
 	-- See http://www.ocdsoft.com/files/speed.xls
-	speedModifiers = { "polearmlightsaber_speed" },
+	speedModifiers = { "lightsaber_speed" },
 
 	-- Leave blank for now
 	damageModifiers = { },
@@ -143,8 +111,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1 = object_w
 	maxRange = 5,
 	maxRangeAccuracy = 5,
 
-	minDamage = 105,
-	maxDamage = 195,
+	minDamage = 205,
+	maxDamage = 300,
 
 	attackSpeed = 5.1,
 
@@ -163,8 +131,8 @@ object_weapon_melee_polearm_crafted_saber_sword_lightsaber_polearm_s1 = object_w
 	experimentalWeights = {1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "forcecost", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 105, 195, 5.1, 10, 15, 35, 40, 20},
-	experimentalMax = {0, 0, 125, 235, 4.8, 20, 12, 25, 25, 15},
+	experimentalMin = {0, 0, 205, 295, 5.1, 10, 5, 35, 40, 20},
+	experimentalMax = {0, 0, 230, 340, 4.8, 20, 2, 25, 25, 15},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 1, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1},
 }
