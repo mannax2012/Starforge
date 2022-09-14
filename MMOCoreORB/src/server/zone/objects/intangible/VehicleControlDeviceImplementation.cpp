@@ -289,8 +289,61 @@ void VehicleControlDeviceImplementation::fillAttributeList(AttributeListMessage*
 	if( vehicle == nullptr )
 		return;
 
+	StringBuffer conditionString;
+	conditionString << "\t" << vehicle->getMaxCondition() - vehicle->getConditionDamage() << "/" << vehicle->getMaxCondition();
+	alm->insertAttribute("cat_vehicle_stats.hit_points", conditionString);
+	alm->insertAttribute("cat_vehicle_stats.vehicle_speed", vehicle->getRunSpeed());
+	alm->insertAttribute("cat_vehicle_stats.vehicle_acceleration", vehicle->getAccelerationMultiplierMod() * 10);
+	alm->insertAttribute("cat_vehicle_stats.vehicle_handling", vehicle->getTurnScale() * 75);
+
+	int armorRating = vehicle->getArmor();
+	if (armorRating == 0)
+		alm->insertAttribute("cat_vehicle_stats.armorrating","@obj_attr_n:armor_pierce_none");
+	else if (armorRating == 1)
+		alm->insertAttribute("cat_vehicle_stats.armorrating","@obj_attr_n:armor_pierce_light");
+	else if (armorRating == 2)
+		alm->insertAttribute("cat_vehicle_stats.armorrating","@obj_attr_n:armor_pierce_medium");
+	else if (armorRating == 3)
+		alm->insertAttribute("cat_vehicle_stats.armorrating","@obj_attr_n:armor_pierce_heavy");
+
+	// Add resists
+	StringBuffer kin;
+	kin << vehicle->getKinetic() << "%";
+	alm->insertAttribute("cat_armor_special_protection.armor_eff_kinetic", kin.toString());
+
+	StringBuffer ene;
+	ene << vehicle->getEnergy() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_energy", ene.toString());
+
+	StringBuffer bla;
+	bla << vehicle->getBlast() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_blast", bla.toString());
+
+	StringBuffer stu;
+	stu << vehicle->getStun() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_stun", stu.toString());
+
+	StringBuffer lig;
+	lig << vehicle->getLightSaber() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_restraint", lig.toString());
+
+	StringBuffer hea;
+	hea << vehicle->getHeat() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_heat", hea.toString());
+
+	StringBuffer col;
+	col << vehicle->getCold() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_cold", col.toString());
+
+	StringBuffer aci;
+	aci << vehicle->getAcid() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_acid", aci.toString());
+
+	StringBuffer ele;
+	ele << vehicle->getElectricity() << "%";
+	alm->insertAttribute("cat_armor_effectiveness.armor_eff_elemental_electrical", ele.toString());
+
 	if (vehicle->getPaintCount() > 0){
 		alm->insertAttribute("customization_cnt", vehicle->getPaintCount());
 	}
-
 }
