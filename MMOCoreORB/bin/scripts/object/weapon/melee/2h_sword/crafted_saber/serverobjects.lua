@@ -116,3 +116,11 @@ includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_
 includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_gen3.lua")
 includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_s9_gen4.lua")
 includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_damaged_gen5.lua")
+
+--frs 5th gens
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_frs_01_gen5.lua")
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_frs_02_gen5.lua")
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_frs_03_gen5.lua")
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_frs_04_gen5.lua")
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_frs_05_gen5.lua")
+includeFile("weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_frs_06_gen5.lua")
