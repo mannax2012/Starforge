@@ -1550,12 +1550,13 @@ void CreatureObjectImplementation::updateSpeedAndAccelerationMods() {
 		speedboost = getSkillMod("slope_move") >= 50
 				? ((getSkillMod("slope_move") - 50.0f) / 100.0f) / 2 : 0;
 	}
+	if (!isRidingMount()) {
+        setSpeedMultiplierMod(CreaturePosture::instance()->getMovementScale((uint8) posture) + speedboost, true);
 
-	setSpeedMultiplierMod(CreaturePosture::instance()->getMovementScale((uint8) posture) + speedboost, true);
+         setAccelerationMultiplierMod(CreaturePosture::instance()->getAccelerationScale((uint8) posture), true);
 
-	setAccelerationMultiplierMod(CreaturePosture::instance()->getAccelerationScale((uint8) posture), true);
-
-	setTurnScale(CreaturePosture::instance()->getTurnScale((uint8) posture), true);
+        setTurnScale(CreaturePosture::instance()->getTurnScale((uint8) posture), true);
+	}
 }
 
 float CreatureObjectImplementation::calculateSpeed() {
