@@ -854,4 +854,6 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<VillageCommand>(String("village").toLowerCase());
 	commandFactory.registerCommand<RegrantSkillsCommand>(String("regrantSkills").toLowerCase());
 	commandFactory.registerCommand<SetPvPCommand>(String("SetPvP").toLowerCase());
+	commandFactory.registerCommand<LocateStructureCommand>(String("locateStructure").toLowerCase());
+	//commandFactory.registerCommand<ForceIntimidateSingleCommand>(String("forceintimidateSingle").toLowerCase());
 }

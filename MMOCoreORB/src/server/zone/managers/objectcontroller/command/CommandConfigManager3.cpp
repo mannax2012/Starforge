@@ -652,4 +652,6 @@ void CommandConfigManager::registerCommands3() {
 	commandFactory.registerCommand<SaberHeadHit1Command>(String("saberHeadHit1").toLowerCase());      // Custom
 	commandFactory.registerCommand<SaberHeadHit2Command>(String("saberHeadHit2").toLowerCase());      // Custom
 	commandFactory.registerCommand<SaberHeadHit3Command>(String("saberHeadHit3").toLowerCase());      // Custom
+	commandFactory.registerCommand<ForceIntimidateSingleCommand>(String("forceintimidateSingle").toLowerCase()); // Custom
+	commandFactory.registerCommand<SaberPadawanStrikeCommand>(String("saberPadawanStrike").toLowerCase());  //Custom
 }
