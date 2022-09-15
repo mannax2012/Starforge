@@ -218,6 +218,7 @@
 #include "ForceFeedback2Command.h"
 #include "ForceIntimidate1Command.h"
 #include "ForceIntimidate2Command.h"
+#include "ForceIntimidateSingleCommand.h"
 #include "ForceKnockdown1Command.h"
 #include "ForceKnockdown2Command.h"
 #include "ForceKnockdown3Command.h"
@@ -841,6 +842,7 @@
 //custom commands
 #include "VillageCommand.h"
 #include "RegrantSkillsCommand.h"
+#include "LocateStructureCommand.h"
 #include "SetPvPCommand.h"
 #include "SaberBodyHit1Command.h"
 #include "SaberBodyHit2Command.h"
@@ -860,6 +862,7 @@
 #include "SaberSweep1Command.h"
 #include "SaberSweep2Command.h"
 #include "SaberSweep3Command.h"
+#include "SaberPadawanStrikeCommand.h"
 
 #endif /* COMMANDSNEW_H_ */
 
