@@ -1,7 +1,7 @@
 
 Full Credit to SWGEmu and MtG Communities for current content and build. I claim nothing as my own original work only as variants or adaptations of other's work.
 Special Thanks to:
-TinyPebble for the Mechanic Profession.
+TinyPebble for the Mechanic Profession and NUMEROUS ammount of time answering my questions! <3.
 Flurry Repo for tips and examples.
 Miki for emotional support.
 

@@ -50,7 +50,7 @@ int SurveyToolImplementation::handleObjectMenuSelect(CreatureObject* player, byt
 		if (selectedID == 20) { // use object
 			int range = getRange(player);
 
-			if(range <= 0 || range > 384) {
+			if(range <= 0) {
 				sendRangeSui(player);
 				return 0;
 			}
@@ -94,7 +94,7 @@ void SurveyToolImplementation::sendRangeSui(CreatureObject* player) {
 	suiToolRangeBox->setPromptTitle("@base_player:swg");
 	suiToolRangeBox->setPromptText("@survey:select_range");
 
-	if (surveyMod >= 20)
+if (surveyMod >= 20)
 		suiToolRangeBox->addMenuItem("64m x 3pts", 0);
 
 	if (surveyMod >= 35)
@@ -109,8 +109,20 @@ void SurveyToolImplementation::sendRangeSui(CreatureObject* player) {
 	if (surveyMod >= 100)
 		suiToolRangeBox->addMenuItem("320m x 5pts", 4);
 
-	if (surveyMod >= 120)
-		suiToolRangeBox->addMenuItem("384m x 5pts", 5);
+	if (surveyMod >= 105)
+ 		suiToolRangeBox->addMenuItem("384m x 5pts", 5);
+ 
+ 	if (surveyMod >= 115)
+ 		suiToolRangeBox->addMenuItem("448m x 5pts", 6);
+ 
+ 	if (surveyMod >= 125)
+ 		suiToolRangeBox->addMenuItem("512m x 5pts", 7);
+ 
+  	if (surveyMod >= 135)
+		suiToolRangeBox->addMenuItem("768m x 5pts", 8);
+ 
+ 	if (surveyMod >= 145)
+		suiToolRangeBox->addMenuItem("1024m x 5pts", 9);
 
 	suiToolRangeBox->setUsingObject(_this.getReferenceUnsafeStaticCast());
 	suiToolRangeBox->setCallback(new SurveyToolSetRangeSuiCallback(server->getZoneServer()));
