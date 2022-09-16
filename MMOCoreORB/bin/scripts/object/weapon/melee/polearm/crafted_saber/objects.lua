@@ -40,10 +40,10 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
-object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1 = SharedWeaponObjectTemplate:new {
+--[[object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1.iff"}
 ObjectTemplates:addClientTemplate(object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1, 
-"object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1.iff")
+"object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1.iff")]]--
 
 object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_polearm_frs_01_gen5 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_polearm_frs_01_gen5.iff"}
@@ -65,10 +65,10 @@ object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1_gen5 =
 ObjectTemplates:addClientTemplate(object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1_gen5, 
 "object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1_gen5.iff")
 
-object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1_gen4 = SharedWeaponObjectTemplate:new {
+--[[object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1_gen4 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1_gen4.iff"}
 ObjectTemplates:addClientTemplate(object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_pike_s1_gen4, 
-"object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1_gen4.iff")
+"object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_pike_s1_gen4.iff")]]--
 
 object_weapon_melee_polearm_crafted_saber_shared_sword_lightsaber_polearm_gen1 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_polearm_gen1.iff"

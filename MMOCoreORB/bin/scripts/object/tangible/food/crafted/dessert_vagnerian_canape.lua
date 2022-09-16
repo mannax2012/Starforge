@@ -59,7 +59,7 @@ object_tangible_food_crafted_dessert_vagnerian_canape = object_tangible_food_cra
 	quantityMin = 6,
 	quantityMax = 10,
 
-	modifiers = { "focus", 0, "willpower", 0 },
+	modifiers = { "mind", 0, "focus", 0, "willpower", 0 },
 
 	buffName = "food.dessert_vagnerian_canape",
 	buffCRC = 0xFB554185,
