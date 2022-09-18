@@ -60,9 +60,9 @@ object_draft_schematic_vehicle_civilian_a1_deluxe_floater = object_draft_schemat
 	experimentingSkill = "vehicle_experimentation",
 	customizationSkill = "",
 
-	customizationOptions = {},
-	customizationStringNames = {},
-	customizationDefaults = {},
+	customizationOptions = {2},
+	customizationStringNames = {"/private/index_color_1"},
+	customizationDefaults = {7},
 
 	ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
 	ingredientTitleNames = {"vehicle_body", "structural_frame", "chassis_lubrication", "power_supply", "engine_unit", "vehicle_enhancement_1", "vehicle_enhancement_2", "vehicle_enhancement_3"},
