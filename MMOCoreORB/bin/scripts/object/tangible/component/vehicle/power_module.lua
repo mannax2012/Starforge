@@ -49,7 +49,7 @@ object_tangible_component_vehicle_power_module = object_tangible_component_vehic
 	experimentalGroupTitles = {"null", "null", "exp_durability", "exp_speed", "exp_handling", "exp_acceleration"},
 	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
 	experimentalMin = {0, 0, -75, 0, -2.5, 0.66},
-	experimentalMax = {0, 0, -125, 1, 0, 1.33},
+	experimentalMax = {0, 0, -25, 1, 0, 1.33},
 	experimentalPrecision = {0, 0, 0, 2, 1, 2},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1},
 }

@@ -49,7 +49,7 @@ object_tangible_component_vehicle_hyper_accelerometer = object_tangible_componen
 	experimentalGroupTitles = {"null", "null", "exp_durability", "exp_speed", "exp_handling", "exp_acceleration"},
 	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
 	experimentalMin = {0, 0, -75, -1, -2.5, 1.33},
-	experimentalMax = {0, 0, -125, 0, 0, 2},
+	experimentalMax = {0, 0, -25, 0, 0, 2},
 	experimentalPrecision = {0, 0, 0, 2, 1, 2},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1},
 }
