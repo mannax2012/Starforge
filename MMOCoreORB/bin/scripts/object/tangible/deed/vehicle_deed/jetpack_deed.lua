@@ -46,7 +46,17 @@ object_tangible_deed_vehicle_deed_jetpack_deed = object_tangible_deed_vehicle_de
 	templateType = VEHICLEDEED,	
 
 	controlDeviceObjectTemplate = "object/intangible/vehicle/jetpack_pcd.iff",
-	generatedObjectTemplate = "object/mobile/vehicle/jetpack.iff"
+	generatedObjectTemplate = "object/mobile/vehicle/jetpack.iff",
+
+	numberExperimentalProperties = {1, 1, 3, 1, 3, 3, 3},
+	experimentalProperties = {"XX", "XX", "OQ", "SR", "UT", "XX", "OQ", "DR", "MA", "OQ", "SR", "MA", "OQ", "DR", "SR"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_durability", "null", "exp_speed", "exp_handling", "exp_acceleration"},
+	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_resists", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
+	experimentalMin = {0, 0, 750, 0, 18.5, 75, 12.5},
+	experimentalMax = {0, 0, 2000, 0, 35, 80, 15},
+	experimentalPrecision = {0, 0, 0, 0, 2, 1, 2},
+	experimentalCombineType = {0, 0, 1, 0, 1, 1, 1, 1},
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_jetpack_deed, "object/tangible/deed/vehicle_deed/jetpack_deed.iff")

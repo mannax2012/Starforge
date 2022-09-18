@@ -53,8 +53,8 @@ object_tangible_deed_vehicle_deed_speeder_stap_crafted_deed = object_tangible_de
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "exp_durability", "null", "exp_speed", "exp_handling", "exp_acceleration"},
 	experimentalSubGroupTitles = {"null", "null", "hit_points", "vehicle_resists", "vehicle_speed", "vehicle_handling", "vehicle_acceleration"},
-	experimentalMin = {0, 0, 1000, 5, 10, 80, 10},
-	experimentalMax = {0, 0, 2500, 90, 17.5, 85, 12.5},
+	experimentalMin = {0, 0, 750, 0, 18.5, 75, 12.5},
+	experimentalMax = {0, 0, 2000, 0, 35, 80, 15},
 	experimentalPrecision = {0, 0, 0, 0, 2, 1, 2},
 	experimentalCombineType = {0, 0, 1, 0, 1, 1, 1, 1},
 }
