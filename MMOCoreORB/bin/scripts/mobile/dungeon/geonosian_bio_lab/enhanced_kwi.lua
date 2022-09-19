@@ -10,6 +10,7 @@ enhanced_kwi = Creature:new {
 	baseHAM = 27000,
 	baseHAMmax = 33000,
 	armor = 2,
+		-- {kinetic,energy,blast,heat,cold,electricity,acid,stun,ls}
 	resists = {140,140,5,140,5,5,5,5,-1},
 	meatType = "meat_herbivore",
 	meatAmount = 100,
