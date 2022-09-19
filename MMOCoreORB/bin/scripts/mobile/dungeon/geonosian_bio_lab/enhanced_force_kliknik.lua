@@ -11,6 +11,7 @@ enhanced_force_kliknik = Creature:new {
 	baseHAM = 22000,
 	baseHAMmax = 27000,
 	armor = 2,
+		-- {kinetic,energy,blast,heat,cold,electricity,acid,stun,ls}
 	resists = {35,35,0,95,-1,0,0,0,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 45,
