@@ -45,6 +45,14 @@
 --Children folder includes
 includeFile("draft_schematic/clothing/component/serverobjects.lua")
 
+--tusken
+includeFile("draft_schematic/clothing/clothing_helmet_tusken_raider_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_boots_tusken_raider_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_gloves_tusken_raider_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_belt_tusken_raider_schematic.lua")
+--includeFile("draft_schematic/clothing/clothing_bandolier_tusken_raider_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_robe_tusken_raider_schematic.lua")
+
 -- Server Objects
 includeFile("draft_schematic/clothing/clothing_apron_chef_01.lua")
 includeFile("draft_schematic/clothing/clothing_apron_field_01.lua")

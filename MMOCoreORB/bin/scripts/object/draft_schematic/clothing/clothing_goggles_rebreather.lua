@@ -64,15 +64,15 @@ factoryCrateSize = 1000,
    customizationStringNames = {"/private/index_color_1"},
    customizationDefaults = {0},
 
-   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
-   ingredientTitleNames = {"shell", "binding_and_weatherproofing", "trim", "liner"},
-   ingredientSlotType = {0, 0, 0, 0},
-   resourceTypes = {"petrochem_inert", "petrochem_inert", "petrochem_inert", "petrochem_inert"},
-   resourceQuantities = {1, 40, 1, 1},
-   contribution = {100, 100, 100, 100},
+   ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
+   ingredientTitleNames = {"shell", "binding_and_weatherproofing", "liner"},
+   ingredientSlotType = {1, 0, 1},
+   resourceTypes = {"object/tangible/component/clothing/shared_synthetic_cloth.iff", "petrochem_inert", "object/tangible/component/clothing/shared_synthetic_cloth.iff"},
+   resourceQuantities = {1, 25, 1},
+   contribution = {100, 100, 100},
 
 
-   targetTemplate = "object/tangible/wearables/goggles/rebreather.iff",
+   targetTemplate = "object/tangible/wearables/hat/hat_covert.iff",
 
    additionalTemplates = {
              }

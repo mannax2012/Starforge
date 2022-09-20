@@ -40,6 +40,43 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+--tusken
+object_draft_schematic_clothing_shared_clothing_helmet_tusken_raider_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_helmet_tusken_raider_schematic.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_helmet_tusken_raider_schematic, "object/draft_schematic/clothing/shared_clothing_helmet_tusken_raider_schematic.iff")
+
+object_draft_schematic_clothing_shared_clothing_boots_tusken_raider_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_boots_tusken_raider_schematic.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_boots_tusken_raider_schematic, "object/draft_schematic/clothing/shared_clothing_boots_tusken_raider_schematic.iff")
+
+object_draft_schematic_clothing_shared_clothing_robe_tusken_raider_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_robe_tusken_raider_schematic.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_robe_tusken_raider_schematic, "object/draft_schematic/clothing/shared_clothing_robe_tusken_raider_schematic.iff")
+
+object_draft_schematic_clothing_shared_clothing_gloves_tusken_raider_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_gloves_tusken_raider_schematic.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_gloves_tusken_raider_schematic, "object/draft_schematic/clothing/shared_clothing_gloves_tusken_raider_schematic.iff")
+
+object_draft_schematic_clothing_shared_clothing_belt_tusken_raider_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_belt_tusken_raider_schematic.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_belt_tusken_raider_schematic, "object/draft_schematic/clothing/shared_clothing_belt_tusken_raider_schematic.iff")
+
+--[[object_draft_schematic_clothing_shared_clothing_bandolier_tusken_raider_s01_schematic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_bandolier_tusken_raider_s01_schematic.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_clothing_shared_clothing_bandolier_tusken_raider_s01_schematic, "object/draft_schematic/clothing/shared_clothing_bandolier_tusken_raider_s01_schematic.iff")
+]]--
 
 object_draft_schematic_clothing_shared_clothing_apron_chef_01 = SharedDraftSchematicObjectTemplate:new {
 	clientTemplateFileName = "object/draft_schematic/clothing/shared_clothing_apron_chef_01.iff"

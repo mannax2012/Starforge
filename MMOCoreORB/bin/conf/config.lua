@@ -145,7 +145,9 @@ Core3 = {
 	TrePath = "/home/swgemu/workspace/tre",
 
 	TreFiles = {
-		"mannax_rogue.tre",
+		"starforge_live_01.tre",
+		"starforge_textures.tre",
+		"starforge_windmill_client.tre",
 		"mtg_patch_023.tre",
 		"mtg_patch_022.tre",
 		"mtg_planets.tre",

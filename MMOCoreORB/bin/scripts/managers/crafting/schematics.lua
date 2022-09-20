@@ -42,6 +42,7 @@
 
 
 schematics = {
+	{path="object/draft_schematic/item/item_survey_tool_organic.iff"},
 	{path="object/draft_schematic/vehicle/civilian/barc_imperial_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/barc_rebel_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/landspeeder_x31.iff"},
