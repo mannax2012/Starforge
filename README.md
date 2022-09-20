@@ -4,6 +4,7 @@ Special Thanks to:
 TinyPebble for the Mechanic Profession and NUMEROUS ammount of time answering my questions! <3.
 Flurry Repo for tips and examples.
 Miki for emotional support.
+Somatical for love and stuff
 
 [Full Guide and info for installing the server.](https://github.com/ModTheGalaxy/mtgserver/wiki)
 
