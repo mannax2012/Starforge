@@ -247,6 +247,7 @@ includeFile("lair/npc_theater/tatooine_rodian_clan_outpost_neutral_large_theater
 includeFile("lair/npc_theater/tatooine_spice_fiend_neutral_small_theater.lua")
 includeFile("lair/npc_theater/tatooine_trandosian_slaver_neutral_medium_theater.lua")
 includeFile("lair/npc_theater/tatooine_tusken_raider_kingdom_neutral_large_theater.lua")
+includeFile("lair/npc_theater/tatooine_tusken_raider_village_neutral_medium_theater.lua")
 includeFile("lair/npc_theater/tatooine_tusken_raider_village_neutral_large_theater.lua")
 includeFile("lair/npc_theater/tatooine_valarian_assasin_neutral_large_theater.lua")
 includeFile("lair/npc_theater/tatooine_valarian_enforcer_neutral_medium_theater.lua")

@@ -81,6 +81,7 @@ includeFile("groups/creature/krayt_tissue_uncommon.lua")
 includeFile("groups/creature/krayt_pearls.lua")
 includeFile("groups/creature/peko_albatross.lua")
 includeFile("groups/creature/rancor_common.lua")
+includeFile("groups/creature/tusken_massif_common.lua")
 includeFile("groups/creature/sharnaff_common.lua")
 includeFile("groups/creature/voritor_lizard_common.lua")
 

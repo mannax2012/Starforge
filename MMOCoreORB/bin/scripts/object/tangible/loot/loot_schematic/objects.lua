@@ -40,6 +40,14 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+--new pet loot schem
+
+object_tangible_loot_loot_schematic_shared_be_tusken_massif_loot_schematic = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_be_tusken_massif_loot_schematic.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_be_tusken_massif_loot_schematic, 
+"object/tangible/loot/loot_schematic/shared_be_tusken_massif_loot_schematic.iff")
+
+--tusken raider loot
 object_tangible_loot_loot_schematic_shared_clothing_bandolier_tusken_raider_bag_s01_loot_schematic = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/loot/loot_schematic/shared_clothing_bandolier_tusken_raider_bag_s01_loot_schematic.iff"}
 ObjectTemplates:addClientTemplate(object_tangible_loot_loot_schematic_shared_clothing_bandolier_tusken_raider_bag_s01_loot_schematic, 
