@@ -45,25 +45,6 @@
 --Children folder includes
 
 -- Server Objects
-includeFile("tangible/wearables/bandolier/bandolier_s01.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s02.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s02_quest.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s03.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s04.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s04_quest.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s05.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s06.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s07.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s08.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s09.lua")
-includeFile("tangible/wearables/bandolier/double_bandolier.lua")
-includeFile("tangible/wearables/bandolier/ith_double_bandolier.lua")
-includeFile("tangible/wearables/bandolier/ith_mercenary_bandolier.lua")
-includeFile("tangible/wearables/bandolier/ith_multipocket_bandolier.lua")
-includeFile("tangible/wearables/bandolier/mercenary_bandolier.lua")
-includeFile("tangible/wearables/bandolier/multipocket_bandolier.lua")
---mannax is awesome
-includeFile("tangible/wearables/bandolier/bandolier_wke_backpack.lua")
-includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s01.lua")
-includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s02.lua")
-includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s03.lua")
+includeFile("tangible/wearables/bracer/clothing_crafted_tusken_raider_bracer_l.lua")
+includeFile("tangible/wearables/bracer/clothing_crafted_tusken_raider_bracer_r.lua")
+

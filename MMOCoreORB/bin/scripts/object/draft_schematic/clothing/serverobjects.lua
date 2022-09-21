@@ -50,8 +50,13 @@ includeFile("draft_schematic/clothing/clothing_helmet_tusken_raider_schematic.lu
 includeFile("draft_schematic/clothing/clothing_boots_tusken_raider_schematic.lua")
 includeFile("draft_schematic/clothing/clothing_gloves_tusken_raider_schematic.lua")
 includeFile("draft_schematic/clothing/clothing_belt_tusken_raider_schematic.lua")
---includeFile("draft_schematic/clothing/clothing_bandolier_tusken_raider_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_bracer_tusken_raider_r_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_bracer_tusken_raider_l_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_bandolier_tusken_raider_bag_s01_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_bandolier_tusken_raider_bag_s02_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_bandolier_tusken_raider_bag_s03_schematic.lua")
 includeFile("draft_schematic/clothing/clothing_robe_tusken_raider_schematic.lua")
+includeFile("draft_schematic/clothing/clothing_robe_tusken_raider_s02_schematic.lua")
 
 -- Server Objects
 includeFile("draft_schematic/clothing/clothing_apron_chef_01.lua")

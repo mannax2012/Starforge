@@ -1,0 +1,11 @@
+object_tangible_wearables_bracer_shared_clothing_crafted_tusken_raider_bracer_l = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/bracer/shared_clothing_crafted_tusken_raider_bracer_l.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_bracer_shared_clothing_crafted_tusken_raider_bracer_l, 
+"object/tangible/wearables/bracer/shared_clothing_crafted_tusken_raider_bracer_l.iff")
+
+object_tangible_wearables_bracer_shared_clothing_crafted_tusken_raider_bracer_r = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/bracer/shared_clothing_crafted_tusken_raider_bracer_r.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_bracer_shared_clothing_crafted_tusken_raider_bracer_r, 
+"object/tangible/wearables/bracer/shared_clothing_crafted_tusken_raider_bracer_r.iff")

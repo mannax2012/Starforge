@@ -41,29 +41,13 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_loot_loot_schematic_clothing_boots_tusken_raider_loot_schematic = object_tangible_loot_loot_schematic_shared_clothing_boots_tusken_raider_loot_schematic:new {
+	templateType = LOOTSCHEMATIC,
+	objectMenuComponent = "LootSchematicMenuComponent",
+	attributeListComponent = "LootSchematicAttributeListComponent",
+	requiredSkill = "crafting_tailor_master",
+	targetDraftSchematic = "object/draft_schematic/clothing/clothing_boots_tusken_raider_schematic.iff",
+	targetUseCount = 1
+}
 
---Children folder includes
-
--- Server Objects
-includeFile("tangible/wearables/bandolier/bandolier_s01.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s02.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s02_quest.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s03.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s04.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s04_quest.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s05.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s06.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s07.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s08.lua")
-includeFile("tangible/wearables/bandolier/bandolier_s09.lua")
-includeFile("tangible/wearables/bandolier/double_bandolier.lua")
-includeFile("tangible/wearables/bandolier/ith_double_bandolier.lua")
-includeFile("tangible/wearables/bandolier/ith_mercenary_bandolier.lua")
-includeFile("tangible/wearables/bandolier/ith_multipocket_bandolier.lua")
-includeFile("tangible/wearables/bandolier/mercenary_bandolier.lua")
-includeFile("tangible/wearables/bandolier/multipocket_bandolier.lua")
---mannax is awesome
-includeFile("tangible/wearables/bandolier/bandolier_wke_backpack.lua")
-includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s01.lua")
-includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s02.lua")
-includeFile("tangible/wearables/bandolier/bandolier_tusken_raider_bag_s03.lua")
+ObjectTemplates:addTemplate(object_tangible_loot_loot_schematic_clothing_boots_tusken_raider_loot_schematic, "object/tangible/loot/loot_schematic/clothing_boots_tusken_raider_loot_schematic.iff")

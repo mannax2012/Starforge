@@ -41,8 +41,10 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_wearables_robe_robe_tusken_raider_s01 = object_tangible_wearables_robe_shared_robe_tusken_raider_s01:new {
-	playerRaces = { 	"object/creature/player/smc_female.iff",
+object_tangible_wearables_belt_belt_tusken_raider_crafted = object_tangible_wearables_utility_shared_utility_belt_tusken_raider:new {
+	objectMenuComponent = "ArmorObjectMenuComponent",
+	playerRaces = { "object/creature/player/bothan_male.iff",
+				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",
 				"object/creature/player/talz_male.iff",
 				"object/creature/player/talz_female.iff",
@@ -90,6 +92,8 @@ object_tangible_wearables_robe_robe_tusken_raider_s01 = object_tangible_wearable
 				"object/creature/player/twilek_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/mobile/vendor/aqualish_female.iff",
 				"object/mobile/vendor/aqualish_male.iff",
 				"object/mobile/vendor/bith_female.iff",
@@ -101,6 +105,8 @@ object_tangible_wearables_robe_robe_tusken_raider_s01 = object_tangible_wearable
 				"object/mobile/vendor/human_female.iff",
 				"object/mobile/vendor/human_male.iff",
 				"object/mobile/vendor/ishi_tib_male.iff",
+				"object/mobile/vendor/ithorian_female.iff",
+				"object/mobile/vendor/ithorian_male.iff",
 				"object/mobile/vendor/moncal_female.iff",
 				"object/mobile/vendor/moncal_male.iff",
 				"object/mobile/vendor/nikto_male.iff",
@@ -114,9 +120,11 @@ object_tangible_wearables_robe_robe_tusken_raider_s01 = object_tangible_wearable
 				"object/mobile/vendor/twilek_female.iff",
 				"object/mobile/vendor/twilek_male.iff",
 				"object/mobile/vendor/weequay_male.iff",
+				"object/mobile/vendor/wookiee_female.iff",
+				"object/mobile/vendor/wookiee_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
-
+				
 				numberExperimentalProperties = {1, 1, 1, 1},
 				experimentalProperties = {"XX", "XX", "XX", "XX"},
 				experimentalWeights = {1, 1, 1, 1},
@@ -128,4 +136,4 @@ object_tangible_wearables_robe_robe_tusken_raider_s01 = object_tangible_wearable
 				experimentalCombineType = {0, 0, 4, 4},
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_tusken_raider_s01, "object/tangible/wearables/robe/robe_tusken_raider_s01.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_belt_belt_tusken_raider_crafted, "object/tangible/wearables/belt/belt_tusken_raider_crafted.iff")

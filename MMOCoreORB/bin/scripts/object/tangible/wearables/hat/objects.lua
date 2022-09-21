@@ -42,10 +42,10 @@
 
 --tusken crafted
 
-object_tangible_wearables_hat_shared_helmet_tusken_raider_crafted = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/wearables/hat/shared_helmet_tusken_raider_crafted.iff"}
-ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_helmet_tusken_raider_crafted, 
-"object/tangible/wearables/hat/shared_helmet_tusken_raider_crafted.iff")
+object_tangible_wearables_hat_shared_hat_tusken_raider_crafted = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/hat/shared_hat_tusken_raider_crafted.iff"}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_hat_tusken_raider_crafted, 
+"object/tangible/wearables/hat/shared_hat_tusken_raider_crafted.iff")
 
 object_tangible_wearables_hat_shared_hat_covert = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/hat/shared_hat_covert.iff"}
