@@ -42,6 +42,7 @@
 
 
 schematics = {
+	{path="object/draft_schematic/item/item_survey_tool_organic.iff"},
 	{path="object/draft_schematic/vehicle/civilian/barc_imperial_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/barc_rebel_speeder.iff"},
 	{path="object/draft_schematic/vehicle/civilian/landspeeder_x31.iff"},
@@ -1860,6 +1861,17 @@ schematics = {
 	{path="object/draft_schematic/item/quest_item/fs_medic_puzzle_heal_pack.iff"},
 	--custom schematics
 	{path="object/draft_schematic/clothing/clothing_goggles_rebreather.iff"},
+	{path="object/draft_schematic/clothing/clothing_bandolier_tusken_raider_bag_s01_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_bandolier_tusken_raider_bag_s02_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_bandolier_tusken_raider_bag_s03_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_boots_tusken_raider_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_gloves_tusken_raider_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_robe_tusken_raider_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_robe_tusken_raider_s02_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_bracer_tusken_raider_r_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_bracer_tusken_raider_l_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_helmet_tusken_raider_schematic.iff"},
+	{path="object/draft_schematic/clothing/clothing_belt_tusken_raider_schematic.iff"},
 	{path="object/draft_schematic/clothing/clothing_jewelry_ring_nightsister.iff"},
 	{path="object/draft_schematic/bio_engineer/creature/creature_tusken_massif.iff"},
 	{path="object/draft_schematic/droid/droid_hk47_schematic.iff"},

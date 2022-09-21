@@ -253,6 +253,15 @@ tatooine_medium = {
 			weighting = 15,
 			size = 25
 		},
+		{
+			lairTemplateName = "tatooine_tusken_raider_village_neutral_medium_theater",
+			spawnLimit = -1,
+			minDifficulty = 13,
+			maxDifficulty = 17,
+			numberToSpawn = 0,
+			weighting = 15,
+			size = 25
+		},
 	}
 }
 

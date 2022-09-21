@@ -4,14 +4,11 @@ tusken_raider_bandolier_3 = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/wearables/bandolier/bandolier_tusken_raider_s03.iff",
+	directObjectTemplate = "object/tangible/loot/loot_schematic/clothing_bandolier_tusken_raider_bag_s03_loot_schematic.iff",
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
-	junkDealerTypeNeeded = JUNKTUSKEN,
-	junkMinValue = 30,
-	junkMaxValue = 50
+	customizationValues = {}
 }
 
 addLootItemTemplate("tusken_raider_bandolier_3", tusken_raider_bandolier_3)

@@ -4,14 +4,11 @@ tusken_raider_robe_2 = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/wearables/robe/robe_tusken_raider_s02.iff",
+	directObjectTemplate = "object/tangible/loot/loot_schematic/clothing_robe_tusken_raider_s02_loot_schematic.iff",
 	craftingValues = {
 	},
 	customizationStringNames = {},
 	customizationValues = {},
-	junkDealerTypeNeeded = JUNKTUSKEN,
-	junkMinValue = 30,
-	junkMaxValue = 50
 }
 
 addLootItemTemplate("tusken_raider_robe_2", tusken_raider_robe_2)

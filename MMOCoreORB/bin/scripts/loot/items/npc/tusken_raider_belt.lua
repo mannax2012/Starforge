@@ -4,14 +4,11 @@ tusken_raider_belt = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/wearables/utility/utility_belt_tusken_raider.iff",
+	directObjectTemplate = "object/tangible/loot/loot_schematic/clothing_belt_tusken_raider_loot_schematic.iff",
 	craftingValues = {
 	},
 	customizationStringNames = {},
-	customizationValues = {},
-	junkDealerTypeNeeded = JUNKTUSKEN,
-	junkMinValue = 30,
-	junkMaxValue = 50
+	customizationValues = {}
 }
 
 addLootItemTemplate("tusken_raider_belt", tusken_raider_belt)
