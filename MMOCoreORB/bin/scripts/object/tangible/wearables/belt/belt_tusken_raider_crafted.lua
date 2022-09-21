@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_wearables_belt_belt_tusken_raider_crafted = object_tangible_wearables_utility_shared_utility_belt_tusken_raider:new {
+object_tangible_wearables_belt_belt_tusken_raider_crafted = object_tangible_wearables_belt_shared_belt_tusken_raider_crafted:new {
 	objectMenuComponent = "ArmorObjectMenuComponent",
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
